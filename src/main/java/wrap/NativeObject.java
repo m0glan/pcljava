@@ -1,12 +1,10 @@
-package util;
+package wrap;
 
 public abstract class NativeObject {
 
 	private long handle;
 	
-	public NativeObject() {
-		alloc();
-	}
+	public NativeObject() { }
 	
 	public long getHandle() { return handle; }
 	

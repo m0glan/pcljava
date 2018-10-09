@@ -1,20 +1,15 @@
 package pcl;
 
-import util.NativeObject;
+import wrap.NativeObject;
 
 public class PointXYZ extends NativeObject {
 	
-	private long handle;
-	
-	static {	
-		System.setProperty("java.library.path", System.getProperty("user.dir") + "/lib");
-		System.loadLibrary("pcl_java_common");
-	}
-	
 	PointXYZ() { }
 	
+	@Override
 	public native void alloc();
 	
+	@Override
 	public native void dispose();
 	
 	public native float getX();
