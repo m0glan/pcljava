@@ -14,7 +14,7 @@ public class PointXYZRGBTest {
 	void attributeAccessTest() {
 		PointXYZRGB p = new PointXYZRGB();
 
-		p.alloc();
+		p.create();
 		
 		p.setRGB((short) 255, (short) 100, (short) 50);
 		

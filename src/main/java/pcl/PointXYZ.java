@@ -1,16 +1,24 @@
 package pcl;
 
-import wrap.NativeObject;
+import util.NativeObject;
 
+/**
+ * Class corresponding to the native <a href="http://docs.pointclouds.org/1.4.0/structpcl_1_1_point_x_y_z.html">
+ * {@code pcl::PointXYZ}
+ * </a> 
+ * structure.
+ * 
+ * @author Vlad-Adrian Moglan
+ */
 public class PointXYZ extends NativeObject {
-	
-	PointXYZ() { }
 	
 	@Override
 	public native void alloc();
 	
 	@Override
 	public native void dispose();
+	
+	public native PointXYZ clone();
 	
 	public native float getX();
 	

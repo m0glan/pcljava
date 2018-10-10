@@ -24,7 +24,7 @@ jfloat Java_pcl_PointXYZ_getX
 {
 	pcl::PointXYZ *ptr = getHandle<pcl::PointXYZ>(env, obj);
 
-	return ptr->x;
+	return (jfloat)(ptr->x);
 }
 
 jfloat Java_pcl_PointXYZ_getY
@@ -32,7 +32,7 @@ jfloat Java_pcl_PointXYZ_getY
 {
 	pcl::PointXYZ *ptr = getHandle<pcl::PointXYZ>(env, obj);
 
-	return ptr->y;
+	return (jfloat)(ptr->y);
 }
 
 jfloat Java_pcl_PointXYZ_getZ
@@ -40,7 +40,7 @@ jfloat Java_pcl_PointXYZ_getZ
 {
 	pcl::PointXYZ *ptr = getHandle<pcl::PointXYZ>(env, obj);
 
-	return ptr->z;
+	return (jfloat)(ptr->z);
 }
 
 void Java_pcl_PointXYZ_setX
@@ -48,7 +48,7 @@ void Java_pcl_PointXYZ_setX
 {
 	pcl::PointXYZ *ptr = getHandle<pcl::PointXYZ>(env, obj);
 
-	ptr->x = x;
+	ptr->x = (float)x;
 }
 
 void Java_pcl_PointXYZ_setY
@@ -56,7 +56,7 @@ void Java_pcl_PointXYZ_setY
 {
 	pcl::PointXYZ *ptr = getHandle<pcl::PointXYZ>(env, obj);
 
-	ptr->y = y;
+	ptr->y = (float)y;
 }
 
 void Java_pcl_PointXYZ_setZ
@@ -64,7 +64,7 @@ void Java_pcl_PointXYZ_setZ
 {
 	pcl::PointXYZ *ptr = getHandle<pcl::PointXYZ>(env, obj);
 
-	ptr->z = z;
+	ptr->z = (float)z;
 }
 
 void Java_pcl_PointXYZ_setCoordinates

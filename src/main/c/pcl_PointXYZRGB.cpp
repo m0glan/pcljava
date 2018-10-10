@@ -46,12 +46,12 @@ jshort Java_pcl_PointXYZRGB_getB
 	return (jshort)ptr->b;
 }
 
-jlong Java_pcl_PointXYZRGB_getRGB
+jfloat Java_pcl_PointXYZRGB_getRGB
 (JNIEnv *env, jobject obj)
 {
 	pcl::PointXYZRGB *ptr = getHandle<pcl::PointXYZRGB>(env, obj);
 
-	return (jlong)ptr->rgb;
+	return (jfloat)ptr->rgb;
 }
 
 void Java_pcl_PointXYZRGB_setR

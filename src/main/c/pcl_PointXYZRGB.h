@@ -52,7 +52,7 @@ JNIEXPORT jshort JNICALL Java_pcl_PointXYZRGB_getB
  * Method:    getRGB
  * Signature: ()J
  */
-JNIEXPORT jlong JNICALL Java_pcl_PointXYZRGB_getRGB
+JNIEXPORT jfloat JNICALL Java_pcl_PointXYZRGB_getRGB
   (JNIEnv *, jobject);
 
 /*

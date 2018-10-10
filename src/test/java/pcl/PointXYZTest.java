@@ -14,7 +14,7 @@ public class PointXYZTest {
 	void attributeAccessTest() {
 		PointXYZ p = new PointXYZ();
 		
-		p.alloc();
+		p.create();;
 		
 		p.setX(3);
 		
