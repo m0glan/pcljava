@@ -28,7 +28,7 @@ dependencies {
 	testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine:5.1.0')
 }
 
-version = '0.0.1'
+version = '0.0.2'
 
 jar {
 	manifest {

@@ -1,4 +1,0 @@
-Manifest-Version: 1.0
-Implementation-Title: pcl-java
-Implementation-Version: 0.0.1
-
