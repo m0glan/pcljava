@@ -1,24 +1,25 @@
 package de.i3mainz.pcl;
 
+import de.i3mainz.pcl.math.Comparison;
 import de.i3mainz.pcl.nat.NativeObject;
 
 public class Point2D extends NativeObject implements Point, Cloneable {
 
 	@Override
-	public native void alloc();
+	protected native void alloc();
 	
 	@Override
 	public native void dispose();
 	
-	public native float getX();
+	public final native float getX();
 	
-	public native float getY();
+	public final native float getY();
 	
-	public native void setX(float x);
+	public final native void setX(float x);
 	
-	public native void setY(float y);
+	public final native void setY(float y);
 	
-	public void setCoordinates(float x, float y) {
+	public final void setCoordinates(float x, float y) {
 		setX(x);
 		setY(y);
 	}
@@ -38,7 +39,12 @@ public class Point2D extends NativeObject implements Point, Cloneable {
 	public boolean equals(Object object) {
 		Point2D point = (Point2D) object;
 		
-		return getX() == point.getX() && getY() == point.getY();
+		return Comparison.areEqualFloat(getX(), point.getX(), 1) && Comparison.areEqualFloat(getY(), point.getY(), 1);
+	}
+	
+	@Override
+	public String toString() {
+		return "x: " + getX() + " y: " + getY();
 	}
 	
 }

@@ -9,26 +9,26 @@ package de.i3mainz.pcl;
 public class Point3DC extends Point3D {
 	
 	@Override
-	public native void alloc();
+	protected native void alloc();
 	
 	@Override
 	public native void dispose();
 	
-	public native short getR();
+	public final native short getR();
 	
-	public native short getG();
+	public final native short getG();
 	
-	public native short getB();
+	public final native short getB();
 	
-	public native float getRGB();
+	public final native float getRGB();
 	
-	public native void setR(short r);
+	public final native void setR(short r);
 	
-	public native void setG(short g);
+	public final native void setG(short g);
 	
-	public native void setB(short b);
+	public final native void setB(short b);
 	
-	public void setRGB(short r, short g, short b) {
+	public final void setRGB(short r, short g, short b) {
 		setR(r);
 		setG(g);
 		setB(b);
@@ -51,6 +51,11 @@ public class Point3DC extends Point3D {
 		Point3DC point = (Point3DC) object;
 		
 		return super.equals(object) && getR() == point.getR() && getG() == point.getG() && getB() == point.getB();
+	}
+	
+	@Override
+	public String toString() {
+		return super.toString() + " r: " + getR() + " g: " + getG() + " b: " + getB();
 	}
 	
 }

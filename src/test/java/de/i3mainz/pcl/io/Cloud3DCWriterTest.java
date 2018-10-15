@@ -17,14 +17,14 @@ class Cloud3DCWriterTest {
 	}
 
 	@Test
-	void testExportPCD() {
+	void testWritePCD() {
 		ExampleGenerator generator = new ExampleGenerator();
 		PointCloud3DC pointCloud = generator.generatePointCloud3DC();
 		Cloud3DCWriter exporter = new Cloud3DCWriter(pointCloud);
 		
-		exporter.write("cloud-rgb-export-test.pcd", TargetFormat.PCD);
+		exporter.write("cloud-export-test.pcd");
 		
-		File file = new File("cloud-rgb-export-test.pcd");
+		File file = new File("cloud-export-test.pcd");
 		
 		assertTrue(file.exists());
 		
@@ -32,14 +32,14 @@ class Cloud3DCWriterTest {
 	}
 	
 	@Test
-	void testExportPLY() {
+	void testWritePLY() {
 		ExampleGenerator generator = new ExampleGenerator();
 		PointCloud3DC pointCloud = generator.generatePointCloud3DC();
 		Cloud3DCWriter exporter = new Cloud3DCWriter(pointCloud);
 		
-		exporter.write("cloud-rgb-export-test.ply", TargetFormat.PLY);
+		exporter.write("cloud-export-test.ply");
 		
-		File file = new File("cloud-rgb-export-test.ply");
+		File file = new File("cloud-export-test.ply");
 		
 		assertTrue(file.exists());
 		

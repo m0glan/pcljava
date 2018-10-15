@@ -13,8 +13,8 @@ public class Cloud3DCWriter extends CloudWriter<PointCloud3DC> {
 		super(cloud);
 	}
 	
-	public native void writePCD(String fileName, PointCloud3DC cloud, boolean binaryMode);
+	protected final native void writePCD(String fileName, PointCloud3DC cloud, boolean binaryMode);
 	
-	public native void writePLY(String fileName, PointCloud3DC cloud, boolean binaryMode);
+	protected final native void writePLY(String fileName, PointCloud3DC cloud, boolean binaryMode);
 	
 }

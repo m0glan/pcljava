@@ -8,7 +8,7 @@ package de.i3mainz.pcl;
  *  structure.
  * @author Vlad-Adrian Moglan
  */
-public class PointCloud3DC extends PointCloud<Point3DC> {
+public final class PointCloud3DC extends PointCloud<Point3DC> {
 	
 	@Override
 	public native void alloc();

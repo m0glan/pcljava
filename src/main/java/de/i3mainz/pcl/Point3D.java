@@ -1,5 +1,6 @@
 package de.i3mainz.pcl;
 
+import de.i3mainz.pcl.math.Comparison;
 import de.i3mainz.pcl.nat.NativeObject;
 
 /**
@@ -13,12 +14,12 @@ import de.i3mainz.pcl.nat.NativeObject;
 public class Point3D extends NativeObject implements Point, Cloneable {
 	
 	@Override
-	public native void alloc();
+	protected native void alloc();
 	
 	@Override
 	public native void dispose();
 	
-	public native float getX();
+	public final native float getX();
 	
 	public native float getY();
 	
@@ -51,7 +52,13 @@ public class Point3D extends NativeObject implements Point, Cloneable {
 	public boolean equals(Object object) {
 		Point3D point = (Point3D) object;
 		
-		return getX() == point.getX() && getY() == point.getY() && getZ() == point.getZ();
+		return Comparison.areEqualFloat(getX(), point.getX(), 2) && Comparison.areEqualFloat(getY(), point.getY(), 2) 
+				&& Comparison.areEqualFloat(getZ(), point.getZ(), 2);
+	}
+	
+	@Override
+	public String toString() {
+		return "x: " + getX() + " y: " + getY() + " z: " + getZ();
 	}
 	
 }
