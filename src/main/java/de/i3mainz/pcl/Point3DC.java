@@ -46,4 +46,11 @@ public class Point3DC extends Point3D {
 		return clone;
 	}
 	
+	@Override
+	public boolean equals(Object object) {
+		Point3DC point = (Point3DC) object;
+		
+		return super.equals(object) && getR() == point.getR() && getG() == point.getG() && getB() == point.getB();
+	}
+	
 }

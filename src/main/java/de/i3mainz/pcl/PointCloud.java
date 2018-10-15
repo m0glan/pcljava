@@ -55,4 +55,25 @@ public abstract class PointCloud<PointT extends Point>
 		return iterator;	
 	}
 	
+	@Override
+	public boolean equals(Object object) {
+		PointCloud<?> cloud = (PointCloud<?>) object;
+		boolean equals = true;
+		int i = 0;
+		
+		if (size() != cloud.size()) {
+			return false;
+		}
+		
+		while (i < size() && equals) {
+			if (!get(i).equals(cloud.get(i))) {
+				equals = false;
+			}
+			
+			i++;
+		}
+		
+		return equals;
+	}
+	
 }

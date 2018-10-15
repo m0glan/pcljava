@@ -47,4 +47,11 @@ public class Point3D extends NativeObject implements Point, Cloneable {
 		return clone;
 	}
 	
+	@Override
+	public boolean equals(Object object) {
+		Point3D point = (Point3D) object;
+		
+		return getX() == point.getX() && getY() == point.getY() && getZ() == point.getZ();
+	}
+	
 }

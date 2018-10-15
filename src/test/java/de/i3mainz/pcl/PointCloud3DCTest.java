@@ -1,5 +1,6 @@
 package de.i3mainz.pcl;
 
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
@@ -36,25 +37,16 @@ class PointCloud3DCTest {
 	
 	@Test
 	void testClear() {
-		PointCloud3DC pointCloud = new PointCloud3DC();
-		Point3DC pointA = new Point3DC();
-		Point3DC pointB = new Point3DC();
+		ExampleGenerator generator = new ExampleGenerator();
+		PointCloud3DC pointCloud = generator.generatePointCloud3DC();
 		
-		pointCloud.create();
-		pointA.create();
-		pointB.create();
-		
-		pointCloud.add(pointA);
-		pointCloud.add(pointB);
-		
-		pointA.dispose();
-		pointB.dispose();
+		assertNotEquals(pointCloud.size(), 0);
 		
 		pointCloud.clear();
 		
 		assertEquals(pointCloud.size(), 0);
 		
-		pointCloud.dispose();
+		generator.clear();
 	}
 	
 	@Test
@@ -78,23 +70,16 @@ class PointCloud3DCTest {
 	
 	@Test
 	void cloneTest() {
-		PointCloud3DC pointCloud = new PointCloud3DC();
-		Point3DC pointA = new Point3DC();
-		Point3DC pointB = new Point3DC();
-		
-		pointCloud.create();
-		pointA.create();
-		pointB.create();
-		
-		pointA.setX(10);
-		
-		pointCloud.add(pointA);
-		pointCloud.add(pointB);
+		ExampleGenerator generator = new ExampleGenerator();
+		PointCloud3DC pointCloud = generator.generatePointCloud3DC();
 		
 		PointCloud3DC pointCloudClone = pointCloud.clone();
 		
-		assertEquals(pointCloudClone.size(), 2);
-		assertEquals(pointCloudClone.get(0).getX(), 10);
+		assertEquals(pointCloudClone.size(), pointCloud.size());
+		assertEquals(pointCloudClone.get(0).getX(), pointCloud.get(0).getX());
+		
+		pointCloudClone.clear();
+		generator.clear();
 	}
 
 }

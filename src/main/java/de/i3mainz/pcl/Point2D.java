@@ -34,4 +34,11 @@ public class Point2D extends NativeObject implements Point, Cloneable {
 		return clone;
 	}
 	
+	@Override
+	public boolean equals(Object object) {
+		Point2D point = (Point2D) object;
+		
+		return getX() == point.getX() && getY() == point.getY();
+	}
+	
 }
