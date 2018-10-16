@@ -52,8 +52,8 @@ public class Point3D extends NativeObject implements Point, Cloneable {
 	public boolean equals(Object object) {
 		Point3D point = (Point3D) object;
 		
-		return Comparison.areEqualFloat(getX(), point.getX(), 2) && Comparison.areEqualFloat(getY(), point.getY(), 2) 
-				&& Comparison.areEqualFloat(getZ(), point.getZ(), 2);
+		return Comparison.areEqualFloat(getX(), point.getX(), 1f) && Comparison.areEqualFloat(getY(), point.getY(), 1f) 
+				&& Comparison.areEqualFloat(getZ(), point.getZ(), 1f);
 	}
 	
 	@Override
