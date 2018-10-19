@@ -15,19 +15,6 @@ import de.i3mainz.pcl.nat.NativeObject;
 public abstract class PointCloud<PointT extends Point> 
 										extends NativeObject
 										implements Iterable<PointT>, Cloneable{
-	public final boolean empty() { return size() == 0; }
-	
-	public abstract boolean isOrganized();
-	
-	public abstract int size();
-	
-	public abstract void add(PointT point);
-	
-	public abstract void remove(PointT point);
-	
-	public abstract void clear();
-	
-	public abstract PointT get(int i);
 	
 	@Override
 	public final Iterator<PointT> iterator() {
@@ -54,6 +41,22 @@ public abstract class PointCloud<PointT extends Point>
 		
 		return iterator;	
 	}
+	
+	public abstract PointT get(int i);
+	
+	protected abstract void nGet(int i, PointT point);
+	
+	public abstract void add(PointT point);
+	
+	public abstract void remove(PointT point);
+	
+	public abstract void clear();
+	
+	public abstract int size();
+	
+	public final boolean isEmpty() { return size() == 0; }
+	
+	public abstract boolean isOrganized();
 	
 	@Override
 	public boolean equals(Object object) {

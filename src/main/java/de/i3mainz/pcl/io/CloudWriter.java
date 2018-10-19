@@ -67,8 +67,8 @@ public abstract class CloudWriter<T extends PointCloud<?>> {
 	 * Native implementation - writes a cloud to a PCD file.
 	 * 
 	 * @param fileName can be any output path.
+	 * @param cloud to be written
 	 * @param binaryMode if false, the file is written in {@code ASCII} format.
-	 * @param format determines the format of the file (e.g. PCD, PLY).
 	 */
 	protected abstract void writePCD(String fileName, T cloud, boolean binaryMode);
 	
@@ -76,8 +76,8 @@ public abstract class CloudWriter<T extends PointCloud<?>> {
 	 * Native implementation - writes a cloud to a PLY file.
 	 * 
 	 * @param fileName can be any output path.
+	 * @param cloud to be written
 	 * @param binaryMode if false, the file is written in {@code ASCII} format.
-	 * @param format determines the format of the file (e.g. PCD, PLY).
 	 */
 	protected abstract void writePLY(String fileName, T cloud, boolean binaryMode);
 

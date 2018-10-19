@@ -1,13 +1,12 @@
-#include "de_i3mainz_pcl_io_Cloud3DWriter.h"
+#include "de_i3mainz_pcl_io_Cloud3dWriter.h"
+#include "handle.h"
 
 #include <pcl/point_cloud.h>
 #include <pcl/point_types.h>
 #include <pcl/io/pcd_io.h>
 #include <pcl/io/ply_io.h>
 
-#include "handle.h"
-
-void Java_de_i3mainz_pcl_io_Cloud3DWriter_writePCD
+void Java_de_i3mainz_pcl_io_Cloud3dWriter_writePCD
 (JNIEnv *env, jobject obj, jstring file_name, jobject cloud, jboolean binary_mode)
 {
 	pcl::PointCloud<pcl::PointXYZ> *cloud_ptr = getHandle<pcl::PointCloud<pcl::PointXYZ>>(env, cloud);
@@ -18,7 +17,7 @@ void Java_de_i3mainz_pcl_io_Cloud3DWriter_writePCD
 	env->ReleaseStringUTFChars(file_name, native_file_name);
 }
 
-void Java_de_i3mainz_pcl_io_Cloud3DWriter_writePLY
+void Java_de_i3mainz_pcl_io_Cloud3dWriter_writePLY
 (JNIEnv *env, jobject obj, jstring file_name, jobject cloud, jboolean binary_mode)
 {
 	pcl::PointCloud<pcl::PointXYZ> *cloud_ptr = getHandle<pcl::PointCloud<pcl::PointXYZ>>(env, cloud);

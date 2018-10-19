@@ -37,7 +37,13 @@ file(GLOB_RECURSE PCL_JAVA_SRC
 	"${CMAKE_SOURCE_DIR}/src/main/c/*.cpp"
 ) 
 
+link_directories(${PCL_LIBRARY_DIRS})
+add_definitions(${PCL_DEFINITIONS})
+
 add_library(${TARGET_NAME} SHARED "${PCL_JAVA_SRC}")
 
 target_include_directories(${TARGET_NAME} PUBLIC ${JNI_INCLUDE_DIRS} ${PCL_INCLUDE_DIRS})
-target_link_libraries (${TARGET_NAME} ${PCL_COMMON_LIBRARIES} ${PCL_IO_LIBRARIES} ${JNI_LIBRARIES})
+target_link_libraries (
+	${TARGET_NAME} 
+	${PCL_LIBRARIES}
+)
