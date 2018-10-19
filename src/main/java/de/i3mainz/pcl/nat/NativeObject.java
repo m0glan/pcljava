@@ -44,11 +44,4 @@ public abstract class NativeObject {
 	 */
 	public abstract void dispose();
 	
-	@Override
-	protected final synchronized void finalize() {
-		if (handle != 0) {
-			dispose();
-		}
-	}
-	
 }

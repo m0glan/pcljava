@@ -12,7 +12,7 @@ import de.i3mainz.pcl.PointCloud3dColor;
 
 class PointCloud3dColorTest {
 	
-	public static final int CLOUD_SIZE = 10000;
+	public static final int CLOUD_SIZE = 100000;
 	private static Point3d minPoint;
 	private static Point3d maxPoint;
 
