@@ -39,6 +39,10 @@ public class Point3dColorN extends Point3dColor {
 		setNormalX(x); setNormalY(y); setNormalZ(z);
 	}
 	
+	public void setNormal(Normal normal) {
+		setNormal(normal.getX(), normal.getY(), normal.getZ());
+	}
+	
 	@Override
 	public Point3dColorN clone() {
 		Point3dColorN clone = new Point3dColorN();
