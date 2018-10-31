@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>de.i3mainz</groupId>
   <artifactId>pcl-java</artifactId>
-  <version>0.1.0-SNAPSHOT</version>
+  <version>0.1.1-SNAPSHOT</version>
   <name>PCL Java</name>
   <description>A port of the Point Cloud Library (PCL) using Java Native Interface (JNI).</description>
   <build>
