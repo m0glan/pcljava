@@ -65,6 +65,9 @@ public:
 
 	static void dispose(JNIEnv *env, jobject java_instance)
 	{
+		auto wrapper = get_wrapper(env, java_instance);
+
+		delete wrapper;
 		set_handle<sptr_wrapper<T>>(env, java_instance, nullptr);
 	}
 
