@@ -12,6 +12,15 @@ void Java_de_i3mainz_pcl_visualization_Visualizer_alloc
 	vis_ptr_w->instantiate(env, obj);
 }
 
+jboolean Java_de_i3mainz_pcl_visualization_Visualizer_wasStopped
+(JNIEnv *env, jobject obj)
+{
+	pcl::visualization::PCLVisualizer::Ptr vis_ptr =
+		sptr_wrapper<pcl::visualization::PCLVisualizer>::get_sptr(env, obj);
+
+	return vis_ptr->wasStopped();
+}
+
 void Java_de_i3mainz_pcl_visualization_Visualizer_spinOnce
 (JNIEnv *env, jobject obj, jint time, jboolean force_redraw)
 {

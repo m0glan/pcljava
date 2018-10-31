@@ -17,6 +17,14 @@ JNIEXPORT void JNICALL Java_de_i3mainz_pcl_visualization_Visualizer_alloc
 
 /*
  * Class:     de_i3mainz_pcl_visualization_Visualizer
+ * Method:    wasStopped
+ * Signature: ()Z
+ */
+JNIEXPORT jboolean JNICALL Java_de_i3mainz_pcl_visualization_Visualizer_wasStopped
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     de_i3mainz_pcl_visualization_Visualizer
  * Method:    spinOnce
  * Signature: (IZ)V
  */

@@ -2,47 +2,29 @@ package de.i3mainz.pcl.visualization;
 
 import java.io.File;
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import de.i3mainz.pcl.ExampleGenerator;
 import de.i3mainz.pcl.NormalEstimation;
 import de.i3mainz.pcl.Point3d;
 import de.i3mainz.pcl.PointCloud3d;
 import de.i3mainz.pcl.PointCloudN;
+import de.i3mainz.pcl.io.Cloud3dReader;
 
 class SimpleVisualizerTest {
-
-	public static final int CLOUD_SIZE = 100000;
-	private static Point3d minPoint;
-	private static Point3d maxPoint;
 
 	static {	
 		System.loadLibrary("pcl_java");
 	}
 	
-	@BeforeAll
-	static void init() {
-		minPoint = new Point3d();
-		maxPoint = new Point3d();
-		
-		minPoint.create();
-		maxPoint.create();
-		
-		minPoint.setCoordinates(-5.0f, -5.0f, -5.0f);
-		maxPoint.setCoordinates(5.0f, 5.0f, 5.0f);
-	}
-	
-	@AfterAll
-	static void deinit() {
-		minPoint.dispose();
-		maxPoint.dispose();
-	}
-	
 	@Test
 	void test() {
-		PointCloud3d cloud = ExampleGenerator.generatePointCloud3d(minPoint, maxPoint, CLOUD_SIZE);
+		ClassLoader classLoader = getClass().getClassLoader();
+		File sample = new File(classLoader.getResource("pcl-samples/bunny.pcd").getFile());
+		Cloud3dReader reader = new Cloud3dReader();
+		
+		reader.read(sample.getAbsolutePath());
+		
+		PointCloud3d cloud = reader.getCloud();
 		NormalEstimation ne = new NormalEstimation(cloud, 0.03f);
 		
 		ne.run();
@@ -58,7 +40,7 @@ class SimpleVisualizerTest {
 		visualizer.addPointCloudNormals(cloud, normals, 100, 0.2f, "normals", 0);
 		visualizer.setPointSize(3, "cloud");
 		
-		while (true) {
+		while (!visualizer.wasStopped()) {
 			visualizer.spinOnce(100, false);
 			
 			try {

@@ -10,6 +10,8 @@ public abstract class Visualizer<PointT extends Point> extends NativeObject {
 	@Override
 	protected native void alloc();
 	
+	public native boolean wasStopped();
+	
 	public native void spinOnce(int time, boolean forceRedraw);
 	
 	public native void setWindowName(String name);
