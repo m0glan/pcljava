@@ -17,14 +17,6 @@ JNIEXPORT void JNICALL Java_de_i3mainz_pcl_Point3dColor_alloc
 
 /*
  * Class:     de_i3mainz_pcl_Point3dColor
- * Method:    dispose
- * Signature: ()V
- */
-JNIEXPORT void JNICALL Java_de_i3mainz_pcl_Point3dColor_dispose
-  (JNIEnv *, jobject);
-
-/*
- * Class:     de_i3mainz_pcl_Point3dColor
  * Method:    getR
  * Signature: ()S
  */

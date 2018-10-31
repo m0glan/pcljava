@@ -1,5 +1,5 @@
 #include "de_i3mainz_pcl_io_Cloud3dReader.h"
-#include "handle.h"
+#include "sptr_wrapper.h"
 
 #include <pcl/point_cloud.h>
 #include <pcl/point_types.h>
@@ -9,7 +9,8 @@
 void Java_de_i3mainz_pcl_io_Cloud3dReader_readPCD
 (JNIEnv *env, jobject obj, jstring file_name, jobject cloud)
 {
-	pcl::PointCloud<pcl::PointXYZ> *cloud_ptr = getHandle<pcl::PointCloud<pcl::PointXYZ>>(env, cloud);
+	pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_ptr
+		= sptr_wrapper<pcl::PointCloud<pcl::PointXYZ>>::get_sptr(env, cloud);
 
 	const char *native_file_name = env->GetStringUTFChars(file_name, JNI_FALSE);
 
@@ -21,7 +22,8 @@ void Java_de_i3mainz_pcl_io_Cloud3dReader_readPCD
 void Java_de_i3mainz_pcl_io_Cloud3dReader_readPLY
 (JNIEnv *env, jobject obj, jstring file_name, jobject cloud)
 {
-	pcl::PointCloud<pcl::PointXYZ> *cloud_ptr = getHandle<pcl::PointCloud<pcl::PointXYZ>>(env, cloud);
+	pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_ptr
+		= sptr_wrapper<pcl::PointCloud<pcl::PointXYZ>>::get_sptr(env, cloud);
 
 	const char *native_file_name = env->GetStringUTFChars(file_name, JNI_FALSE);
 

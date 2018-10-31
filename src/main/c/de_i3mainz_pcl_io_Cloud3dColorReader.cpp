@@ -1,5 +1,5 @@
 #include "de_i3mainz_pcl_io_Cloud3dColorReader.h"
-#include "handle.h"
+#include "sptr_wrapper.h"
 
 #include <pcl/point_cloud.h>
 #include <pcl/point_types.h>
@@ -9,8 +9,8 @@
 void Java_de_i3mainz_pcl_io_Cloud3dColorReader_readPCD
 (JNIEnv *env, jobject obj, jstring file_name, jobject cloud)
 {
-	pcl::PointCloud<pcl::PointXYZRGB> *cloud_ptr = getHandle<pcl::PointCloud<pcl::PointXYZRGB>>(env, cloud);
-
+	pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud_ptr
+		= sptr_wrapper<pcl::PointCloud<pcl::PointXYZRGB>>::get_sptr(env, cloud);
 	const char *native_file_name = env->GetStringUTFChars(file_name, JNI_FALSE);
 
 	pcl::io::loadPCDFile<pcl::PointXYZRGB>(native_file_name, *cloud_ptr);
@@ -21,8 +21,8 @@ void Java_de_i3mainz_pcl_io_Cloud3dColorReader_readPCD
 void Java_de_i3mainz_pcl_io_Cloud3dColorReader_readPLY
 (JNIEnv *env, jobject obj, jstring file_name, jobject cloud)
 {
-	pcl::PointCloud<pcl::PointXYZRGB> *cloud_ptr = getHandle<pcl::PointCloud<pcl::PointXYZRGB>>(env, cloud);
-
+	pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud_ptr
+		= sptr_wrapper<pcl::PointCloud<pcl::PointXYZRGB>>::get_sptr(env, cloud);
 	const char *native_file_name = env->GetStringUTFChars(file_name, JNI_FALSE);
 
 	pcl::io::loadPLYFile<pcl::PointXYZRGB>(native_file_name, *cloud_ptr);

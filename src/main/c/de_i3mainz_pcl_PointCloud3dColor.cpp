@@ -1,5 +1,5 @@
 #include "de_i3mainz_pcl_PointCloud3dColor.h"
-#include "handle.h"
+#include "sptr_wrapper.h"
 
 #include <pcl/point_cloud.h>
 #include <pcl/point_types.h>
@@ -7,42 +7,32 @@
 void Java_de_i3mainz_pcl_PointCloud3dColor_alloc
 (JNIEnv *env, jobject obj)
 {
-	pcl::PointCloud<pcl::PointXYZRGB> *cloud_ptr =
-		new pcl::PointCloud<pcl::PointXYZRGB>();
+	sptr_wrapper<pcl::PointCloud<pcl::PointXYZRGB>> *cloud_ptr_w =
+		new sptr_wrapper<pcl::PointCloud<pcl::PointXYZRGB>>();
 
-	setHandle(env, obj, cloud_ptr);
-}
-
-void Java_de_i3mainz_pcl_PointCloud3dColor_dispose
-(JNIEnv *env, jobject obj)
-{
-	pcl::PointCloud<pcl::PointXYZRGB> *cloud_ptr
-		= getHandle<pcl::PointCloud<pcl::PointXYZRGB>>(env, obj);
-
-	setHandle<pcl::PointCloud<pcl::PointXYZRGB>>(env, obj, 0);
-
-	delete cloud_ptr;
+	cloud_ptr_w->instantiate(env, obj);
 }
 
 void Java_de_i3mainz_pcl_PointCloud3dColor_nGet
 (JNIEnv *env, jobject obj, jint i, jobject point)
 {
-	pcl::PointCloud<pcl::PointXYZRGB> *cloud_ptr
-		= getHandle<pcl::PointCloud<pcl::PointXYZRGB>>(env, obj);
-	pcl::PointXYZRGB *pt_ptr = &(cloud_ptr->at((size_t)i));
+	pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud_ptr
+		= sptr_wrapper<pcl::PointCloud<pcl::PointXYZRGB>>::get_sptr(env, obj);
+	sptr_wrapper<pcl::PointXYZRGB> *pt_ptr_w =
+		new sptr_wrapper<pcl::PointXYZRGB>(cloud_ptr->at(i));
 
-	setHandle(env, point, pt_ptr);
+	pt_ptr_w->instantiate(env, point);
 }
 
 void Java_de_i3mainz_pcl_PointCloud3dColor_add
 (JNIEnv *env, jobject obj, jobject point)
 {
-	pcl::PointCloud<pcl::PointXYZRGB> *cloud_ptr
-		= getHandle<pcl::PointCloud<pcl::PointXYZRGB>>(env, obj);
-	pcl::PointXYZRGB *point_ptr
-		= getHandle<pcl::PointXYZRGB>(env, point);
+	pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud_ptr
+		= sptr_wrapper<pcl::PointCloud<pcl::PointXYZRGB>>::get_sptr(env, obj);
+	boost::shared_ptr<pcl::PointXYZRGB> pt_ptr
+		= sptr_wrapper<pcl::PointXYZRGB>::get_sptr(env, point);
 
-	cloud_ptr->push_back(*point_ptr);
+	cloud_ptr->push_back(*pt_ptr);
 }
 
 void Java_de_i3mainz_pcl_PointCloud3dColor_remove
@@ -51,12 +41,11 @@ void Java_de_i3mainz_pcl_PointCloud3dColor_remove
 	throw "Not yet implemented.";
 }
 
-
 void Java_de_i3mainz_pcl_PointCloud3dColor_clear
 (JNIEnv *env, jobject obj)
 {
-	pcl::PointCloud<pcl::PointXYZRGB> *cloud_ptr
-		= getHandle<pcl::PointCloud<pcl::PointXYZRGB>>(env, obj);
+	pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud_ptr
+		= sptr_wrapper<pcl::PointCloud<pcl::PointXYZRGB>>::get_sptr(env, obj);
 
 	cloud_ptr->clear();
 }
@@ -64,19 +53,18 @@ void Java_de_i3mainz_pcl_PointCloud3dColor_clear
 jint Java_de_i3mainz_pcl_PointCloud3dColor_size
 (JNIEnv *env, jobject obj)
 {
-	pcl::PointCloud<pcl::PointXYZRGB> *cloud_ptr
-		= getHandle<pcl::PointCloud<pcl::PointXYZRGB>>(env, obj);
+	pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud_ptr
+		= sptr_wrapper<pcl::PointCloud<pcl::PointXYZRGB>>::get_sptr(env, obj);
 
-	return (jint)cloud_ptr->size();
+	return cloud_ptr->size();
 }
 
 jboolean Java_de_i3mainz_pcl_PointCloud3dColor_isOrganized
 (JNIEnv *env, jobject obj)
 {
-	pcl::PointCloud<pcl::PointXYZRGB> *cloud_ptr 
-		= getHandle<pcl::PointCloud<pcl::PointXYZRGB>>(env, obj);
+	pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud_ptr
+		= sptr_wrapper<pcl::PointCloud<pcl::PointXYZRGB>>::get_sptr(env, obj);
 	bool isOrganized = cloud_ptr->isOrganized();
 
-	return (jboolean) isOrganized;
+	return isOrganized;
 }
-

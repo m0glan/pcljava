@@ -1,54 +1,37 @@
 #include "de_i3mainz_pcl_Point2d.h"
-#include "handle.h"
+#include "sptr_wrapper.h"
 
 #include <pcl/point_types.h>
 
 void Java_de_i3mainz_pcl_Point2d_alloc
 (JNIEnv *env, jobject obj)
 {
-	pcl::PointXY *pt_ptr = new pcl::PointXY();
+	sptr_wrapper<pcl::PointXY> *pt_ptr_w =
+		new sptr_wrapper<pcl::PointXY>();
 
-	setHandle(env, obj, pt_ptr);
-}
-
-void Java_de_i3mainz_pcl_Point2d_dispose
-(JNIEnv *env, jobject obj)
-{
-	pcl::PointXY *pt_ptr = getHandle<pcl::PointXY>(env, obj);
-
-	setHandle<pcl::PointXY>(env, obj, 0);
-
-	delete pt_ptr;
+	pt_ptr_w->instantiate(env, obj);
 }
 
 jfloat Java_de_i3mainz_pcl_Point2d_getX
 (JNIEnv *env, jobject obj) 
 {
-	pcl::PointXY *pt_ptr = getHandle<pcl::PointXY>(env, obj);
-
-	return (jfloat)pt_ptr->x;
+	return sptr_wrapper<pcl::PointXY>::get_sptr(env, obj)->x;
 }
 
 void Java_de_i3mainz_pcl_Point2d_setX
 (JNIEnv *env, jobject obj, jfloat x)
 {
-	pcl::PointXY *pt_ptr = getHandle<pcl::PointXY>(env, obj);
-
-	pt_ptr->x = (float)x;
+	sptr_wrapper<pcl::PointXY>::get_sptr(env, obj)->x = x;
 }
 
 jfloat Java_de_i3mainz_pcl_Point2d_getY
 (JNIEnv *env, jobject obj)
 {
-	pcl::PointXY *pt_ptr = getHandle<pcl::PointXY>(env, obj);
-
-	return (jfloat)pt_ptr->y;
+	return sptr_wrapper<pcl::PointXY>::get_sptr(env, obj)->y;
 }
 
 void Java_de_i3mainz_pcl_Point2d_setY
 (JNIEnv *env, jobject obj, jfloat y)
 {
-	pcl::PointXY *pt_ptr = getHandle<pcl::PointXY>(env, obj);
-
-	pt_ptr->y = (float)y;
+	sptr_wrapper<pcl::PointXY>::get_sptr(env, obj)->y = y;
 }

@@ -65,7 +65,10 @@ class PointCloud3dColorTest {
 		
 		point.dispose();
 		
-		assertEquals(pointCloud.get(pointCloud.size() - 1).getX(), 10);
+		Point3d p = pointCloud.get(pointCloud.size() - 1);
+		float x = p.getX();
+		
+		assertEquals(10, x);
 		
 		pointCloud.dispose();
 	}

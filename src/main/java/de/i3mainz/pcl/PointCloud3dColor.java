@@ -12,9 +12,6 @@ public final class PointCloud3dColor extends PointCloud<Point3dColor> {
 	
 	@Override
 	public native void alloc();
-
-	@Override
-	public native void dispose();
 	
 	@Override
 	public Point3dColor get(int i) {

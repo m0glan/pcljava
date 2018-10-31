@@ -17,14 +17,6 @@ JNIEXPORT void JNICALL Java_de_i3mainz_pcl_PointCloudN_alloc
 
 /*
  * Class:     de_i3mainz_pcl_PointCloudN
- * Method:    dispose
- * Signature: ()V
- */
-JNIEXPORT void JNICALL Java_de_i3mainz_pcl_PointCloudN_dispose
-  (JNIEnv *, jobject);
-
-/*
- * Class:     de_i3mainz_pcl_PointCloudN
  * Method:    nGet
  * Signature: (ILde/i3mainz/pcl/Normal;)V
  */

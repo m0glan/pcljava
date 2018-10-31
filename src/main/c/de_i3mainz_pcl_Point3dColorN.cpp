@@ -1,70 +1,49 @@
 #include "de_i3mainz_pcl_Point3dColorN.h"
-#include "handle.h"
+#include "sptr_wrapper.h"
 
 #include <pcl/point_types.h>
 
 void Java_de_i3mainz_pcl_Point3dColorN_alloc
 (JNIEnv *env, jobject obj)
 {
-	pcl::PointXYZRGBNormal *ptr = new pcl::PointXYZRGBNormal();
+	sptr_wrapper<pcl::PointXYZRGBNormal> *pt_ptr_w =
+		new sptr_wrapper<pcl::PointXYZRGBNormal>();
 
-	setHandle(env, obj, ptr);
-}
-
-void Java_de_i3mainz_pcl_Point3dColorN_dispose
-(JNIEnv *env, jobject obj)
-{
-	pcl::PointXYZRGBNormal *ptr = getHandle<pcl::PointXYZRGBNormal>(env, obj);
-
-	setHandle<pcl::PointXYZRGBNormal>(env, obj, 0);
-
-	delete ptr;
+	pt_ptr_w->instantiate(env, obj);
 }
 
 jfloat Java_de_i3mainz_pcl_Point3dColorN_getNormalX
 (JNIEnv *env, jobject obj)
 {
-	pcl::PointXYZRGBNormal *ptr = getHandle<pcl::PointXYZRGBNormal>(env, obj);
-
-	return (jfloat)ptr->normal_x;
+	return sptr_wrapper<pcl::PointXYZRGBNormal>::get_sptr(env, obj)->normal_x;
 }
 
 void Java_de_i3mainz_pcl_Point3dColorN_setNormalX
 (JNIEnv *env, jobject obj, jfloat x)
 {
-	pcl::PointXYZRGBNormal *ptr = getHandle<pcl::PointXYZRGBNormal>(env, obj);
-
-	ptr->normal_x = (float)x;
+	sptr_wrapper<pcl::PointXYZRGBNormal>::get_sptr(env, obj)->normal_x = x;
 }
 
 jfloat Java_de_i3mainz_pcl_Point3dColorN_getNormalY
 (JNIEnv *env, jobject obj)
 {
-	pcl::PointXYZRGBNormal *ptr = getHandle<pcl::PointXYZRGBNormal>(env, obj);
-
-	return (jfloat)ptr->normal_y;
+	return sptr_wrapper<pcl::PointXYZRGBNormal>::get_sptr(env, obj)->normal_y;
 }
 
 void Java_de_i3mainz_pcl_Point3dColorN_setNormalY
 (JNIEnv *env, jobject obj, jfloat y)
 {
-	pcl::PointXYZRGBNormal *ptr = getHandle<pcl::PointXYZRGBNormal>(env, obj);
-
-	ptr->normal_y = (float)y;
+	sptr_wrapper<pcl::PointXYZRGBNormal>::get_sptr(env, obj)->normal_y = y;
 }
 
 jfloat Java_de_i3mainz_pcl_Point3dColorN_getNormalZ
 (JNIEnv *env, jobject obj) 
 {
-	pcl::PointXYZRGBNormal *ptr = getHandle<pcl::PointXYZRGBNormal>(env, obj);
-
-	return (jfloat)ptr->normal_z;
+	return sptr_wrapper<pcl::PointXYZRGBNormal>::get_sptr(env, obj)->normal_z;
 }
 
 void Java_de_i3mainz_pcl_Point3dColorN_setNormalZ
 (JNIEnv *env, jobject obj, jfloat z)
 {
-	pcl::PointXYZRGBNormal *ptr = getHandle<pcl::PointXYZRGBNormal>(env, obj);
-
-	ptr->normal_z = (float)z;
+	sptr_wrapper<pcl::PointXYZRGBNormal>::get_sptr(env, obj)->normal_z = z;
 }

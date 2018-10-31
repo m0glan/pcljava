@@ -11,9 +11,6 @@ public class Point3dColorN extends Point3dColor {
 	@Override
 	protected native void alloc();
 	
-	@Override
-	public native void dispose();
-	
 	public final native float getNormalX();
 	
 	public native void setNormalX(float x);

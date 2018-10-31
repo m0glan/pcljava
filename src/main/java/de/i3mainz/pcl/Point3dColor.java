@@ -12,9 +12,6 @@ public class Point3dColor extends Point3d implements Colorable {
 	protected native void alloc();
 	
 	@Override
-	public native void dispose();
-	
-	@Override
 	public final native short getR();
 	
 	@Override

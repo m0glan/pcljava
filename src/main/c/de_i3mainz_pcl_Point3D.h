@@ -17,14 +17,6 @@ JNIEXPORT void JNICALL Java_de_i3mainz_pcl_Point3d_alloc
 
 /*
  * Class:     de_i3mainz_pcl_Point3d
- * Method:    dispose
- * Signature: ()V
- */
-JNIEXPORT void JNICALL Java_de_i3mainz_pcl_Point3d_dispose
-  (JNIEnv *, jobject);
-
-/*
- * Class:     de_i3mainz_pcl_Point3d
  * Method:    getX
  * Signature: ()F
  */
