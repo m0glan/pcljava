@@ -3,6 +3,9 @@ package de.i3mainz.pcl;
 import de.i3mainz.pcl.math.Comparison;
 import de.i3mainz.pcl.nat.NativeObject;
 
+/**
+ * Normal vector to a plane defined by its x, y and z components.
+ */
 public class Normal extends NativeObject implements Point, Cloneable {
 
 	@Override

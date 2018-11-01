@@ -10,12 +10,14 @@ import de.i3mainz.pcl.nat.NativeObject;
  * {@code pcl::PointCloud<T>}
  * </a>
  *  structure.
- * @author Vlad-Adrian Moglan
  */
 public abstract class PointCloud<PointT extends Point> 
 										extends NativeObject
 										implements Iterable<PointT>, Cloneable{
 	
+	/**
+	 * Allows Java {@code for each} iteration through the points contained in the cloud.
+	 */
 	@Override
 	public final Iterator<PointT> iterator() {
 		Iterator<PointT> iterator = new Iterator<PointT>() {
@@ -42,8 +44,18 @@ public abstract class PointCloud<PointT extends Point>
 		return iterator;	
 	}
 	
+	/**
+	 * @param i the index of the point
+	 * @return the ith point in the cloud's vector
+	 */
 	public abstract PointT get(int i);
 	
+	/**
+	 * Stores the native address of the ith point in the cloud's vector within a point variable. 
+	 * 
+	 * @param i the index of the point
+	 * @param point the Java object to reference the native object
+	 */
 	protected abstract void nGet(int i, PointT point);
 	
 	public abstract void add(PointT point);

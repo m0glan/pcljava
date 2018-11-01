@@ -7,6 +7,11 @@ import de.i3mainz.pcl.nat.NativeObject;
 
 /**
  * PCL Visualizer main class.
+ * 
+ * Class corresponding to the native 
+ * <a href="http://docs.pointclouds.org/1.8.1/classpcl_1_1visualization_1_1_p_c_l_visualizer.html">
+ * {@code pcl::visualization::PCLVisualizer}
+ * </a> class.
  */
 public abstract class Visualizer<PointT extends Point> extends NativeObject {
 

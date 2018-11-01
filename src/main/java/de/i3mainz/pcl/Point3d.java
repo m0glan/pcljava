@@ -8,8 +8,6 @@ import de.i3mainz.pcl.nat.NativeObject;
  * {@code pcl::PointXYZ}
  * </a> 
  * structure.
- * 
- * @author Vlad-Adrian Moglan
  */
 public class Point3d extends NativeObject implements Point, Cloneable {
 	

@@ -4,6 +4,9 @@ import de.i3mainz.pcl.Point3d;
 import de.i3mainz.pcl.PointCloud;
 import de.i3mainz.pcl.PointCloudN;
 
+/**
+ * Visualizer for normal 3d point clouds.
+ */
 public class SimpleVisualizer extends Visualizer<Point3d> {
 
 	@Override

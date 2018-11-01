@@ -3,8 +3,6 @@ package de.i3mainz.pcl;
 /**
  * Class corresponding to the native 
  * <a href="http://docs.pointclouds.org/1.4.0/structpcl_1_1_point_x_y_z_r_g_b_normal.html">{@code pcl::PointXYZRGB}</a> structure.
- * 
- * @author Vlad-Adrian Moglan
  */
 public class Point3dColorN extends Point3dColor {
 
@@ -23,6 +21,9 @@ public class Point3dColorN extends Point3dColor {
 	
 	public native void setNormalZ(float z);
 	
+	/**
+	 * @return the normal vector to the plane in that point
+	 */
 	public Normal getNormal() {
 		Normal normal = new Normal();
 		

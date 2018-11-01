@@ -6,7 +6,6 @@ package de.i3mainz.pcl;
  * {@code pcl::PointCloud<pcl::PointXYZ>}
  * </a>
  *  structure.
- * @author Vlad-Adrian Moglan
  */
 public final class PointCloud3d extends PointCloud<Point3d> {
 	

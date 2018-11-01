@@ -1,5 +1,12 @@
 package de.i3mainz.pcl;
 
+/**
+ * Class corresponding to the native 
+ * <a href="http://docs.pointclouds.org/trunk/classpcl_1_1_point_cloud.html#abc784b5dec409efe78bf21ad3776f334">
+ * {@code pcl::PointCloud<pcl::PointXYZRGBNormal>}
+ * </a>
+ *  structure.
+ */
 public class PointCloud3dColorN extends PointCloud<Point3dColorN> {
 	
 	@Override

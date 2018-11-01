@@ -6,7 +6,6 @@ package de.i3mainz.pcl;
  * {@code pcl::PointCloud<pcl::PointXYZRGB>}
  * </a>
  *  structure.
- * @author Vlad-Adrian Moglan
  */
 public final class PointCloud3dColor extends PointCloud<Point3dColor> {
 	
