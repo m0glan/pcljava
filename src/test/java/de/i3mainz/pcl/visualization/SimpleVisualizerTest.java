@@ -49,6 +49,10 @@ class SimpleVisualizerTest {
 				e.printStackTrace();
 			}
 		}
+		
+		cloud.dispose();
+		normals.dispose();
+		visualizer.dispose();
 	}
 
 }

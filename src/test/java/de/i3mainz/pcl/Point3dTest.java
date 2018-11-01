@@ -35,6 +35,9 @@ public class Point3dTest {
 		assertEquals(clone.getX(), EX_X);
 		assertEquals(clone.getY(), EX_Y);
 		assertEquals(clone.getZ(), EX_Z);
+		
+		point.dispose();
+		clone.dispose();
 	}
 
 	private Point3d createExample() {

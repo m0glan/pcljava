@@ -44,6 +44,9 @@ public class Point3dColorTest {
 		assertEquals(clone.getR(), EX_R);
 		assertEquals(clone.getG(), EX_G);
 		assertEquals(clone.getB(), EX_B);
+		
+		point.dispose();
+		clone.dispose();
 	}
 	
 	private Point3dColor createExample() {

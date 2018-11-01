@@ -54,6 +54,7 @@ class Cloud3dColorReadWriteTest {
 		File file = new File("cloud-export-test.pcd");
 		
 		file.delete();
+		pointCloud.dispose();
 	}
 	
 	@Test
@@ -70,6 +71,7 @@ class Cloud3dColorReadWriteTest {
 		File file = new File("cloud-export-test.ply");
 		
 		file.delete();
+		pointCloud.dispose();
 	}
 
 }
