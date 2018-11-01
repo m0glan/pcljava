@@ -17,10 +17,34 @@ JNIEXPORT void JNICALL Java_de_i3mainz_pcl_visualization_Visualizer_alloc
 
 /*
  * Class:     de_i3mainz_pcl_visualization_Visualizer
+ * Method:    close
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_de_i3mainz_pcl_visualization_Visualizer_close
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     de_i3mainz_pcl_visualization_Visualizer
  * Method:    wasStopped
  * Signature: ()Z
  */
 JNIEXPORT jboolean JNICALL Java_de_i3mainz_pcl_visualization_Visualizer_wasStopped
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     de_i3mainz_pcl_visualization_Visualizer
+ * Method:    createViewport
+ * Signature: (DDDDI)V
+ */
+JNIEXPORT void JNICALL Java_de_i3mainz_pcl_visualization_Visualizer_createViewport
+  (JNIEnv *, jobject, jdouble, jdouble, jdouble, jdouble, jint);
+
+/*
+ * Class:     de_i3mainz_pcl_visualization_Visualizer
+ * Method:    spin
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_de_i3mainz_pcl_visualization_Visualizer_spin
   (JNIEnv *, jobject);
 
 /*
@@ -102,6 +126,30 @@ JNIEXPORT void JNICALL Java_de_i3mainz_pcl_visualization_Visualizer_removeCoordi
  */
 JNIEXPORT void JNICALL Java_de_i3mainz_pcl_visualization_Visualizer_removeAllCoordinateSystems
   (JNIEnv *, jobject, jint);
+
+/*
+ * Class:     de_i3mainz_pcl_visualization_Visualizer
+ * Method:    addText
+ * Signature: (Ljava/lang/String;IILjava/lang/String;I)Z
+ */
+JNIEXPORT jboolean JNICALL Java_de_i3mainz_pcl_visualization_Visualizer_addText__Ljava_lang_String_2IILjava_lang_String_2I
+  (JNIEnv *, jobject, jstring, jint, jint, jstring, jint);
+
+/*
+ * Class:     de_i3mainz_pcl_visualization_Visualizer
+ * Method:    addText
+ * Signature: (Ljava/lang/String;IIDDDLjava/lang/String;I)Z
+ */
+JNIEXPORT jboolean JNICALL Java_de_i3mainz_pcl_visualization_Visualizer_addText__Ljava_lang_String_2IIDDDLjava_lang_String_2I
+  (JNIEnv *, jobject, jstring, jint, jint, jdouble, jdouble, jdouble, jstring, jint);
+
+/*
+ * Class:     de_i3mainz_pcl_visualization_Visualizer
+ * Method:    addText
+ * Signature: (Ljava/lang/String;IIIDDDLjava/lang/String;I)Z
+ */
+JNIEXPORT jboolean JNICALL Java_de_i3mainz_pcl_visualization_Visualizer_addText__Ljava_lang_String_2IIIDDDLjava_lang_String_2I
+  (JNIEnv *, jobject, jstring, jint, jint, jint, jdouble, jdouble, jdouble, jstring, jint);
 
 /*
  * Class:     de_i3mainz_pcl_visualization_Visualizer

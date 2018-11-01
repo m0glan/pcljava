@@ -12,6 +12,15 @@ void Java_de_i3mainz_pcl_visualization_Visualizer_alloc
 	vis_ptr_w->instantiate(env, obj);
 }
 
+void Java_de_i3mainz_pcl_visualization_Visualizer_close
+(JNIEnv *env, jobject obj)
+{
+	pcl::visualization::PCLVisualizer::Ptr vis_ptr =
+		sptr_wrapper<pcl::visualization::PCLVisualizer>::get_sptr(env, obj);
+
+	vis_ptr->close();
+}
+
 jboolean Java_de_i3mainz_pcl_visualization_Visualizer_wasStopped
 (JNIEnv *env, jobject obj)
 {
@@ -19,6 +28,25 @@ jboolean Java_de_i3mainz_pcl_visualization_Visualizer_wasStopped
 		sptr_wrapper<pcl::visualization::PCLVisualizer>::get_sptr(env, obj);
 
 	return vis_ptr->wasStopped();
+}
+
+void Java_de_i3mainz_pcl_visualization_Visualizer_createViewport
+(JNIEnv *env, jobject obj, jdouble xmin, jdouble ymin, jdouble xmax, jdouble ymax, jint viewport)
+{
+	pcl::visualization::PCLVisualizer::Ptr vis_ptr =
+		sptr_wrapper<pcl::visualization::PCLVisualizer>::get_sptr(env, obj);
+	int v(viewport);
+
+	vis_ptr->createViewPort(xmin, ymin, xmax, ymax, v);
+}
+
+void Java_de_i3mainz_pcl_visualization_Visualizer_spin
+(JNIEnv *env, jobject obj)
+{
+	pcl::visualization::PCLVisualizer::Ptr vis_ptr =
+		sptr_wrapper<pcl::visualization::PCLVisualizer>::get_sptr(env, obj);
+
+	vis_ptr->spin();
 }
 
 void Java_de_i3mainz_pcl_visualization_Visualizer_spinOnce
@@ -124,12 +152,70 @@ void Java_de_i3mainz_pcl_visualization_Visualizer_removeAllCoordinateSystems
 	vis_ptr->removeAllCoordinateSystems(viewport);
 }
 
-void Java_de_i3mainz_pcl_visualization_Visualizer_setPointSize
-(JNIEnv *env, jobject obj, jint, jstring)
+jboolean Java_de_i3mainz_pcl_visualization_Visualizer_addText__Ljava_lang_String_2IILjava_lang_String_2I
+(JNIEnv *env, jobject obj, jstring text, jint xpos, jint ypos, jstring id, jint viewport)
 {
+	pcl::visualization::PCLVisualizer::Ptr vis_ptr =
+		sptr_wrapper<pcl::visualization::PCLVisualizer>::get_sptr(env, obj);
+	const char *native_text = env->GetStringUTFChars(text, JNI_FALSE);
+	const char *native_id = env->GetStringUTFChars(id, JNI_FALSE);
+
+	bool added = vis_ptr->addText(native_text, xpos, ypos, native_id, viewport);
+
+	env->ReleaseStringUTFChars(id, native_id);
+	env->ReleaseStringUTFChars(text, native_text);
+
+	return added;
+}
+
+jboolean Java_de_i3mainz_pcl_visualization_Visualizer_addText__Ljava_lang_String_2IIDDDLjava_lang_String_2I
+(JNIEnv *env, jobject obj, jstring text, jint xpos, jint ypos, jdouble r, jdouble g, jdouble b, jstring id, jint viewport)
+{
+	pcl::visualization::PCLVisualizer::Ptr vis_ptr =
+		sptr_wrapper<pcl::visualization::PCLVisualizer>::get_sptr(env, obj);
+	const char *native_text = env->GetStringUTFChars(text, JNI_FALSE);
+	const char *native_id = env->GetStringUTFChars(id, JNI_FALSE);
+
+	bool added = vis_ptr->addText(native_text, xpos, ypos, r, g, b, native_id, viewport);
+
+	env->ReleaseStringUTFChars(id, native_id);
+	env->ReleaseStringUTFChars(text, native_text);
+
+	return added;
+}
+
+jboolean Java_de_i3mainz_pcl_visualization_Visualizer_addText__Ljava_lang_String_2IIIDDDLjava_lang_String_2I
+(JNIEnv *env, jobject obj, jstring text, jint xpos, jint ypos, jint fontsize, jdouble r, jdouble g, jdouble b, jstring id, jint viewport)
+{
+	pcl::visualization::PCLVisualizer::Ptr vis_ptr =
+		sptr_wrapper<pcl::visualization::PCLVisualizer>::get_sptr(env, obj);
+	const char *native_text = env->GetStringUTFChars(text, JNI_FALSE);
+	const char *native_id = env->GetStringUTFChars(id, JNI_FALSE);
+
+	bool added = vis_ptr->addText(native_text, xpos, ypos, fontsize, r, g, b, native_id, viewport);
+
+	env->ReleaseStringUTFChars(id, native_id);
+	env->ReleaseStringUTFChars(text, native_text);
+
+	return added;
+}
+
+void Java_de_i3mainz_pcl_visualization_Visualizer_setPointSize
+(JNIEnv *env, jobject obj, jint size, jstring id)
+{
+	pcl::visualization::PCLVisualizer::Ptr vis_ptr =
+		sptr_wrapper<pcl::visualization::PCLVisualizer>::get_sptr(env, obj);
+	const char *native_id = env->GetStringUTFChars(id, JNI_FALSE);
+
+	vis_ptr->setPointCloudRenderingProperties(pcl::visualization::PCL_VISUALIZER_POINT_SIZE, size, native_id);
+	env->ReleaseStringUTFChars(id, native_id);
 }
 
 void Java_de_i3mainz_pcl_visualization_Visualizer_initCameraParameters
 (JNIEnv *env, jobject obj)
 {
+	pcl::visualization::PCLVisualizer::Ptr vis_ptr =
+		sptr_wrapper<pcl::visualization::PCLVisualizer>::get_sptr(env, obj);
+
+	vis_ptr->initCameraParameters();
 }
