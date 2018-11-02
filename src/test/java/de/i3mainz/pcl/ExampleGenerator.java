@@ -20,6 +20,7 @@ public class ExampleGenerator {
 		point.create();
 		point.setCoordinates(randomFloat(min.getX(), max.getX()), randomFloat(min.getY(), max.getY()), 
 				randomFloat(min.getZ(), max.getZ()));
+		point.setRGB(randomShort(), randomShort(), randomShort());
 		
 		return point;
 	}
@@ -31,29 +32,6 @@ public class ExampleGenerator {
 		
 		for (int i = 0; i < size; i++) {
 			cloud.add(generatePoint3d(min, max));
-		}
-		
-		return cloud;
-	}
-	
-	public static Point3dColor generatePoint3dColor(Point3d min, Point3d max) {
-		Point3dColor point = new Point3dColor();
-		
-		point.create();
-		point.setCoordinates(randomFloat(min.getX(), max.getX()), randomFloat(min.getY(), max.getY()), 
-				randomFloat(min.getZ(), max.getZ()));
-		point.setRGB(randomShort(), randomShort(), randomShort());
-		
-		return point;
-	}
-	
-	public static PointCloud3dColor generatePointCloud3dColor(Point3d min, Point3d max, int size) {
-		PointCloud3dColor cloud = new PointCloud3dColor();
-		
-		cloud.create();
-		
-		for (int i = 0; i < size; i++) {
-			cloud.add(generatePoint3dColor(min, max));
 		}
 		
 		return cloud;

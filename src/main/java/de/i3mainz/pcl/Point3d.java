@@ -5,7 +5,7 @@ import de.i3mainz.pcl.nat.NativeObject;
 
 /**
  * Class corresponding to the native <a href="http://docs.pointclouds.org/1.4.0/structpcl_1_1_point_x_y_z.html">
- * {@code pcl::PointXYZ}
+ * {@code pcl::PointXYZRGB}
  * </a> 
  * structure.
  */
@@ -13,6 +13,9 @@ public class Point3d extends NativeObject implements Point, Cloneable {
 	
 	@Override
 	protected native void alloc();
+	
+	@Override
+	public native void dispose();
 	
 	public final native float getX();
 	
@@ -30,23 +33,44 @@ public class Point3d extends NativeObject implements Point, Cloneable {
 		setX(x); setY(y); setZ(z);
 	}
 	
+	public final native short getR();
+	
+	public final native void setR(short r);
+	
+	public final native short getG();
+	
+	public final native void setG(short g);
+	
+	public final native short getB();
+	
+	public final native void setB(short b);
+	
+	public final native float getRGB();
+	
+	public void setRGB(short r, short g, short b) {
+		setR(r); setG(g); setB(b);
+	}
+	
 	@Override
 	public Point3d clone() {
 		Point3d clone = new Point3d();
 		
-		clone.alloc();
+		clone.create();
 		
 		clone.setCoordinates(getX(), getY(), getZ());
+		clone.setRGB(getR(), getG(), getB());
 		
 		return clone;
 	}
 	
 	@Override
 	public boolean equals(Object object) {
-		Point3d point = (Point3d) object;
+		Point3d point = (Point3d)object;
 		
-		return Comparison.areEqualFloat(getX(), point.getX(), 1f) && Comparison.areEqualFloat(getY(), point.getY(), 1f) 
-				&& Comparison.areEqualFloat(getZ(), point.getZ(), 1f);
+		return Comparison.areEqualFloat(getX(), point.getX(), 0.1f) &&
+				Comparison.areEqualFloat(getY(), point.getY(), 0.1f) &&
+				Comparison.areEqualFloat(getZ(), point.getZ(), 0.1f) &&
+				getR() == point.getR() && getG() == point.getG() && getB() == point.getB();
 	}
 	
 	@Override

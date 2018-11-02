@@ -15,7 +15,7 @@ package de.i3mainz.pcl;
 public class NormalEstimation implements Runnable {
 
 	private PointCloud3d input;
-	private PointCloudN output;
+	private NormalCloud output;
 	private float radiusSearch;
 	
 	/**
@@ -25,10 +25,10 @@ public class NormalEstimation implements Runnable {
 	public NormalEstimation(PointCloud3d cloud, float radiusSearch) {
 		this.input = cloud;
 		this.radiusSearch = radiusSearch;
-		this.output = new PointCloudN();
+		this.output = new NormalCloud();
 	}
 	
-	public PointCloudN getNormals() {
+	public NormalCloud getNormals() {
 		return output;
 	}
 	
@@ -37,6 +37,6 @@ public class NormalEstimation implements Runnable {
 		compute(input, radiusSearch, output);
 	}
 	
-	private native void compute(PointCloud3d input, float radiusSearch, PointCloudN output);
+	private native void compute(PointCloud3d input, float radiusSearch, NormalCloud output);
 
 }

@@ -10,7 +10,7 @@ extern "C" {
 /*
  * Class:     de_i3mainz_pcl_NormalEstimation
  * Method:    compute
- * Signature: (Lde/i3mainz/pcl/PointCloud3dColorN;FLde/i3mainz/pcl/PointCloudN;)V
+ * Signature: (Lde/i3mainz/pcl/PointCloud3d;FLde/i3mainz/pcl/NormalCloud;)V
  */
 JNIEXPORT void JNICALL Java_de_i3mainz_pcl_NormalEstimation_compute
   (JNIEnv *, jobject, jobject, jfloat, jobject);

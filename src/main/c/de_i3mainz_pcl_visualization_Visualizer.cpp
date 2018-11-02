@@ -12,6 +12,12 @@ void Java_de_i3mainz_pcl_visualization_Visualizer_alloc
 	vis_ptr_w->instantiate(env, obj);
 }
 
+void Java_de_i3mainz_pcl_visualization_Visualizer_dispose
+(JNIEnv *env, jobject obj)
+{
+	sptr_wrapper<pcl::visualization::PCLVisualizer>::dispose(env, obj);
+}
+
 void Java_de_i3mainz_pcl_visualization_Visualizer_close
 (JNIEnv *env, jobject obj)
 {

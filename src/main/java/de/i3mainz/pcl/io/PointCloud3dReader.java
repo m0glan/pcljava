@@ -3,11 +3,11 @@ package de.i3mainz.pcl.io;
 import de.i3mainz.pcl.PointCloud3d;
 
 /**
- * Reads {@code PointCloud3D} instances from files (e.g. PCD, PLY)
+ * Reads {@code PointCloud3d} instances from files (e.g. PCD, PLY)
  * 
  * @author Vlad-Adrian Moglan
  */
-public class Cloud3dReader extends CloudReader<PointCloud3d> {
+public class PointCloud3dReader extends PointCloudReader<PointCloud3d> {
 
 	@Override
 	public final PointCloud3d initCloud() {

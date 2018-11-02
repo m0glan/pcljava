@@ -12,7 +12,7 @@ import de.i3mainz.pcl.ExampleGenerator;
 import de.i3mainz.pcl.Point3d;
 import de.i3mainz.pcl.PointCloud3d;
 
-class Cloud3dReadWriteTest {
+class PointCloud3dReadWriteTest {
 
 	public static final int CLOUD_SIZE = 10000;
 	private static Point3d minPoint;
@@ -43,8 +43,8 @@ class Cloud3dReadWriteTest {
 	@Test
 	void testReadPCD() {
 		PointCloud3d pointCloud = ExampleGenerator.generatePointCloud3d(minPoint, maxPoint, CLOUD_SIZE);
-		Cloud3dWriter exporter = new Cloud3dWriter(pointCloud);
-		Cloud3dReader reader = new Cloud3dReader();
+		PointCloud3dWriter exporter = new PointCloud3dWriter(pointCloud);
+		PointCloud3dReader reader = new PointCloud3dReader();
 		
 		exporter.write("cloud-export-test.pcd");
 		reader.read("cloud-export-test.pcd");
@@ -60,8 +60,8 @@ class Cloud3dReadWriteTest {
 	@Test
 	void testReadPLY() {
 		PointCloud3d pointCloud = ExampleGenerator.generatePointCloud3d(minPoint, maxPoint, CLOUD_SIZE);
-		Cloud3dWriter exporter = new Cloud3dWriter(pointCloud);
-		Cloud3dReader reader = new Cloud3dReader();
+		PointCloud3dWriter exporter = new PointCloud3dWriter(pointCloud);
+		PointCloud3dReader reader = new PointCloud3dReader();
 		
 		exporter.write("cloud-export-test.ply");
 		reader.read("cloud-export-test.ply");

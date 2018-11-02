@@ -7,10 +7,13 @@ package de.i3mainz.pcl;
  * </a>
  *  structure.
  */
-public class PointCloudN extends PointCloud<Normal> {
+public class NormalCloud extends PointCloud<Normal> {
 
 	@Override
 	protected native void alloc();
+	
+	@Override
+	public native void dispose();
 	
 	@Override
 	public Normal get(int i) {
@@ -40,8 +43,8 @@ public class PointCloudN extends PointCloud<Normal> {
 	public native boolean isOrganized();
 	
 	@Override
-	public PointCloudN clone() {
-		PointCloudN clone = new PointCloudN();
+	public NormalCloud clone() {
+		NormalCloud clone = new NormalCloud();
 		
 		clone.alloc();
 		

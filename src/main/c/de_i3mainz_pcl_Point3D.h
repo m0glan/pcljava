@@ -17,6 +17,14 @@ JNIEXPORT void JNICALL Java_de_i3mainz_pcl_Point3d_alloc
 
 /*
  * Class:     de_i3mainz_pcl_Point3d
+ * Method:    dispose
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_de_i3mainz_pcl_Point3d_dispose
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     de_i3mainz_pcl_Point3d
  * Method:    getX
  * Signature: ()F
  */
@@ -62,6 +70,62 @@ JNIEXPORT jfloat JNICALL Java_de_i3mainz_pcl_Point3d_getZ
  */
 JNIEXPORT void JNICALL Java_de_i3mainz_pcl_Point3d_setZ
   (JNIEnv *, jobject, jfloat);
+
+/*
+ * Class:     de_i3mainz_pcl_Point3d
+ * Method:    getR
+ * Signature: ()S
+ */
+JNIEXPORT jshort JNICALL Java_de_i3mainz_pcl_Point3d_getR
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     de_i3mainz_pcl_Point3d
+ * Method:    setR
+ * Signature: (S)V
+ */
+JNIEXPORT void JNICALL Java_de_i3mainz_pcl_Point3d_setR
+  (JNIEnv *, jobject, jshort);
+
+/*
+ * Class:     de_i3mainz_pcl_Point3d
+ * Method:    getG
+ * Signature: ()S
+ */
+JNIEXPORT jshort JNICALL Java_de_i3mainz_pcl_Point3d_getG
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     de_i3mainz_pcl_Point3d
+ * Method:    setG
+ * Signature: (S)V
+ */
+JNIEXPORT void JNICALL Java_de_i3mainz_pcl_Point3d_setG
+  (JNIEnv *, jobject, jshort);
+
+/*
+ * Class:     de_i3mainz_pcl_Point3d
+ * Method:    getB
+ * Signature: ()S
+ */
+JNIEXPORT jshort JNICALL Java_de_i3mainz_pcl_Point3d_getB
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     de_i3mainz_pcl_Point3d
+ * Method:    setB
+ * Signature: (S)V
+ */
+JNIEXPORT void JNICALL Java_de_i3mainz_pcl_Point3d_setB
+  (JNIEnv *, jobject, jshort);
+
+/*
+ * Class:     de_i3mainz_pcl_Point3d
+ * Method:    getRGB
+ * Signature: ()F
+ */
+JNIEXPORT jfloat JNICALL Java_de_i3mainz_pcl_Point3d_getRGB
+  (JNIEnv *, jobject);
 
 #ifdef __cplusplus
 }

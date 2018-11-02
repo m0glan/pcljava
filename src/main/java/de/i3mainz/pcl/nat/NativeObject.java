@@ -42,6 +42,6 @@ public abstract class NativeObject {
 	 * object destruction, but this may cause unexpected behavior: this should be 
 	 * called manually when the object is no longer needed.
 	 */
-	public final native void dispose();
+	public abstract void dispose();
 	
 }

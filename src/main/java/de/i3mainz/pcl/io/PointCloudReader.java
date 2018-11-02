@@ -9,11 +9,11 @@ import de.i3mainz.pcl.PointCloud;
  * 
  * @author Vlad-Adrian Moglan
  */
-public abstract class CloudReader<T extends PointCloud<?>> {
+public abstract class PointCloudReader<T extends PointCloud<?>> {
 
 	private T cloud;
 	
-	public CloudReader() {
+	public PointCloudReader() {
 		cloud = initCloud();
 	}
 	

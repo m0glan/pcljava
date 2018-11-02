@@ -1,10 +1,9 @@
-#include "de_i3mainz_pcl_visualization_ColorVisualizer.h"
+#include "de_i3mainz_pcl_visualization_Visualizer3d.h"
 #include "sptr_wrapper.h"
 
 #include <pcl/visualization/pcl_visualizer.h>
 
-jboolean Java_de_i3mainz_pcl_visualization_ColorVisualizer_addPointCloud
-(JNIEnv *env, jobject obj, jobject cloud, jstring id, jint viewport)
+jboolean Java_de_i3mainz_pcl_visualization_Visualizer3d_addPointCloud(JNIEnv *env, jobject obj, jobject cloud, jstring id, jint viewport)
 {
 	pcl::visualization::PCLVisualizer::Ptr vis_ptr =
 		sptr_wrapper<pcl::visualization::PCLVisualizer>::get_sptr(env, obj);
@@ -19,8 +18,7 @@ jboolean Java_de_i3mainz_pcl_visualization_ColorVisualizer_addPointCloud
 	return added;
 }
 
-jboolean Java_de_i3mainz_pcl_visualization_ColorVisualizer_addPointCloudNormals
-(JNIEnv *env, jobject obj, jobject cloud, jobject normals, jint level, jfloat scale, jstring id, jint viewport)
+jboolean Java_de_i3mainz_pcl_visualization_Visualizer3d_addPointCloudNormals(JNIEnv *env, jobject obj, jobject cloud, jobject normals, jint level, jfloat scale, jstring id, jint viewport)
 {
 	pcl::visualization::PCLVisualizer::Ptr vis_ptr =
 		sptr_wrapper<pcl::visualization::PCLVisualizer>::get_sptr(env, obj);
@@ -30,15 +28,13 @@ jboolean Java_de_i3mainz_pcl_visualization_ColorVisualizer_addPointCloudNormals
 		sptr_wrapper<pcl::PointCloud<pcl::Normal>>::get_sptr(env, normals);
 	const char *native_id = env->GetStringUTFChars(id, JNI_FALSE);
 	std::string native_id_str = std::string(native_id);
-	bool added = vis_ptr->addPointCloudNormals<pcl::PointXYZRGB, pcl::Normal>
-		(
-			cloud_ptr,
-			normals_ptr,
-			(int)level,
-			(float)scale,
-			native_id_str,
-			(int)viewport
-			);
+	bool added = vis_ptr->addPointCloudNormals<pcl::PointXYZRGB, pcl::Normal>(
+		cloud_ptr,
+		normals_ptr,
+		(int)level,
+		(float)scale,
+		native_id_str,
+		(int)viewport);
 
 	env->ReleaseStringUTFChars(id, native_id);
 

@@ -2,7 +2,7 @@ package de.i3mainz.pcl.visualization;
 
 import de.i3mainz.pcl.Point;
 import de.i3mainz.pcl.PointCloud;
-import de.i3mainz.pcl.PointCloudN;
+import de.i3mainz.pcl.NormalCloud;
 import de.i3mainz.pcl.nat.NativeObject;
 
 /**
@@ -17,6 +17,9 @@ public abstract class Visualizer<PointT extends Point> extends NativeObject {
 
 	@Override
 	protected native void alloc();
+	
+	@Override
+	public native void dispose();
 	
 	/**
 	 * Stop the interaction and close the visualizaton window.
@@ -83,7 +86,7 @@ public abstract class Visualizer<PointT extends Point> extends NativeObject {
 	 */
 	public abstract boolean addPointCloudNormals(
 		PointCloud<PointT> cloud, 
-		PointCloudN normals, 
+		NormalCloud normals, 
 		int level,
 		float scale,
 		String id,

@@ -17,6 +17,14 @@ JNIEXPORT void JNICALL Java_de_i3mainz_pcl_visualization_Visualizer_alloc
 
 /*
  * Class:     de_i3mainz_pcl_visualization_Visualizer
+ * Method:    dispose
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_de_i3mainz_pcl_visualization_Visualizer_dispose
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     de_i3mainz_pcl_visualization_Visualizer
  * Method:    close
  * Signature: ()V
  */

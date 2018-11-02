@@ -10,6 +10,9 @@ public class Normal extends NativeObject implements Point, Cloneable {
 
 	@Override
 	protected native void alloc();
+	
+	@Override
+	public native void dispose();
 
 	public native float getX();
 	

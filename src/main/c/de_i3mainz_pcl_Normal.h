@@ -17,6 +17,14 @@ JNIEXPORT void JNICALL Java_de_i3mainz_pcl_Normal_alloc
 
 /*
  * Class:     de_i3mainz_pcl_Normal
+ * Method:    dispose
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_de_i3mainz_pcl_Normal_dispose
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     de_i3mainz_pcl_Normal
  * Method:    getX
  * Signature: ()F
  */

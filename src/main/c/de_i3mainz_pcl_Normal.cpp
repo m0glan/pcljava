@@ -6,49 +6,59 @@
 void Java_de_i3mainz_pcl_Normal_alloc
 (JNIEnv *env, jobject obj)
 {
-	sptr_wrapper<pcl::Normal> *n_ptr_w = new sptr_wrapper<pcl::Normal>();
+	pcl::Normal *normal_ptr = new pcl::Normal();
 
-	n_ptr_w->instantiate(env, obj);
+	set_handle(env, obj, normal_ptr);
+}
+
+void Java_de_i3mainz_pcl_Normal_dispose
+(JNIEnv *env, jobject obj)
+{
+	pcl::Normal *normal_ptr = get_handle<pcl::Normal>(env, obj);
+
+	delete normal_ptr;
+
+	set_handle<pcl::Normal>(env, obj, nullptr);
 }
 
 jfloat Java_de_i3mainz_pcl_Normal_getX
 (JNIEnv *env, jobject obj)
 {
-	return sptr_wrapper<pcl::Normal>::get_sptr(env, obj)->normal_x;
+	return get_handle<pcl::Normal>(env, obj)->normal_x;
 }
 
 void Java_de_i3mainz_pcl_Normal_setX
 (JNIEnv *env, jobject obj, jfloat x)
 {
-	sptr_wrapper<pcl::Normal>::get_sptr(env, obj)->normal_x = x;
+	get_handle<pcl::Normal>(env, obj)->normal_x = x;
 }
 
 jfloat Java_de_i3mainz_pcl_Normal_getY
 (JNIEnv *env, jobject obj)
 {
-	return sptr_wrapper<pcl::Normal>::get_sptr(env, obj)->normal_y;
+	return get_handle<pcl::Normal>(env, obj)->normal_y;
 }
 
 void Java_de_i3mainz_pcl_Normal_setY
 (JNIEnv *env, jobject obj, jfloat y)
 {
-	sptr_wrapper<pcl::Normal>::get_sptr(env, obj)->normal_y = y;
+	get_handle<pcl::Normal>(env, obj)->normal_y = y;
 }
 
 jfloat Java_de_i3mainz_pcl_Normal_getZ
 (JNIEnv *env, jobject obj)
 {
-	return sptr_wrapper<pcl::Normal>::get_sptr(env, obj)->normal_z;
+	return get_handle<pcl::Normal>(env, obj)->normal_z;
 }
 
 void Java_de_i3mainz_pcl_Normal_setZ
 (JNIEnv *env, jobject obj, jfloat z)
 {
-	sptr_wrapper<pcl::Normal>::get_sptr(env, obj)->normal_z = z;
+	get_handle<pcl::Normal>(env, obj)->normal_z = z;
 }
 
 jfloat Java_de_i3mainz_pcl_Normal_getCurvature
 (JNIEnv *env, jobject obj)
 {
-	return sptr_wrapper<pcl::Normal>::get_sptr(env, obj)->curvature;
+	return get_handle<pcl::Normal>(env, obj)->curvature;
 }

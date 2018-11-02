@@ -7,10 +7,10 @@ import org.junit.jupiter.api.Test;
 import de.i3mainz.pcl.NormalEstimation;
 import de.i3mainz.pcl.Point3d;
 import de.i3mainz.pcl.PointCloud3d;
-import de.i3mainz.pcl.PointCloudN;
-import de.i3mainz.pcl.io.Cloud3dReader;
+import de.i3mainz.pcl.NormalCloud;
+import de.i3mainz.pcl.io.PointCloud3dReader;
 
-class SimpleVisualizerTest {
+class Visualizer3dTest {
 
 	static {	
 		System.loadLibrary("pcl_java");
@@ -20,17 +20,22 @@ class SimpleVisualizerTest {
 	void test() {
 		ClassLoader classLoader = getClass().getClassLoader();
 		File sample = new File(classLoader.getResource("pcl-samples/bunny.pcd").getFile());
-		Cloud3dReader reader = new Cloud3dReader();
+		PointCloud3dReader reader = new PointCloud3dReader();
 		
 		reader.read(sample.getAbsolutePath());
 		
 		PointCloud3d cloud = reader.getCloud();
+		
+		for (Point3d point : cloud) {
+			point.setRGB((short)255, (short)255, (short)255);
+		}
+		
 		NormalEstimation ne = new NormalEstimation(cloud, 0.03f);
 		
 		ne.run();
 		
-		PointCloudN normals = ne.getNormals();
-		Visualizer<Point3d> visualizer = new SimpleVisualizer();
+		NormalCloud normals = ne.getNormals();
+		Visualizer<Point3d> visualizer = new Visualizer3d();
 		
 		visualizer.create();
 		visualizer.setWindowName("Visualizer Test");

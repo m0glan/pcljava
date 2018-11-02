@@ -2,6 +2,7 @@ package de.i3mainz.pcl.io;
 
 import org.apache.commons.io.FilenameUtils;
 
+import de.i3mainz.pcl.Point;
 import de.i3mainz.pcl.PointCloud;
 
 /**
@@ -9,14 +10,14 @@ import de.i3mainz.pcl.PointCloud;
  * 
  * @author Vlad-Adrian Moglan
  */
-public abstract class CloudWriter<T extends PointCloud<?>> {
+public abstract class PointCloudWriter<PointT extends Point> {
 	
-	private T cloud;
+	private PointCloud<PointT> cloud;
 	
 	/**
 	 * @param cloud is the instance of {@code PointCloud} to be written.
 	 */
-	public CloudWriter(T cloud) {
+	public PointCloudWriter(PointCloud<PointT> cloud) {
 		this.cloud =  cloud;
 	}
 	
@@ -70,7 +71,7 @@ public abstract class CloudWriter<T extends PointCloud<?>> {
 	 * @param cloud to be written
 	 * @param binaryMode if false, the file is written in {@code ASCII} format.
 	 */
-	protected abstract void writePCD(String fileName, T cloud, boolean binaryMode);
+	protected abstract void writePCD(String fileName, PointCloud<PointT> cloud, boolean binaryMode);
 	
 	/**
 	 * Native implementation - writes a cloud to a PLY file.
@@ -79,6 +80,6 @@ public abstract class CloudWriter<T extends PointCloud<?>> {
 	 * @param cloud to be written
 	 * @param binaryMode if false, the file is written in {@code ASCII} format.
 	 */
-	protected abstract void writePLY(String fileName, T cloud, boolean binaryMode);
+	protected abstract void writePLY(String fileName, PointCloud<PointT> cloud, boolean binaryMode);
 
 }

@@ -3,7 +3,7 @@ package de.i3mainz.pcl;
 /**
  * Class corresponding to the native 
  * <a href="http://docs.pointclouds.org/trunk/classpcl_1_1_point_cloud.html#abc784b5dec409efe78bf21ad3776f334">
- * {@code pcl::PointCloud<pcl::PointXYZ>}
+ * {@code pcl::PointCloud<pcl::PointXYZRGB>}
  * </a>
  *  structure.
  */
@@ -11,6 +11,9 @@ public final class PointCloud3d extends PointCloud<Point3d> {
 	
 	@Override
 	public native void alloc();
+	
+	@Override
+	public native void dispose();
 	
 	@Override
 	public Point3d get(int i) {
@@ -43,7 +46,7 @@ public final class PointCloud3d extends PointCloud<Point3d> {
 	public PointCloud3d clone() {
 		PointCloud3d clone = new PointCloud3d();
 		
-		clone.alloc();
+		clone.create();
 		
 		for (Point3d point : this) {
 			Point3d pointClone = point.clone();
