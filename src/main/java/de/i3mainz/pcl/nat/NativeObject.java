@@ -23,7 +23,7 @@ public abstract class NativeObject {
 	 * Associates a native pointer allocated on the native side to this
 	 * object, if no such association exists.
 	 */
-	public final void create() {
+	public void create() {
 		if (handle != 0) {
 			dispose();
 		}
