@@ -37,6 +37,35 @@ public class ExampleGenerator {
 		return cloud;
 	}
 	
+	public static PointCloud3d generateImperfectSphere(Point3d min, Point3d max, int size) {
+		PointCloud3d cloud = new PointCloud3d();
+		
+		cloud.create();
+		
+		for (int i = 0; i < size; ++i) {
+			Point3d point = new Point3d();
+			
+			point.create();
+			point.setX(ExampleGenerator.randomFloat(min.getX(), max.getX()));
+			point.setY(ExampleGenerator.randomFloat(min.getY(), max.getY()));
+			
+			if (i % 5 == 0) {
+				point.setZ(ExampleGenerator.randomFloat(min.getZ(), max.getZ()));
+			} else if (i % 2 == 0) {
+				point.setZ((float)Math.sqrt(1 - (point.getX() * point.getX()) - (point.getY() * point.getY())));
+			} else {
+				point.setZ((float) -Math.sqrt(1 - (point.getX() * point.getX()) - (point.getY() * point.getY())));
+			}
+			
+			point.setRGB((short)255, (short)255, (short)255);
+			
+			cloud.add(point);
+			point.dispose();
+		}
+		
+		return cloud;
+	}
+	
 	public static float randomFloat(float min, float  max) {
 		return (float) (min + Math.random() * (max - min));
 	}

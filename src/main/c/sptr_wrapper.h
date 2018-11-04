@@ -20,15 +20,20 @@ public:
 	template <typename ...ARGS>
 	explicit sptr_wrapper(ARGS... a) 
 	{
-		sptr = boost::make_shared<T>(a...);
+		this->sptr = boost::make_shared<T>(a...);
 	}
 
-	explicit sptr_wrapper(std::shared_ptr<T> ptr) 
+	explicit sptr_wrapper(boost::shared_ptr<T> sptr) 
 	{
-		this->sptr = ptr;
+		this->sptr = sptr;
 	}
 	
 	virtual ~sptr_wrapper() noexcept = default;
+
+	void set_from_sptr(boost::shared_ptr<T> sptr) 
+	{
+		this.sptr = sptr;
+	}
 
 	/// \brief{Sets the address of \code{this} wrapper as a handle for a java object within a JNI environment.}
 	void instantiate(JNIEnv *env, jobject obj)
