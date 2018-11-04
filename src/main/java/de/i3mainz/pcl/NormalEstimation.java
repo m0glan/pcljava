@@ -5,9 +5,9 @@ package de.i3mainz.pcl;
  * the normal in each point. The steps are, for each point {@code p}:
  * 
  * <ol>
- *    <li> get {@code p}'s neighbors within a radius
- *    <li> form a plane with {@code p} and each of its neighbors, 2 by 2
- *    <li> compute the normal to each plane formed and perform an average at the end of the interation
+ *    <li> get {@code p}'s neighbors within a radius </li>
+ *    <li> form a plane with {@code p} and each of its neighbors, 2 by 2 </li>
+ *    <li> compute the normal to each plane formed and perform an average at the end of the interation </li>
  * </ol>
  * 
  * @author Vlad-Adrian Moglan

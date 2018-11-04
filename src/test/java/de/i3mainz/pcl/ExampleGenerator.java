@@ -37,11 +37,11 @@ public class ExampleGenerator {
 		return cloud;
 	}
 	
-	private static float randomFloat(float min, float  max) {
+	public static float randomFloat(float min, float  max) {
 		return (float) (min + Math.random() * (max - min));
 	}
 	
-	private static short randomShort() {
+	public static short randomShort() {
 		return (short) ThreadLocalRandom.current().nextInt(0, 255 + 1);
 	}
 	
