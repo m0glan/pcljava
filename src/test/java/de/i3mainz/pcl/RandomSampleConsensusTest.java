@@ -183,5 +183,52 @@ class RandomSampleConsensusTest {
 		source.dispose();
 		target.dispose();
 	}
+	
+	@Test
+	void sampleConsensusModelPlane() {
+		PointCloud3d source = ExampleGenerator.generatePointCloud3d(minPoint, maxPoint, CLOUD_SIZE);
+		SampleConsensusModelPlane model = new SampleConsensusModelPlane(source);
+		
+		model.create();
+		
+		RandomSampleConsensus ransac = new RandomSampleConsensus(model);
+		
+		ransac.create();
+		ransac.setDistanceThreshold(.01);
+		ransac.computeModel(0);
+		
+		PointCloud3d target = ransac.getInliners(source);
+		
+		for (Point3d point : target) {
+			point.setRGB((short)255, (short)0, (short)0);
+		}
+		
+		Visualizer3d visualizer = new Visualizer3d();
+		
+		assertTrue(target.size() > 0);
+		
+		visualizer.create();
+		visualizer.setWindowName("RANSAC Plane Result");
+		visualizer.setBackgroundColor(0.f, 0.f, 0.f);
+		visualizer.addCoordinateSystem(0.2, 0);
+		visualizer.addPointCloud(target, "target", 0);
+		visualizer.setPointSize(3, "target");
+		
+		while (!visualizer.wasStopped()) {
+			visualizer.spinOnce(100, false);
+			
+			try {
+				Thread.sleep(100);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		visualizer.dispose();
+		ransac.dispose();
+		model.dispose();
+		source.dispose();
+		target.dispose();
+	}
 
 }

@@ -2,7 +2,7 @@ package de.i3mainz.pcl;
 
 /**
  * SampleConsensusModelSphere defines a model for 3D sphere segmentation.
-
+ *
  * The model coefficients are defined as:
  * 
  * <ul>
