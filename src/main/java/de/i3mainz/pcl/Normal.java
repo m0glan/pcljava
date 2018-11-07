@@ -4,7 +4,9 @@ import de.i3mainz.pcl.math.Comparison;
 import de.i3mainz.pcl.nat.NativeObject;
 
 /**
- * Normal vector to a plane defined by its x, y and z components.
+ * A point structure representing normal coordinates and the surface curvature estimate.
+ * 
+ * @see <a href=http://docs.pointclouds.org/1.7.0/structpcl_1_1_normal.html>pcl::Normal documentation</a>
  */
 public class Normal extends NativeObject implements Point, Cloneable {
 

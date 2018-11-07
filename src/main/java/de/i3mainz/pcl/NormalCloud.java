@@ -1,11 +1,7 @@
 package de.i3mainz.pcl;
 
 /**
- * Class corresponding to the native 
- * <a href="http://docs.pointclouds.org/trunk/classpcl_1_1_point_cloud.html#abc784b5dec409efe78bf21ad3776f334">
- * {@code pcl::PointCloud<pcl::Normal>}
- * </a>
- *  structure.
+ * The class for storing an array of normals.
  */
 public class NormalCloud extends PointCloud<Normal> {
 

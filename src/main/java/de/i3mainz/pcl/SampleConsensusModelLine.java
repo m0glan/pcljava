@@ -13,6 +13,9 @@ package de.i3mainz.pcl;
  *  <li> line_direction.y : the Y coordinate of a line's direction </li>
  *  <li> line_direction.z : the Z coordinate of a line's direction </li>
  * </ul>
+ * 
+ * @see <a href=http://docs.pointclouds.org/trunk/classpcl_1_1_sample_consensus_model_line.html>
+ * pcl::SampleConsensusModelLine documentation</a>
  */
 public class SampleConsensusModelLine extends SampleConsensusModel {
 

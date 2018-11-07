@@ -4,10 +4,11 @@ import de.i3mainz.pcl.math.Comparison;
 import de.i3mainz.pcl.nat.NativeObject;
 
 /**
- * Class corresponding to the native <a href="http://docs.pointclouds.org/1.4.0/structpcl_1_1_point_x_y_z.html">
- * {@code pcl::PointXYZRGB}
+ * A point structure representing Euclidean xyz coordinates.
+ * 
+ * @see <a href="http://docs.pointclouds.org/1.8.0/structpcl_1_1_point_x_y_z.html">
+ * pcl::PointXYZRGB documentation
  * </a> 
- * structure.
  */
 public class Point3d extends NativeObject implements Point, Cloneable {
 	

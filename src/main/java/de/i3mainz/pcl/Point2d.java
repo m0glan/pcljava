@@ -3,6 +3,11 @@ package de.i3mainz.pcl;
 import de.i3mainz.pcl.math.Comparison;
 import de.i3mainz.pcl.nat.NativeObject;
 
+/**
+ * A 2D point structure representing Euclidean xy coordinates.
+ * 
+ * @see <a href=http://docs.pointclouds.org/1.8.1/structpcl_1_1_point_x_y.html>pcl::PointXY documentation</a>
+ */
 public class Point2d extends NativeObject implements Point, Cloneable {
 
 	@Override

@@ -5,6 +5,9 @@ import de.i3mainz.pcl.nat.NativeObject;
 /**
  * SampleConsensus represents the base class.
  * All sample consensus methods must inherit from this class.
+ * 
+ * @see <a href=http://docs.pointclouds.org/1.8.0/classpcl_1_1_sample_consensus.html>pcl::SampleConsensus
+ * documentation</a>
  */
 public abstract class SampleConsensus extends NativeObject {
 

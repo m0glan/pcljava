@@ -1,7 +1,7 @@
 package de.i3mainz.pcl;
 
 /**
- * Launches the {@code pcl::NormalEstimation} algorithm on the native side which computes 
+ * Launches the {@code pcl::NormalEstimation<PointInT, PointOutT>} algorithm on the native side which computes 
  * the normal in each point. The steps are, for each point {@code p}:
  * 
  * <ol>
@@ -10,7 +10,7 @@ package de.i3mainz.pcl;
  *    <li> compute the normal to each plane formed and perform an average at the end of the interation </li>
  * </ol>
  * 
- * @author Vlad-Adrian Moglan
+ * @see <a href=http://docs.pointclouds.org/1.8.0/classpcl_1_1_normal_estimation.html>pcl::NormalEstimation documentation</a>
  */
 public class NormalEstimation implements Runnable {
 

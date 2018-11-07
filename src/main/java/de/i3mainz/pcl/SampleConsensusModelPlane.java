@@ -2,7 +2,6 @@ package de.i3mainz.pcl;
 
 /**
  * SampleConsensusModelPlane defines a model for 3D plane segmentation.
- * 
  * The model coefficients are defined as:
  * 
  * <ul>
@@ -11,6 +10,9 @@ package de.i3mainz.pcl;
  *  <li> c : the Z coordinate of the plane's normal (normalized) </li>
  *  <li> d : the fourth Hessian component of the plane's equation</li>
  * </ul>
+ * 
+ * @see <a href=http://docs.pointclouds.org/trunk/classpcl_1_1_sample_consensus_model_plane.html>
+ * pcl::SampleConsensusModelPlane documentation</a>
  */
 public class SampleConsensusModelPlane extends SampleConsensusModel {
 

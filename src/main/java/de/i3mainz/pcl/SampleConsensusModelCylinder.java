@@ -2,7 +2,6 @@ package de.i3mainz.pcl;
 
 /**
  * SampleConsensusModelCylinder defines a model for 3D cylinder segmentation.
- *
  * The model coefficients are defined as:
  * 
  * <ul>
@@ -14,6 +13,9 @@ package de.i3mainz.pcl;
  *  <li> axis_direction.z : the Z coordinate of the cylinder's axis direction </li>
  *  <li> radius : the cylinder's radius </li>
  * </ul>
+ * 
+ * @see <a href=http://docs.pointclouds.org/trunk/classpcl_1_1_sample_consensus_model_cylinder.html>
+ * pcl::SampleConsensusModelCylinder documentation</a>
  */
 public class SampleConsensusModelCylinder extends SampleConsensusModel 
 	implements SampleConsensusModelFromNormals {

@@ -2,7 +2,6 @@ package de.i3mainz.pcl;
 
 /**
  * SampleConsensusModelCone defines a model for 3D cone segmentation.
-
  * The model coefficients are defined as:
  * 
  * <ul>
@@ -14,6 +13,9 @@ package de.i3mainz.pcl;
  *  <li> axis_direction.z : the Z coordinate of the cone's axis direction </li>
  *  <li> opening_angle : the cone's opening angle </li>
  * </ul>
+ * 
+ * @see <a href=http://docs.pointclouds.org/trunk/classpcl_1_1_sample_consensus_model_cone.html>
+ * pcl::SampleConsensusModelCone documentation</a>
  */
 public class SampleConsensusModelCone extends SampleConsensusModel
 	implements SampleConsensusModelFromNormals {

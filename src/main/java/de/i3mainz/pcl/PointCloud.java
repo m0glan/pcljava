@@ -5,11 +5,12 @@ import java.util.Iterator;
 import de.i3mainz.pcl.nat.NativeObject;
 
 /**
- * Class corresponding to the native 
- * <a href="http://docs.pointclouds.org/trunk/classpcl_1_1_point_cloud.html#abc784b5dec409efe78bf21ad3776f334">
- * {@code pcl::PointCloud<T>}
+ * PointCloud represents the base class in PCL for storing collections of 3D points.
+ * The class is templated, which means you need to specify the type of data that it should contain. 
+ * 
+ * @see <a href="http://docs.pointclouds.org/trunk/classpcl_1_1_point_cloud.html#abc784b5dec409efe78bf21ad3776f334">
+ * pcl::PointCloud documentation
  * </a>
- *  structure.
  */
 public abstract class PointCloud<PointT extends Point> 
 										extends NativeObject

@@ -6,12 +6,10 @@ import de.i3mainz.pcl.NormalCloud;
 import de.i3mainz.pcl.nat.NativeObject;
 
 /**
- * PCL Visualizer main class.
+ * PCL Visualizer base class.
  * 
- * Class corresponding to the native 
- * <a href="http://docs.pointclouds.org/1.8.1/classpcl_1_1visualization_1_1_p_c_l_visualizer.html">
- * {@code pcl::visualization::PCLVisualizer}
- * </a> class.
+ * @see <a href="http://docs.pointclouds.org/1.8.1/classpcl_1_1visualization_1_1_p_c_l_visualizer.html">
+ * pcl::visualization::PCLVisualizer documentation </a> class.
  */
 public abstract class Visualizer<PointT extends Point> extends NativeObject {
 
@@ -32,12 +30,12 @@ public abstract class Visualizer<PointT extends Point> extends NativeObject {
 	public native boolean wasStopped();
 	
 	/**
-	 * Create a new viewport from [xmin,ymin] -> [xmax,ymax].
+	 * Create a new viewport from (xmin,ymin) to (xmax,ymax).
 	 * 
-	 * @param xmin 	the minimum X coordinate for the viewport (0.0 <= 1.0)
-	 * @param ymin 	the minimum Y coordinate for the viewport (0.0 <= 1.0)
-	 * @param xmax 	the maximum X coordinate for the viewport (0.0 <= 1.0)
-	 * @param ymax 	the maximum Y coordinate for the viewport (0.0 <= 1.0)
+	 * @param xmin 	the minimum X coordinate for the viewport (0.0 lesser or equal to 1.0)
+	 * @param ymin 	the minimum Y coordinate for the viewport (0.0 lesser or equal 1.0)
+	 * @param xmax 	the maximum X coordinate for the viewport (0.0 lesser or equal 1.0)
+	 * @param ymax 	the maximum Y coordinate for the viewport (0.0 lesser or equal 1.0)
 	 * @param viewport the id of the new viewport
 	 */
 	public native void createViewport(double xmin, double ymin, double xmax, double ymax, int viewport);

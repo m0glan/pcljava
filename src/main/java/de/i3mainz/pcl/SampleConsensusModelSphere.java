@@ -2,7 +2,6 @@ package de.i3mainz.pcl;
 
 /**
  * SampleConsensusModelSphere defines a model for 3D sphere segmentation.
- *
  * The model coefficients are defined as:
  * 
  * <ul>
@@ -10,6 +9,9 @@ package de.i3mainz.pcl;
  *  <li> center.y : the Y coordinate of the sphere's center </li>
  *  <li> center.z : the Z coordinate of the sphere's center </li>
  * </ul>
+ * 
+ * @see <a href=http://docs.pointclouds.org/trunk/classpcl_1_1_sample_consensus_model_sphere.html>
+ * pcl::SampleConsensusModelSphere documentation</a>
  */
 public class SampleConsensusModelSphere extends SampleConsensusModel {
 
