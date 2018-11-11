@@ -63,14 +63,14 @@ public class NativeLibraryLoader {
 				zipPath += "win-x86.zip";
 			}
 		} else {
-			if (System.getProperty("os.name").contains("linux")) {
+			if (System.getProperty("os.name").toLowerCase().contains("linux")) {
 				if (System.getProperty("os.arch").toLowerCase().contains("64")) {
 					zipPath += "linux-x86_64.zip";
 				} else {
 					zipPath += "linux-x86.zip";
 				}
 			} else {
-				if (System.getProperty("os.name").contains("mac")) {
+				if (System.getProperty("os.name").toLowerCase().contains("mac")) {
 					zipPath += "macos";
 				}
 			}
