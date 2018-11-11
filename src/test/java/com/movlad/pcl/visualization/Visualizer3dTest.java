@@ -1,6 +1,7 @@
 package com.movlad.pcl.visualization;
 
 import java.io.File;
+import java.io.IOException;
 
 import org.junit.jupiter.api.Test;
 
@@ -9,13 +10,18 @@ import com.movlad.pcl.NormalEstimation;
 import com.movlad.pcl.Point3d;
 import com.movlad.pcl.PointCloud3d;
 import com.movlad.pcl.io.PointCloud3dReader;
+import com.movlad.pcl.nat.NativeLibraryLoader;
 import com.movlad.pcl.visualization.Visualizer;
 import com.movlad.pcl.visualization.Visualizer3d;
 
 class Visualizer3dTest {
 
 	static {	
-		System.loadLibrary("pcl_java");
+		try {
+			NativeLibraryLoader.load();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@Test

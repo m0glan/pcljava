@@ -3,6 +3,7 @@ package com.movlad.pcl.io;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.File;
+import java.io.IOException;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -13,6 +14,7 @@ import com.movlad.pcl.Point3d;
 import com.movlad.pcl.PointCloud3d;
 import com.movlad.pcl.io.PointCloud3dReader;
 import com.movlad.pcl.io.PointCloud3dWriter;
+import com.movlad.pcl.nat.NativeLibraryLoader;
 
 class PointCloud3dReadWriteTest {
 
@@ -21,7 +23,11 @@ class PointCloud3dReadWriteTest {
 	private static Point3d maxPoint;
 
 	static {	
-		System.loadLibrary("pcl_java");
+		try {
+			NativeLibraryLoader.load();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@BeforeAll
@@ -51,11 +57,12 @@ class PointCloud3dReadWriteTest {
 		exporter.write("cloud-export-test.pcd");
 		reader.read("cloud-export-test.pcd");
 		
-		assertEquals(pointCloud.size(), reader.getCloud().size());
-		
 		File file = new File("cloud-export-test.pcd");
 		
-		file.delete();
+		file.deleteOnExit();
+		
+		assertEquals(pointCloud.size(), reader.getCloud().size());
+		
 		pointCloud.dispose();
 	}
 	
@@ -68,11 +75,12 @@ class PointCloud3dReadWriteTest {
 		exporter.write("cloud-export-test.ply");
 		reader.read("cloud-export-test.ply");
 		
-		assertEquals(pointCloud.size(), reader.getCloud().size());
-		
 		File file = new File("cloud-export-test.ply");
 		
-		file.delete();
+		file.deleteOnExit();
+		
+		assertEquals(pointCloud.size(), reader.getCloud().size());
+		
 		pointCloud.dispose();
 	}
 

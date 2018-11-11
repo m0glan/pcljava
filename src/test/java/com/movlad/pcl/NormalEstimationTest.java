@@ -3,6 +3,7 @@ package com.movlad.pcl;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.File;
+import java.io.IOException;
 
 import org.junit.jupiter.api.Test;
 
@@ -10,11 +11,16 @@ import com.movlad.pcl.NormalCloud;
 import com.movlad.pcl.NormalEstimation;
 import com.movlad.pcl.PointCloud3d;
 import com.movlad.pcl.io.PointCloud3dReader;
+import com.movlad.pcl.nat.NativeLibraryLoader;
 
 class NormalEstimationTest {
 
 	static {	
-		System.loadLibrary("pcl_java");
+		try {
+			NativeLibraryLoader.load();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@Test
