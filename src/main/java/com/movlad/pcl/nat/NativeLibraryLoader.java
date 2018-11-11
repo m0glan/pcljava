@@ -10,53 +10,91 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipInputStream;
 
+/**
+ * Unpacks and loads the necessary native library files for pcl-java
+ */
 public class NativeLibraryLoader {
-	private static final String LIB_ZIP_WIN32 = "win.zip";
-	private static final String LIB_ZIP_WIN64 = "win-x64.zip";
-	private static final String LIB_ZIP_LINUX32 = "linux.zip";
-	private static final String LIB_ZIP_LINUX64 = "linux-x64.zip";
-	private static final String LIB_NAME = "pcl_java";
 	
 	private NativeLibraryLoader() { }
 	
+	/**
+	 * Unpacks and loads the necessary native library files for pcl-java
+	 * 
+	 * @throws IOException if the unpack method fails to unpack the {@code .zip} file
+	 */
 	public static void load() throws IOException {
-		String sourcePath = "bin-lib/";
-		String targetDirPath = "./";
-		//String targetDirPath = System.getProperty("user.home") + "/Documents/pcl-java/bin-lib/";
+		unpack();
+		System.loadLibrary("pcl_java");
+	}
+	
+	/**
+	 * Additionally adds a shutdown hook for Windows machines so that unpacked {@code .dll} can be
+	 * deleted a certain period after the program is ended. The reason behind can be found within a
+	 * Window limitation that keeps the library files loaded longer.
+	 * 
+	 * @return the correct {@code .zip} file to unpack based on the architecture of the system
+	 * (as perceived by the JVM)
+	 */
+	private static String pathFromArchitecture() {
+		String zipPath = "bin-lib/";
 		
-		File targetDir = new File(targetDirPath);
+		// selecting zip file to unpack based on architecture
 		
-		if (!targetDir.exists()) {
-			targetDir.mkdirs();
-		}
-		
-		String operatingSystem = System.getProperty("os.name").toLowerCase();
-		String architecture = System.getProperty("os.arch").toLowerCase();
-		
-		if (operatingSystem.contains("windows")) {
-			if (architecture.contains("64")) {
-				sourcePath += LIB_ZIP_WIN64;
+		if (System.getProperty("os.name").toLowerCase().contains("windows")) {
+			// hook used for deleting left-over temporary files on Windows after
+			// they have been unloaded from the JVM
+			
+			Runtime.getRuntime().addShutdownHook(new Thread() {
+			    public void run() {
+			    	try {
+			    		// deleting files after two seconds using a Windows command
+			    		
+						new ProcessBuilder("cmd","/c","ping 127.0.0.1 -n 2 > nul && del *.dll")
+						.inheritIO().start();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+			    }
+			});
+			
+			if (System.getProperty("os.arch").toLowerCase().contains("64")) {
+				zipPath += "win-x86_64.zip";
 			} else {
-				sourcePath += LIB_ZIP_WIN32;
+				zipPath += "win-x86.zip";
 			}
 		} else {
-			if (operatingSystem.contains("linux")) {
-				if (architecture.contains("64")) {
-					sourcePath += LIB_ZIP_LINUX64;
+			if (System.getProperty("os.name").contains("linux")) {
+				if (System.getProperty("os.arch").toLowerCase().contains("64")) {
+					zipPath += "linux-x86_64.zip";
 				} else {
-					sourcePath += LIB_ZIP_LINUX32;
+					zipPath += "linux-x86.zip";
+				}
+			} else {
+				if (System.getProperty("os.name").contains("mac")) {
+					zipPath += "macos";
 				}
 			}
 		}
 		
-		ZipFile zf = new ZipFile(NativeLibraryLoader.class.getClassLoader().getResource(sourcePath).getFile().toString());
-		InputStream is = NativeLibraryLoader.class.getClassLoader().getResourceAsStream(sourcePath);
+		return zipPath;
+	}
+	
+	/**
+	 * Unpacks the {@code .zip} containing the native library files within the current directory.
+	 * 
+	 * @throws IOException if something goes wrong unpacking the {@code .zip} file
+	 */
+	private static void unpack() throws IOException {
+		String zipPath = pathFromArchitecture();
+		
+		ZipFile zf = new ZipFile(NativeLibraryLoader.class.getClassLoader().getResource(zipPath).getFile().toString());
+		InputStream is = NativeLibraryLoader.class.getClassLoader().getResourceAsStream(zipPath);
 		ZipInputStream zis = new ZipInputStream(is);
 		ZipEntry entry;
 		
 		while ((entry = zis.getNextEntry()) != null) {
 			InputStream eis = zf.getInputStream(entry);
-			File targetFile = new File(targetDirPath + entry.getName());
+			File targetFile = new File("./" + entry.getName());
 			
 			targetFile.deleteOnExit();
 			
@@ -66,8 +104,6 @@ public class NativeLibraryLoader {
 				Files.copy(eis, path);
 			}
 		}
-		
-		System.loadLibrary(LIB_NAME);
 		
 		zf.close();
 	}
