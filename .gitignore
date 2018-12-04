@@ -1,8 +1,7 @@
 /target/
 /bin/
-PCL_JAVA.dll
-PCL_JAVA.ilk
-PCL_JAVA.pdb
 /.gradle/
 *.dll
 *.so
+CMakeCache.txt
+/build/
