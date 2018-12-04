@@ -7,3 +7,4 @@ CMakeCache.txt
 build/
 CMakeFiles/
 *.cmake
+Makefile
