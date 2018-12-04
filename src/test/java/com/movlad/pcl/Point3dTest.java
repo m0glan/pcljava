@@ -7,7 +7,7 @@ import java.io.IOException;
 import org.junit.jupiter.api.Test;
 
 import com.movlad.pcl.Point3d;
-import com.movlad.pcl.nat.NativeLibraryLoader;
+import com.movlad.pcl.nat.NativeUtils;
 
 public class Point3dTest {
 	
@@ -17,7 +17,7 @@ public class Point3dTest {
 	
 	static {	
 		try {
-			NativeLibraryLoader.load();
+			NativeUtils.load();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

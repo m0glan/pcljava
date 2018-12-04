@@ -4,7 +4,7 @@ cmake_policy(SET CMP0048 "NEW")
 
 project(PCL_JAVA VERSION 0.5)
 
-set(TARGET_NAME "pcl-java")
+set(TARGET_NAME "pcl_java")
 set(LIBRARY_OUTPUT_DIRECTORY bin)
 
 find_package(JNI REQUIRED)

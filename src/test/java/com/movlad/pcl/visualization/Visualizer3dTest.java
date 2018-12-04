@@ -10,7 +10,7 @@ import com.movlad.pcl.NormalEstimation;
 import com.movlad.pcl.Point3d;
 import com.movlad.pcl.PointCloud3d;
 import com.movlad.pcl.io.PointCloud3dReader;
-import com.movlad.pcl.nat.NativeLibraryLoader;
+import com.movlad.pcl.nat.NativeUtils;
 import com.movlad.pcl.visualization.Visualizer;
 import com.movlad.pcl.visualization.Visualizer3d;
 
@@ -18,7 +18,7 @@ class Visualizer3dTest {
 
 	static {	
 		try {
-			NativeLibraryLoader.load();
+			NativeUtils.load();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
