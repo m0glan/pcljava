@@ -9,7 +9,7 @@ class NativeLibraryLoaderTest {
 	@Test
 	void test() {
 		try {
-			NativeUtils.load();
+			NativeLoader.load();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

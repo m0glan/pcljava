@@ -11,13 +11,13 @@ import com.movlad.pcl.NormalCloud;
 import com.movlad.pcl.NormalEstimation;
 import com.movlad.pcl.PointCloud3d;
 import com.movlad.pcl.io.PointCloud3dReader;
-import com.movlad.pcl.nat.NativeUtils;
+import com.movlad.pcl.nat.NativeLoader;
 
 class NormalEstimationTest {
 
 	static {	
 		try {
-			NativeUtils.load();
+			NativeLoader.load();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

@@ -14,7 +14,7 @@ import com.movlad.pcl.Point3d;
 import com.movlad.pcl.PointCloud3d;
 import com.movlad.pcl.io.PointCloud3dReader;
 import com.movlad.pcl.io.PointCloud3dWriter;
-import com.movlad.pcl.nat.NativeUtils;
+import com.movlad.pcl.nat.NativeLoader;
 
 class PointCloud3dReadWriteTest {
 
@@ -24,7 +24,7 @@ class PointCloud3dReadWriteTest {
 
 	static {	
 		try {
-			NativeUtils.load();
+			NativeLoader.load();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

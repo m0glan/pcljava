@@ -13,9 +13,9 @@ import java.util.jar.JarInputStream;
 /**
  * Unpacks and loads the necessary native library files for pcl-java
  */
-public class NativeUtils {
+public class NativeLoader {
 	
-	private NativeUtils() { }
+	private NativeLoader() { }
 	
 	/**
 	 * Unpacks and loads the necessary native library files for pcl-java
@@ -75,17 +75,21 @@ public class NativeUtils {
 	 * 
 	 * @throws IOException if something goes wrong unpacking the {@code .jar} file
 	 */
-	private static void unpack() throws IOException {
+	private static void unpack() throws IOException, SystemNotSupportedException {
 		String systemInfo = getSystemInfo();
 		
-		JarFile jf = new JarFile(NativeUtils.class.getClassLoader().getResource("natives.jar").getFile().toString());
-		InputStream is = NativeUtils.class.getClassLoader().getResourceAsStream("natives.jar");
+		JarFile jf = new JarFile(NativeLoader.class.getClassLoader().getResource("natives.jar").getFile().toString());
+		InputStream is = NativeLoader.class.getClassLoader().getResourceAsStream("natives.jar");
 		JarInputStream jis = new JarInputStream(is);
 		JarEntry je;
+		
+		boolean systemIsSupported = false;
 		
 		while ((je = jis.getNextJarEntry()) != null) {
 			if (!je.isDirectory()) {
 				if (je.getName().contains(systemInfo)) {
+					systemIsSupported = true;
+					
 					InputStream eis = jf.getInputStream(je);
 					File targetFile = new File(je.getName());
 					
@@ -103,6 +107,10 @@ public class NativeUtils {
 		
 		jis.close();
 		jf.close();
+		
+		if (!systemIsSupported) {
+			throw new SystemNotSupportedException();
+		}
 	}
 	
 }

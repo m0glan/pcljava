@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import com.movlad.pcl.Normal;
 import com.movlad.pcl.math.Comparison;
-import com.movlad.pcl.nat.NativeUtils;
+import com.movlad.pcl.nat.NativeLoader;
 
 class NormalTest {
 	
@@ -18,7 +18,7 @@ class NormalTest {
 
 	static {	
 		try {
-			NativeUtils.load();
+			NativeLoader.load();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
