@@ -5,15 +5,15 @@
     <artifactId>pcl-java</artifactId>
     <version>0.5.0</version>
   </parent>
-  
+
   <groupId>com.movlad.pcl-java</groupId>
   <artifactId>pcl-java-all</artifactId>
   <name>PCL Java All</name>
   <description>Contains the Java and C codes for the PCL Java project and all dependencies.</description>
-  
+
   <!-- project repositories -->
   <repositories>
-  	<repository>
+    <repository>
       <id>maven-releases</id>
       <name>maven-releases</name>
       <url>http://localhost:8081/repository/maven-releases/</url>
@@ -21,47 +21,47 @@
   </repositories>
 
   <!-- profiles for unpacking natives based on operating system and architecture -->
-  
+
   <!-- linux -->
   <profiles>
     <profile>
       <id>linux-x86_64</id>
-        
+
       <activation>
-	      <os>
-	        <name>Linux</name>
-	        <family>unix</family>
-	        <arch>amd64</arch>
-	      </os>
-	    </activation>
+        <os>
+          <name>Linux</name>
+          <family>unix</family>
+          <arch>amd64</arch>
+        </os>
+      </activation>
 
       <dependencies>
         <dependency>
-              <groupId>com.movlad.pcl-java</groupId>
-              <artifactId>natives-pcl-linux-x86_64</artifactId>
-              <version>1.8.1</version>
-              <classifier>natives-pcl</classifier>
+          <groupId>com.movlad.pcl-java</groupId>
+          <artifactId>natives-pcl-linux-x86_64</artifactId>
+          <version>1.8.1</version>
+          <classifier>natives-pcl</classifier>
         </dependency>
-          
+
         <dependency>
-            <groupId>com.movlad.pcl-java</groupId>
-            <artifactId>natives-pcl-java-linux-x86_64</artifactId>
-            <version>0.5.0</version>
-            <classifier>natives-pcl-java</classifier>
+          <groupId>com.movlad.pcl-java</groupId>
+          <artifactId>natives-pcl-java-linux-x86_64</artifactId>
+          <version>0.5.0</version>
+          <classifier>natives-pcl-java</classifier>
         </dependency>
-		  </dependencies>
+      </dependencies>
     </profile>
 
     <!-- windows -->
     <profile>
       <id>win32-x86_64</id>
-        
+
       <activation>
-	      <os>
-	        <family>windows</family>
-	        <arch>amd64</arch>
-	      </os>
-	    </activation>
+        <os>
+          <family>windows</family>
+          <arch>amd64</arch>
+        </os>
+      </activation>
 
       <dependencies>
         <dependency>
@@ -70,7 +70,7 @@
           <version>1.8.1</version>
           <classifier>natives-pcl</classifier>
         </dependency>
-          
+
         <dependency>
           <groupId>com.movlad.pcl-java</groupId>
           <artifactId>natives-pcl-java-win32-x86_64</artifactId>
@@ -80,7 +80,7 @@
       </dependencies>
     </profile>
   </profiles>
-  
+
   <build>
     <plugins>
 
@@ -93,16 +93,16 @@
           <target>1.8</target>
         </configuration>
       </plugin>
-        
+
       <!-- maven surefire for tests -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-surefire-plugin</artifactId>
-          <version>2.22.0</version>
-          <configuration>
-            <forkMode>once</forkMode>
-            <argLine>-Djava.library.path=target/natives</argLine>
-          </configuration>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.22.0</version>
+        <configuration>
+          <forkMode>once</forkMode>
+          <argLine>-Djava.library.path=target/natives</argLine>
+        </configuration>
       </plugin>
 
       <!-- unpacking natives in the target folder -->
@@ -111,47 +111,47 @@
         <artifactId>nativedependencies-maven-plugin</artifactId>
         <version>1.0.6</version>
         <executions>
-            <execution>
-                <id>unpacknatives</id>
-                <phase>generate-resources</phase>
-                <goals>
-                    <goal>copy</goal>
-                </goals>
-            </execution>
+          <execution>
+            <id>unpacknatives</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>copy</goal>
+            </goals>
+          </execution>
         </executions>
       </plugin>
     </plugins>
   </build>
-  
+
   <distributionManagement>
     <repository>
-        <id>maven-releases</id>
-        <url>http://localhost:8081/repository/maven-releases/</url>
+      <id>maven-releases</id>
+      <url>http://localhost:8081/repository/maven-releases/</url>
     </repository>
   </distributionManagement>
-  
+
   <!-- cross platform dependencies -->
   <dependencies>
-  	<dependency>
+    <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-engine</artifactId>
       <version>5.2.0</version>
       <scope>test</scope>
     </dependency>
-   
+
     <dependency>
       <groupId>org.junit.vintage</groupId>
       <artifactId>junit-vintage-engine</artifactId>
       <version>5.2.0</version>
       <scope>test</scope>
     </dependency>
-   
-   <dependency>
-    <groupId>commons-io</groupId>
-    <artifactId>commons-io</artifactId>
-    <version>2.6</version>
-   </dependency>
- </dependencies>
- 
- <packaging>jar</packaging>
+
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>2.6</version>
+    </dependency>
+  </dependencies>
+
+  <packaging>jar</packaging>
 </project>
