@@ -1,8 +1,6 @@
 target/
 bin/
 .gradle/
-*.dll
-*.so
 CMakeCache.txt
 build/
 CMakeFiles/

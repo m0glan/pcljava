@@ -35,12 +35,14 @@
               <groupId>com.movlad.pcl-java</groupId>
               <artifactId>natives-pcl-linux-x86_64</artifactId>
               <version>1.8.1</version>
+              <classifier>natives-pcl</classifier>
         </dependency>
           
         <dependency>
             <groupId>com.movlad.pcl-java</groupId>
             <artifactId>natives-pcl-java-linux-x86_64</artifactId>
             <version>0.5.0</version>
+            <classifier>natives-pcl-java</classifier>
         </dependency>
 		  </dependencies>
     </profile>
