@@ -1,0 +1,75 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.movlad.pcl-java.examples</groupId>
+  <artifactId>sphere-detection</artifactId>
+  <version>1.0.0</version>
+  <name>Sphere Detection Example</name>
+  <description>An example that demonstrates how to use the PCL Java project.</description>
+  
+  <!-- project repositories -->
+  <repositories>
+  	<repository>
+      <id>maven-releases</id>
+      <name>maven-releases</name>
+      <url>http://localhost:8081/repository/maven-releases/</url>
+    </repository>
+  </repositories>
+  
+  <build>
+   <plugins>
+	  	<plugin>
+	        <artifactId>maven-compiler-plugin</artifactId>
+	        <version>3.7.0</version>
+	        <configuration>
+	          <source>1.8</source>
+	          <target>1.8</target>
+	        </configuration>
+      	</plugin>
+	  
+	   	<plugin>
+		    <groupId>org.codehaus.mojo</groupId>
+		    <artifactId>exec-maven-plugin</artifactId>
+		    <version>1.6.0</version>
+		    
+		    <configuration>
+		    	<executable>java</executable>
+				<arguments>
+					<!-- the next line sets java library path to where the natives are unpacked -->
+					<argument>-Djava.library.path=${project.build.directory}/natives</argument> 
+					<argument>-classpath</argument>
+					<classpath />
+					<argument>com.movlad.pcl.examples.SphereDetection</argument> <!-- main class -->
+				</arguments>
+	   		</configuration>
+	     </plugin>
+	     
+	     <!-- unpacking natives in the target folder -->
+	      <plugin>
+	        <groupId>com.teamtter.mavennatives</groupId>
+	        <artifactId>nativedependencies-maven-plugin</artifactId>
+	        <version>1.0.6</version>
+	        <executions>
+	            <execution>
+	                <id>unpacknatives</id>
+	                <phase>generate-resources</phase>
+	                <goals>
+	                    <goal>copy</goal>
+	                </goals>
+	            </execution>
+	        </executions>
+	      </plugin>
+	  </plugins>
+  </build>
+  
+  <!-- 
+  	the pcl-java-all dependency contains the java and c source codes for pcl-java, as well as the 
+  	the native dependencies
+   -->
+  <dependencies>
+  	<dependency>
+      <groupId>com.movlad.pcl-java</groupId>
+      <artifactId>pcl-java-all</artifactId>
+      <version>0.5.0</version>
+    </dependency>
+  </dependencies>
+</project>

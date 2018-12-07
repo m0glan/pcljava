@@ -1,9 +1,7 @@
 target/
-bin/
-.gradle/
-CMakeCache.txt
 build/
 CMakeFiles/
+CMakeCache.txt
 *.cmake
-Makefile
 *.jar
+Makefile
