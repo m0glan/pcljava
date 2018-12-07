@@ -2,12 +2,9 @@ package com.movlad.pcl;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.io.IOException;
-
 import org.junit.jupiter.api.Test;
 
 import com.movlad.pcl.Point3d;
-import com.movlad.pcl.nat.NativeLoader;
 
 public class Point3dTest {
 	
@@ -16,11 +13,7 @@ public class Point3dTest {
 	private static final float EX_Z = 5;
 	
 	static {	
-		try {
-			NativeLoader.load();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		System.loadLibrary("pcl_java");
 	}
 	
 	@Test

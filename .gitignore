@@ -8,3 +8,4 @@ build/
 CMakeFiles/
 *.cmake
 Makefile
+*.jar

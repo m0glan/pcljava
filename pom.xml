@@ -1,13 +1,83 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>de.i3mainz</groupId>
+  <groupId>com.movlad</groupId>
   <artifactId>pcl-java</artifactId>
-  <version>0.5.0-SNAPSHOT</version>
+  <version>0.5.0</version>
   <name>PCL Java</name>
   <description>A port of the Point Cloud Library (PCL) using Java Native Interface (JNI).</description>
   
+  <!-- project repositories -->
+  <repositories>
+  	<repository>
+      <id>maven-releases</id>
+      <name>maven-releases</name>
+      <url>http://localhost:8081/repository/maven-releases/</url>
+    </repository>
+  </repositories>
+
+  <!-- profiles for unpacking natives based on operating system and architecture -->
+  
+  <!-- linux -->
+  <profiles>
+    <profile>
+      <id>linux</id>
+        
+      <activation>
+	      <os>
+	        <name>Linux</name>
+	        <family>unix</family>
+	        <arch>amd64</arch>
+	      </os>
+	    </activation>
+
+      <dependencies>
+        <dependency>
+              <groupId>com.movlad.pcl-java</groupId>
+              <artifactId>natives-pcl-linux-x86_64</artifactId>
+              <version>1.8.1</version>
+        </dependency>
+          
+        <dependency>
+            <groupId>com.movlad.pcl-java</groupId>
+            <artifactId>natives-pcl-java-linux-x86_64</artifactId>
+            <version>0.5.0</version>
+        </dependency>
+		  </dependencies>
+    </profile>
+
+    <!-- windows -->
+    <profile>
+      <id>win32</id>
+        
+      <activation>
+	      <os>
+	        <family>windows</family>
+	        <arch>amd64</arch>
+	      </os>
+	    </activation>
+
+      <dependencies>
+        <dependency>
+          <groupId>com.movlad.pcl-java</groupId>
+          <artifactId>natives-pcl-win32-x86_64</artifactId>
+          <version>1.8.1</version>
+          <classifier>natives-pcl</classifier>
+        </dependency>
+          
+        <dependency>
+          <groupId>com.movlad.pcl-java</groupId>
+          <artifactId>natives-pcl-java-win32-x86_64</artifactId>
+          <version>0.5.0</version>
+          <classifier>natives-pcl-java</classifier>
+        </dependency>
+      </dependencies>
+    </profile>
+  </profiles>
+  
   <build>
     <plugins>
+
+      <!-- compiling using java 1.8 -->
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.7.0</version>
@@ -16,18 +86,20 @@
           <target>1.8</target>
         </configuration>
       </plugin>
-      
+        
+      <!-- maven surefire for tests -->
       <plugin>
-	  	<groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.22.0</version>
-        <configuration>
-         <groups>acceptance | !feature-a</groups>
-         <excludedGroups>integration, regression</excludedGroups>
-        </configuration>
-	   </plugin>
-	   
-	   <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>2.22.0</version>
+          <configuration>
+            <forkMode>once</forkMode>
+            <argLine>-Djava.library.path=target/natives</argLine>
+          </configuration>
+      </plugin>
+
+      <!-- packing all dependencies as one big jar -->
+      <plugin>
         <artifactId>maven-assembly-plugin</artifactId>
         <version>3.1.0</version>
         <configuration>
@@ -44,35 +116,94 @@
             </goals>
           </execution>
         </executions>
-	   </plugin>
+      </plugin>
+
+      <!-- unpacking natives in the target folder -->
+      <plugin>
+        <groupId>com.googlecode.mavennatives</groupId>
+        <artifactId>maven-nativedependencies-plugin</artifactId>
+        <version>0.0.7</version>
+        <executions>
+            <execution>
+                <id>unpacknatives</id>
+                <phase>generate-resources</phase>
+                <goals>
+                    <goal>copy</goal>
+                </goals>
+            </execution>
+        </executions>
+      </plugin>
+        
+      <plugin>
+        <artifactId>maven-deploy-plugin</artifactId>
+        <version>2.8.1</version>
+        <executions>
+          <execution>
+              <id>default-deploy</id>
+              <phase>deploy</phase>
+              <goals>
+                <goal>deploy</goal>
+              </goals>
+          </execution>
+        </executions>
+      </plugin>
+    
+      <!-- deployment configuration on maven-releases repo -->
+      <plugin>
+        <groupId>org.sonatype.plugins</groupId>
+        <artifactId>nexus-staging-maven-plugin</artifactId>
+        <version>1.5.1</version>
+        <executions>
+          <execution>
+              <id>default-deploy</id>
+              <phase>deploy</phase>
+              <goals>
+                <goal>deploy</goal>
+              </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <serverId>maven-releases</serverId>
+          <nexusUrl>http://localhost:8081/repository/maven-releases/</nexusUrl>
+          <skipStaging>true</skipStaging>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
   
+  <distributionManagement>
+    <repository>
+        <id>maven-releases</id>
+        <url>http://localhost:8081/repository/maven-releases/</url>
+    </repository>
+  </distributionManagement>
+  
+  <!-- cross platform dependencies -->
   <dependencies>
   	<dependency>
-       <groupId>org.junit.jupiter</groupId>
-       <artifactId>junit-jupiter-engine</artifactId>
-       <version>5.2.0</version>
-       <scope>test</scope>
-   </dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <version>5.2.0</version>
+      <scope>test</scope>
+    </dependency>
    
-   <dependency>
-       <groupId>org.junit.vintage</groupId>
-       <artifactId>junit-vintage-engine</artifactId>
-       <version>5.2.0</version>
-       <scope>test</scope>
-   </dependency>
+    <dependency>
+      <groupId>org.junit.vintage</groupId>
+      <artifactId>junit-vintage-engine</artifactId>
+      <version>5.2.0</version>
+      <scope>test</scope>
+    </dependency>
    
    <dependency>
     <groupId>commons-io</groupId>
     <artifactId>commons-io</artifactId>
     <version>2.6</version>
    </dependency>
-   
-   <dependency>
-	  <groupId>org.scijava</groupId>
-	  <artifactId>native-lib-loader</artifactId>
-	  <version>2.3.2</version>
-	</dependency>
+
+  <dependency>
+    <groupId>org.lwjgl.lwjgl</groupId>
+    <artifactId>lwjgl</artifactId>
+    <version>2.9.3</version>
+  </dependency>
  </dependencies>
 </project>

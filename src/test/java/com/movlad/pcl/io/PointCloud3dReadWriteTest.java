@@ -3,7 +3,6 @@ package com.movlad.pcl.io;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.File;
-import java.io.IOException;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -14,7 +13,6 @@ import com.movlad.pcl.Point3d;
 import com.movlad.pcl.PointCloud3d;
 import com.movlad.pcl.io.PointCloud3dReader;
 import com.movlad.pcl.io.PointCloud3dWriter;
-import com.movlad.pcl.nat.NativeLoader;
 
 class PointCloud3dReadWriteTest {
 
@@ -23,11 +21,7 @@ class PointCloud3dReadWriteTest {
 	private static Point3d maxPoint;
 
 	static {	
-		try {
-			NativeLoader.load();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		System.loadLibrary("pcl_java");
 	}
 	
 	@BeforeAll

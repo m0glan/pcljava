@@ -2,13 +2,10 @@ package com.movlad.pcl;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.io.IOException;
-
 import org.junit.jupiter.api.Test;
 
 import com.movlad.pcl.Normal;
 import com.movlad.pcl.math.Comparison;
-import com.movlad.pcl.nat.NativeLoader;
 
 class NormalTest {
 	
@@ -17,11 +14,7 @@ class NormalTest {
 	private static final float EX_Z = 5;
 
 	static {	
-		try {
-			NativeLoader.load();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		System.loadLibrary("pcl_java");
 	}
 	
 	@Test
