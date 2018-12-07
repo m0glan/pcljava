@@ -1,7 +1,22 @@
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Intellij
+.idea/
+*.iml
+*.iws
+
+# Mac
+.DS_Store
+
+# Maven
 target/
+
+# CMake
 build/
 CMakeFiles/
 CMakeCache.txt
 *.cmake
-*.jar
 Makefile
