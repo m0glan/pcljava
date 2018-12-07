@@ -8,7 +8,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import com.movlad.pcl.ExampleGenerator;
+import com.movlad.pcl.TestExampleGenerator;
 import com.movlad.pcl.Point3d;
 import com.movlad.pcl.PointCloud3d;
 import com.movlad.pcl.io.PointCloud3dReader;
@@ -44,7 +44,7 @@ class PointCloud3dReadWriteTest {
 
 	@Test
 	void testReadPCD() {
-		PointCloud3d pointCloud = ExampleGenerator.generatePointCloud3d(minPoint, maxPoint, CLOUD_SIZE);
+		PointCloud3d pointCloud = TestExampleGenerator.generatePointCloud3d(minPoint, maxPoint, CLOUD_SIZE);
 		PointCloud3dWriter exporter = new PointCloud3dWriter(pointCloud);
 		PointCloud3dReader reader = new PointCloud3dReader();
 		
@@ -62,7 +62,7 @@ class PointCloud3dReadWriteTest {
 	
 	@Test
 	void testReadPLY() {
-		PointCloud3d pointCloud = ExampleGenerator.generatePointCloud3d(minPoint, maxPoint, CLOUD_SIZE);
+		PointCloud3d pointCloud = TestExampleGenerator.generatePointCloud3d(minPoint, maxPoint, CLOUD_SIZE);
 		PointCloud3dWriter exporter = new PointCloud3dWriter(pointCloud);
 		PointCloud3dReader reader = new PointCloud3dReader();
 		

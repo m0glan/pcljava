@@ -8,8 +8,7 @@ import com.movlad.pcl.nat.NativeObject;
 /**
  * PCL Visualizer base class.
  * 
- * @see <a href="http://docs.pointclouds.org/1.8.1/classpcl_1_1visualization_1_1_p_c_l_visualizer.html">
- * pcl::visualization::PCLVisualizer documentation </a> class.
+ * @see <a href="http://docs.pointclouds.org/1.8.1/classpcl_1_1visualization_1_1_p_c_l_visualizer.html">pcl::visualization::PCLVisualizer documentation</a> class.
  */
 public abstract class Visualizer<PointT extends Point> extends NativeObject {
 
