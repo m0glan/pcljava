@@ -83,7 +83,6 @@
 
   <build>
     <plugins>
-
       <!-- compiling using java 1.8 -->
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
