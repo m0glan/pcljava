@@ -1,2 +1,2 @@
 # pcl-java
-A port of the Point Cloud Library (PCL) using Java Native Interface (JNI).
+This project seeks to be an accurate Java port of the Point Cloud Library (PCL) using the Java Native Interface (JNI). 
