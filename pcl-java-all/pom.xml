@@ -46,7 +46,7 @@
         <dependency>
           <groupId>com.movlad.pcl-java</groupId>
           <artifactId>natives-pcl-java-linux-x86_64</artifactId>
-          <version>0.5.0</version>
+          <version>${project.version}</version>
           <classifier>natives-pcl-java</classifier>
         </dependency>
       </dependencies>
@@ -74,7 +74,7 @@
         <dependency>
           <groupId>com.movlad.pcl-java</groupId>
           <artifactId>natives-pcl-java-win32-x86_64</artifactId>
-          <version>0.5.0</version>
+          <version>${project.version}</version>
           <classifier>natives-pcl-java</classifier>
         </dependency>
       </dependencies>
