@@ -20,7 +20,7 @@ def deploy(opsys, arch, lib, version):
         deployNativesCmd += "-Durl=http://localhost:8081/repository/maven-releases "
         deployNativesCmd += "-Dfile=natives.jar"
 
-        call(bundleNativesCmd)
+        call(bundleNativesCmd, shell=True)
         call(deployNativesCmd, shell=True)
 
         os.remove("natives.jar")
