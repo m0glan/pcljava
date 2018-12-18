@@ -11,7 +11,7 @@ def deploy(opsys, arch, lib, version):
         os.chdir(path)
 
         bundleNativesCmd = "jar cMf natives.jar ."
-        deployNativesCmd = "mvn deploy:deploy-file -DgroupId=com.movlad.pcl-java -DartifactId=natives-" + lib + "-" + opsys + "-" + arch + " "
+        deployNativesCmd = "mvn deploy:deploy-file -DgroupId=com.movlad.pcl-java -DartifactId=natives-" + lib + "-" + opsys + "-" + arch + " -Dclassifier=natives-" + lib
 
         deployNativesCmd += "-Dversion=" + version + " "
         deployNativesCmd += "-DgeneratePom=true "
