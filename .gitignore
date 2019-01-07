@@ -10,3 +10,13 @@
 
 # Mac
 .DS_Store
+
+# Maven
+target/
+
+# CMake
+build/
+CMakeFiles/
+CMakeCache.txt
+*.cmake
+Makefile
