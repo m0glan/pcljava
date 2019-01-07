@@ -9,9 +9,8 @@
 	<!-- project repositories -->
 	<repositories>
 		<repository>
-			<id>maven-releases</id>
-			<name>maven-releases</name>
-			<url>http://localhost:8081/repository/maven-releases/</url>
+			<id>gitlab-maven</id>
+			<url>https://gitlab.rlp.net/api/v4/projects/2493/packages/maven</url>
 		</repository>
 	</repositories>
 
@@ -23,23 +22,6 @@
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>
-				</configuration>
-			</plugin>
-
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>exec-maven-plugin</artifactId>
-				<version>1.6.0</version>
-
-				<configuration>
-					<executable>java</executable>
-					<arguments>
-						<!-- the next line sets java library path to where the natives are unpacked -->
-						<argument>-Djava.library.path=${project.build.directory}/natives</argument>
-						<argument>-classpath</argument>
-						<classpath />
-						<argument>com.movlad.pcl.examples.SphereDetection</argument>
-					</arguments>
 				</configuration>
 			</plugin>
 
@@ -60,6 +42,76 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<!-- 
+	Using a different profile for each operating system in order the set the path environment variable to the 'target/natives' folder; this
+	lets the operating system know where to look for dependencies.
+	 -->
+	<profiles>
+		<!-- Windows Profile -->
+		<profile>
+			<id>windows</id>
+			<activation>
+				<os>
+					<family>Windows</family>
+				</os>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>exec-maven-plugin</artifactId>
+						<version>1.6.0</version>
+
+						<configuration>
+							<executable>java</executable>
+							<environmentVariables>
+								<!-- Setting the 'PATH' environment variable for Windows -->
+								<PATH>${project.build.directory}/natives${path.separator}${env.PATH}</PATH>
+							</environmentVariables>
+							<arguments>
+								<argument>-classpath</argument>
+								<classpath />
+								<argument>com.movlad.pcl.examples.SphereDetection</argument>
+							</arguments>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+		<!-- Linux Profile -->
+		<profile>
+			<id>linux</id>
+			<activation>
+				<os>
+					<family>Linux</family>
+				</os>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>exec-maven-plugin</artifactId>
+						<version>1.6.0</version>
+
+						<configuration>
+							<executable>java</executable>
+							<environmentVariables>
+								<!-- Setting the 'LD_LIBRARY_PATH' environment variable for Linux -->
+								<LD_LIBRARY_PATH>${project.build.directory}/natives${path.separator}${env.LD_LIBRARY_PATH}</LD_LIBRARY_PATH>
+							</environmentVariables>
+							<arguments>
+								<argument>-classpath</argument>
+								<classpath />
+								<argument>com.movlad.pcl.examples.SphereDetection</argument>
+							</arguments>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 
 	<!-- 
   	the pcl-java-all dependency contains the java and c source codes for pcl-java, as well as the 

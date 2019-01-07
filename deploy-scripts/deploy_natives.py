@@ -1,8 +1,9 @@
 # Deploys the natives for a certain operating system, architecture, library and version to the maven-releases repository on the local Nexus server
 
 import os
-import sys
+import sys 
 from subprocess import call
+import config
 
 def deploy(opsys, arch, lib, version):
     path = sys.path[0] + "/../lib/natives/" + opsys + "/" + arch + "/" + lib
@@ -16,8 +17,8 @@ def deploy(opsys, arch, lib, version):
         deployNativesCmd += "-Dversion=" + version + " "
         deployNativesCmd += "-DgeneratePom=true "
         deployNativesCmd += "-Dpackaging=jar "
-        deployNativesCmd += "-DrepositoryId=maven-releases "
-        deployNativesCmd += "-Durl=http://localhost:8081/repository/maven-releases "
+        deployNativesCmd += "-DrepositoryId=" + config.MAVEN_REPOSITORY_ID + " "
+        deployNativesCmd += "-Durl=" + config.MAVEN_URL + " "
         deployNativesCmd += "-Dfile=natives.jar"
 
         call(bundleNativesCmd, shell=True)

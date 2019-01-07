@@ -6,4 +6,22 @@
   <name>PCL Java</name>
   <description>A port of the Point Cloud Library (PCL) using Java Native Interface (JNI).</description>
   <packaging>pom</packaging>
+
+  <repositories>
+    <repository>
+      <id>gitlab-maven</id>
+      <url>https://gitlab.rlp.net/api/v4/projects/2493/packages/maven</url>
+    </repository>
+  </repositories>
+
+  <distributionManagement>
+    <repository>
+      <id>gitlab-maven</id>
+      <url>https://gitlab.rlp.net/api/v4/projects/2493/packages/maven</url>
+    </repository>
+    <snapshotRepository>
+      <id>gitlab-maven</id>
+      <url>https://gitlab.rlp.net/api/v4/projects/2493/packages/maven</url>
+    </snapshotRepository>
+  </distributionManagement>
 </project>

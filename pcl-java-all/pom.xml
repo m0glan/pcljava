@@ -14,11 +14,21 @@
   <!-- project repositories -->
   <repositories>
     <repository>
-      <id>maven-releases</id>
-      <name>maven-releases</name>
-      <url>http://localhost:8081/repository/maven-releases/</url>
+      <id>gitlab-maven</id>
+      <url>https://gitlab.rlp.net/api/v4/projects/2493/packages/maven</url>
     </repository>
   </repositories>
+
+  <distributionManagement>
+    <repository>
+      <id>gitlab-maven</id>
+      <url>https://gitlab.rlp.net/api/v4/projects/2493/packages/maven</url>
+    </repository>
+    <snapshotRepository>
+      <id>gitlab-maven</id>
+      <url>https://gitlab.rlp.net/api/v4/projects/2493/packages/maven</url>
+    </snapshotRepository>
+  </distributionManagement>
 
   <!-- profiles for unpacking natives based on operating system and architecture -->
 
@@ -121,13 +131,6 @@
       </plugin>
     </plugins>
   </build>
-
-  <distributionManagement>
-    <repository>
-      <id>maven-releases</id>
-      <url>http://localhost:8081/repository/maven-releases/</url>
-    </repository>
-  </distributionManagement>
 
   <!-- cross platform dependencies -->
   <dependencies>
