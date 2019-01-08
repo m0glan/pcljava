@@ -1,0 +1,7 @@
+language: java
+os: linux
+before_install:
+  - sudo apt install libpcl-dev --fix-missing
+addons:
+  apt:
+    update: true
