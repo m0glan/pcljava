@@ -115,7 +115,7 @@ void Java_com_movlad_pcl_visualization_Visualizer_addCoordinateSystem__DI
 	pcl::visualization::PCLVisualizer::Ptr vis_ptr =
 		sptr_wrapper<pcl::visualization::PCLVisualizer>::get_sptr(env, obj);
 
-	vis_ptr->addCoordinateSystem(scale, viewport);
+	vis_ptr->addCoordinateSystem(scale, "viewport", viewport);
 }
 
 void Java_com_movlad_pcl_visualization_Visualizer_addCoordinateSystem__DLjava_lang_String_2I
@@ -135,7 +135,7 @@ void Java_com_movlad_pcl_visualization_Visualizer_removeCoordinateSystem__I
 	pcl::visualization::PCLVisualizer::Ptr vis_ptr =
 		sptr_wrapper<pcl::visualization::PCLVisualizer>::get_sptr(env, obj);
 
-	vis_ptr->removeCoordinateSystem(viewport);
+	vis_ptr->removeCoordinateSystem("viewport", viewport);
 }
 
 void Java_com_movlad_pcl_visualization_Visualizer_removeCoordinateSystem__Ljava_lang_String_2I
