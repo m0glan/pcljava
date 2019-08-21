@@ -25,16 +25,16 @@ public class SampleConsensusModelCylinder extends SampleConsensusModel
 	}
 
 	@Override
-	protected native void alloc();
+	protected final native void alloc();
 
 	@Override
-	public native void dispose();
+	protected final native void dispose();
 	
 	@Override
-	public native double getNormalDistanceWeight();
+	public final native double getNormalDistanceWeight();
 
 	@Override
-	public native void setNormalDistanceWeight(double weight);
+	public final native void setNormalDistanceWeight(double weight);
 
 	@Override
 	public NormalCloud getInputNormals() {
@@ -48,6 +48,6 @@ public class SampleConsensusModelCylinder extends SampleConsensusModel
 	private native void nGetInputNormals(NormalCloud normals);
 
 	@Override
-	public native void setInputNormals(NormalCloud cloud);
+	public final native void setInputNormals(NormalCloud cloud);
 
 }

@@ -26,7 +26,7 @@ JNIEXPORT void JNICALL Java_com_movlad_pcl_PointCloud3d_dispose
 /*
  * Class:     com_movlad_pcl_PointCloud3d
  * Method:    nGet
- * Signature: (ILde/i3mainz/pcl/Point3d;)V
+ * Signature: (ILcom/movlad/pcl/Point3d;)V
  */
 JNIEXPORT void JNICALL Java_com_movlad_pcl_PointCloud3d_nGet
   (JNIEnv *, jobject, jint, jobject);
@@ -34,7 +34,7 @@ JNIEXPORT void JNICALL Java_com_movlad_pcl_PointCloud3d_nGet
 /*
  * Class:     com_movlad_pcl_PointCloud3d
  * Method:    add
- * Signature: (Lde/i3mainz/pcl/Point3d;)V
+ * Signature: (Lcom/movlad/pcl/Point3d;)V
  */
 JNIEXPORT void JNICALL Java_com_movlad_pcl_PointCloud3d_add
   (JNIEnv *, jobject, jobject);
@@ -42,7 +42,7 @@ JNIEXPORT void JNICALL Java_com_movlad_pcl_PointCloud3d_add
 /*
  * Class:     com_movlad_pcl_PointCloud3d
  * Method:    remove
- * Signature: (Lde/i3mainz/pcl/Point3d;)V
+ * Signature: (Lcom/movlad/pcl/Point3d;)V
  */
 JNIEXPORT void JNICALL Java_com_movlad_pcl_PointCloud3d_remove
   (JNIEnv *, jobject, jobject);

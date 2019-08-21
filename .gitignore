@@ -1,6 +1,7 @@
 # Eclipse
 .classpath
 .project
+.cproject
 .settings/
 
 # Intellij
@@ -20,3 +21,4 @@ CMakeFiles/
 CMakeCache.txt
 *.cmake
 Makefile
+Debug/

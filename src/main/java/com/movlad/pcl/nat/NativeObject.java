@@ -1,47 +1,55 @@
 package com.movlad.pcl.nat;
 
+import java.lang.ref.Cleaner;
+import java.lang.ref.PhantomReference;
+
 /**
  * Bridge between a Java object and a native pointer.
  * 
  * @author Vlad-Adrian Moglan
  */
-public abstract class NativeObject {
+public abstract class NativeObject implements AutoCloseable {
 
-	private long handle;
-	
-	public NativeObject() {
-		this.handle = 0;
-	}
-	
 	/**
-	 * @return the memory address given by the native pointer associated to this
-	 * object if such an association exists, 0 otherwise.
+	 * Pointer to the native object associated with this {@link NativeObject}
+	 * instance.
 	 */
-	public long getHandle() { return handle; }
-	
+	@SuppressWarnings("unused")
+	private volatile long handle;
+
 	/**
-	 * Associates a native pointer allocated on the native side to this
-	 * object, if no such association exists.
+	 * Construct a new {@link NativeObject} instance, and call {@link #alloc()} to
+	 * instantiate the corresponding native object.
 	 */
-	public void create() {
-		if (handle != 0) {
-			dispose();
-		}
-		
+	protected NativeObject() {
 		alloc();
 	}
-	
+
 	/**
-	 * Associates a native pointer allocated on the native side to this
-	 * object.
+	 * Allocate a native object, and store its pointer in {@link #handle}. Called
+	 * automatically by {@link NativeObject}.
 	 */
 	protected abstract void alloc();
-	
+
 	/**
-	 * Deallocates the memory given to the created object. Called automatically upon
-	 * object destruction, but this may cause unexpected behavior: this should be 
-	 * called manually when the object is no longer needed.
+	 * Deallocate the native object associated with this {@link NativeObject}
+	 * instance. This should be called in a try-with-resources block, or manually
+	 * called before the {@link NativeObject} goes out of scope. Failing to call
+	 * this method before this object goes out of scope will result in a resource
+	 * leak.
+	 * 
+	 * Finalizers are <a href=
+	 * "http://openjdk.5641.n7.nabble.com/Finalization-and-dead-references-another-proposal-td321420.html">broken</a>
+	 * in Java, and registering a {@link Cleaner} or a {@link PhantomReference}
+	 * incurs memory and CPU overhead.
+	 * 
+	 * Override this method with a public final native dispose() method in subclasses.
 	 */
-	public abstract void dispose();
+	protected abstract void dispose();
 	
+	/** Call {@link #dispose()} to free the associated native object. */
+	@Override
+	public void close() {
+		dispose();
+	}
 }

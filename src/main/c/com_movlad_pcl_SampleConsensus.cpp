@@ -11,7 +11,7 @@ void Java_com_movlad_pcl_SampleConsensus_nSetSampleConsensusModel
 	pcl::SampleConsensus<pcl::PointXYZRGB>::Ptr sac_ptr =
 		sptr_wrapper<pcl::SampleConsensus<pcl::PointXYZRGB>>::get_sptr(env, obj);
 	pcl::SampleConsensusModel<pcl::PointXYZRGB>::Ptr model_ptr 
-		= sptr_wrapper<pcl::SampleConsensusModel<pcl::PointXYZRGB>>::get_sptr(env, model);;
+		= sptr_wrapper<pcl::SampleConsensusModel<pcl::PointXYZRGB>>::get_sptr(env, model);
 
 	sac_ptr->setSampleConsensusModel(model_ptr);
 }

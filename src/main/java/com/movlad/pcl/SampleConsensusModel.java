@@ -14,31 +14,23 @@ public abstract class SampleConsensusModel extends NativeObject {
 	private PointCloud3d input;
 	
 	public SampleConsensusModel(PointCloud3d cloud) {
+		super();
 		this.input = cloud;
-	}
-	
-	@Override
-	public void create() {
-		if (getHandle() != 0) {
-			dispose();
-		}
-		
-		alloc();
 		setInputCloud(input);
 	}
 	
-	public native void setInputCloud(PointCloud3d cloud);
+	public final native void setInputCloud(PointCloud3d cloud);
 	
 	/**
 	 * @return the size of a sample from which a model is computed.
 	 */
-	public native int getSampleSize();
+	public final native int getSampleSize();
 	
 	/**
 	 * Compute the variance of the errors to the model from the internally estimated vector of distances.
 	 * 
 	 * @return variance
 	 */
-	public native double computeVariance();
+	public final native double computeVariance();
 	
 }

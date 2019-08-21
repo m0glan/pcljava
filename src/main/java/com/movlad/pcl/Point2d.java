@@ -11,10 +11,10 @@ import com.movlad.pcl.nat.NativeObject;
 public class Point2d extends NativeObject implements Point, Cloneable {
 
 	@Override
-	protected native void alloc();
+	protected final native void alloc();
 	
 	@Override
-	public native void dispose();
+	protected final native void dispose();
 	
 	public final native float getX();
 	
@@ -33,8 +33,6 @@ public class Point2d extends NativeObject implements Point, Cloneable {
 	public Point2d clone() {
 		Point2d clone = new Point2d();
 		
-		clone.alloc();
-		
 		clone.setCoordinates(getX(), getY());
 		
 		return clone;	
@@ -42,9 +40,14 @@ public class Point2d extends NativeObject implements Point, Cloneable {
 	
 	@Override
 	public boolean equals(Object object) {
+		if (object == this) {
+			return true;
+		} else if (!(object instanceof Point2d)) {
+			return false;
+		}
 		Point2d point = (Point2d) object;
 		
-		return Comparison.areEqualFloat(getX(), point.getX(), 0.05f) && Comparison.areEqualFloat(getY(), point.getY(), 0.05f);
+		return Comparison.areEqualFloat(getX(), point.getX()) && Comparison.areEqualFloat(getY(), point.getY());
 	}
 	
 	@Override

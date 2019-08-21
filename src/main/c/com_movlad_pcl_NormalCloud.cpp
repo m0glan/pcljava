@@ -1,3 +1,5 @@
+#include <stdexcept>
+
 #include "com_movlad_pcl_NormalCloud.h"
 #include "sptr_wrapper.h"
 #include "handle.h"
@@ -35,7 +37,7 @@ void Java_com_movlad_pcl_NormalCloud_add(JNIEnv *env, jobject obj, jobject point
 
 void Java_com_movlad_pcl_NormalCloud_remove(JNIEnv *env, jobject obj, jobject point)
 {
-	throw "Not yet implemented.";
+    throw std::runtime_error("Not yet implemented.");
 }
 
 void Java_com_movlad_pcl_NormalCloud_clear(JNIEnv *env, jobject obj)

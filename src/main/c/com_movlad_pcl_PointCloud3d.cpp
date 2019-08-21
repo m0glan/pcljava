@@ -1,3 +1,5 @@
+#include <stdexcept>
+
 #include "com_movlad_pcl_PointCloud3d.h"
 #include "sptr_wrapper.h"
 
@@ -34,7 +36,7 @@ void Java_com_movlad_pcl_PointCloud3d_add(JNIEnv *env, jobject obj, jobject poin
 
 void Java_com_movlad_pcl_PointCloud3d_remove(JNIEnv *env, jobject obj, jobject point)
 {
-	throw "Not yet implemented.";
+    throw std::runtime_error("Not yet implemented.");
 }
 
 void Java_com_movlad_pcl_PointCloud3d_clear(JNIEnv *env, jobject obj)

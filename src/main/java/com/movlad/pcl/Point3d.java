@@ -13,22 +13,22 @@ import com.movlad.pcl.nat.NativeObject;
 public class Point3d extends NativeObject implements Point, Cloneable {
 	
 	@Override
-	protected native void alloc();
+	protected final native void alloc();
 	
 	@Override
-	public native void dispose();
+	protected final native void dispose();
 	
 	public final native float getX();
 	
-	public native void setX(float x);
+	public final native void setX(float x);
 	
-	public native float getY();
+	public final native float getY();
 	
-	public native void setY(float y);
+	public final native void setY(float y);
 	
-	public native float getZ();
+	public final native float getZ();
 	
-	public native void setZ(float z);
+	public final native void setZ(float z);
 	
 	public void setCoordinates(float x, float y, float z) {
 		setX(x); setY(y); setZ(z);
@@ -56,8 +56,6 @@ public class Point3d extends NativeObject implements Point, Cloneable {
 	public Point3d clone() {
 		Point3d clone = new Point3d();
 		
-		clone.create();
-		
 		clone.setCoordinates(getX(), getY(), getZ());
 		clone.setRGB(getR(), getG(), getB());
 		
@@ -66,11 +64,16 @@ public class Point3d extends NativeObject implements Point, Cloneable {
 	
 	@Override
 	public boolean equals(Object object) {
-		Point3d point = (Point3d)object;
+		if (object == this) {
+			return true;
+		} else if (!(object instanceof Point3d)) {
+			return false;
+		}
+		Point3d point = (Point3d) object;
 		
-		return Comparison.areEqualFloat(getX(), point.getX(), 0.1f) &&
-				Comparison.areEqualFloat(getY(), point.getY(), 0.1f) &&
-				Comparison.areEqualFloat(getZ(), point.getZ(), 0.1f) &&
+		return Comparison.areEqualFloat(getX(), point.getX()) &&
+				Comparison.areEqualFloat(getY(), point.getY()) &&
+				Comparison.areEqualFloat(getZ(), point.getZ()) &&
 				getR() == point.getR() && getG() == point.getG() && getB() == point.getB();
 	}
 	

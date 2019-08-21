@@ -7,7 +7,7 @@ package com.movlad.pcl;
  * pcl::PointCloud documentation
  * </a>
  */
-public final class PointCloud3d extends PointCloud<Point3d> {
+public final class PointCloud3di extends PointCloud<Point3di> {
 	
 	@Override
 	protected final native void alloc();
@@ -16,8 +16,8 @@ public final class PointCloud3d extends PointCloud<Point3d> {
 	protected final native void dispose();
 	
 	@Override
-	public Point3d get(int i) {
-		Point3d point = new Point3d();
+	public Point3di get(int i) {
+		Point3di point = new Point3di();
 		
 		nGet(i, point);
 		
@@ -25,13 +25,13 @@ public final class PointCloud3d extends PointCloud<Point3d> {
 	}
 	
 	@Override
-	protected native void nGet(int i, Point3d point);
+	protected native void nGet(int i, Point3di point);
 	
 	@Override
-	public final native void add(Point3d point);
+	public final native void add(Point3di point);
 	
 	@Override
-	public final native void remove(Point3d point);
+	public final native void remove(Point3di point);
 	
 	@Override
 	public final native void clear();
@@ -43,12 +43,12 @@ public final class PointCloud3d extends PointCloud<Point3d> {
 	public final native boolean isOrganized();
 	
 	@Override
-	public PointCloud3d clone() {
-		PointCloud3d clone = new PointCloud3d();
+	public PointCloud3di clone() {
+		PointCloud3di clone = new PointCloud3di();
 		
-		for (Point3d point : this) {
+		for (Point3di point : this) {
 			@SuppressWarnings("resource")
-			Point3d pointClone = point.clone();
+			Point3di pointClone = point.clone();
 			
 			clone.add(pointClone);
 		}

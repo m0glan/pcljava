@@ -19,17 +19,9 @@ public abstract class SampleConsensus extends NativeObject {
 	 * @param model a sample consensus model
 	 */
 	public SampleConsensus(SampleConsensusModel model) {
+		super();
 		this.model = model;
-	}
-	
-	@Override
-	public void create() {
-		if (getHandle() != 0) {
-			dispose();
-		}
-		
-		alloc();
-		setSampleConsensusModel(model);
+		nSetSampleConsensusModel(this.model);
 	}
 	
 	public SampleConsensusModel getSampleConsensusModel() {
@@ -38,26 +30,25 @@ public abstract class SampleConsensus extends NativeObject {
 
 	public void setSampleConsensusModel(SampleConsensusModel model) {
 		this.model = model;
-		nSetSampleConsensusModel(this.model);
 	}
 	
 	private native void nSetSampleConsensusModel(SampleConsensusModel model);
 	
-	public native double getDistanceThreshold();
+	public final native double getDistanceThreshold();
 	
-	public native void setDistanceThreshold(double threshold);
+	public final native void setDistanceThreshold(double threshold);
 	
-	public native int getMaxIterations();
+	public final native int getMaxIterations();
 	
-	public native void setMaxIterations(int maxIterations);
+	public final native void setMaxIterations(int maxIterations);
 	
-	public native double getProbability();
+	public final native double getProbability();
 	
-	public native void setProbability(double probability);
+	public final native void setProbability(double probability);
 	
 	public abstract boolean computeModel(int debugVerbosityLevel);
 	
-	public native boolean refineModel(double sigma, int maxIterations);
+	public final native boolean refineModel(double sigma, int maxIterations);
 	
 	/**
 	 * @param source is the cloud on which RANSAC was applied
