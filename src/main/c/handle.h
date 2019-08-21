@@ -1,3 +1,4 @@
+#include <stdexcept>
 #include <jni.h>
 
 #ifndef HANDLE_H
@@ -16,17 +17,18 @@ inline jfieldID get_handle_field(JNIEnv *env, jobject obj)
     if (cls == 0) {
         cls = env->GetObjectClass(obj);
         if (cls == 0) {
-            throw "Could not get object class";
+            throw std::runtime_error("Could not get object class");
         }
         // Hold global ref to class -- see:
         // http://journals.ecs.soton.ac.uk/java/tutorial/native1.1/implementing/refs.html
+        // Note that this will disable unloading of the class until the global ref is freed.
         cls_ref = env->NewGlobalRef(cls);
         if (cls_ref == 0) {
-            throw "Could not allocate new global reference for class";
+            throw std::runtime_error("Could not allocate new global ref for class");
         }
         fid = env->GetFieldID(cls, "handle", "J");
         if (fid == 0) {
-            throw "Could not get id for 'handle' field";
+            throw std::runtime_error("Could not get id for 'handle' field");
         }
     }
 	return fid;
