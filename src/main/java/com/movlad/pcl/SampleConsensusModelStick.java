@@ -29,6 +29,6 @@ public class SampleConsensusModelStick extends SampleConsensusModel {
 	protected native void alloc();
 
 	@Override
-	public native void dispose();
+	public native void close();
 	
 }

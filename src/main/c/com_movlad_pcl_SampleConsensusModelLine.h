@@ -20,7 +20,7 @@ JNIEXPORT void JNICALL Java_com_movlad_pcl_SampleConsensusModelLine_alloc
  * Method:    dispose
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_com_movlad_pcl_SampleConsensusModelLine_dispose
+JNIEXPORT void JNICALL Java_com_movlad_pcl_SampleConsensusModelLine_close
   (JNIEnv *, jobject);
 
 #ifdef __cplusplus

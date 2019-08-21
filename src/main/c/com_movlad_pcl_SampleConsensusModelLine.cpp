@@ -13,7 +13,7 @@ void Java_com_movlad_pcl_SampleConsensusModelLine_alloc
 	sacline_ptr_w->instantiate(env, obj);
 }
 
-void Java_com_movlad_pcl_SampleConsensusModelLine_dispose
+void Java_com_movlad_pcl_SampleConsensusModelLine_close
 (JNIEnv *env, jobject obj)
 {
 	sptr_wrapper<pcl::SampleConsensusModel<pcl::PointXYZRGB>>::dispose(env, obj);

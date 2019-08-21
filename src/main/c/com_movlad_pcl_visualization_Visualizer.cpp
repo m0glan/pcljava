@@ -12,13 +12,13 @@ void Java_com_movlad_pcl_visualization_Visualizer_alloc
 	vis_ptr_w->instantiate(env, obj);
 }
 
-void Java_com_movlad_pcl_visualization_Visualizer_dispose
+void Java_com_movlad_pcl_visualization_Visualizer_close
 (JNIEnv *env, jobject obj)
 {
 	sptr_wrapper<pcl::visualization::PCLVisualizer>::dispose(env, obj);
 }
 
-void Java_com_movlad_pcl_visualization_Visualizer_close
+void Java_com_movlad_pcl_visualization_Visualizer_stop
 (JNIEnv *env, jobject obj)
 {
 	pcl::visualization::PCLVisualizer::Ptr vis_ptr =

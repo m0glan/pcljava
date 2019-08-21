@@ -27,7 +27,7 @@ class NormalTest {
 		assertTrue(Comparison.areEqualFloat(normal.getY(), EX_Y, 0.5f));
 		assertTrue(Comparison.areEqualFloat(normal.getZ(), EX_Z, 0.5f));
 		
-		normal.dispose();
+		normal.close();
 	}
 
 }

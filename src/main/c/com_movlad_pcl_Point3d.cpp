@@ -10,7 +10,7 @@ void Java_com_movlad_pcl_Point3d_alloc(JNIEnv *env, jobject obj)
 	set_handle(env, obj, pt_ptr);
 }
 
-void Java_com_movlad_pcl_Point3d_dispose
+void Java_com_movlad_pcl_Point3d_close
 (JNIEnv *env, jobject obj)
 {
 	pcl::PointXYZRGB *pt_ptr = get_handle<pcl::PointXYZRGB>(env, obj);

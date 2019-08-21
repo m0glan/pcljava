@@ -12,7 +12,7 @@ void Java_com_movlad_pcl_PointCloud3d_alloc(JNIEnv *env, jobject obj)
 	cloud_ptr_w->instantiate(env, obj);
 }
 
-void Java_com_movlad_pcl_PointCloud3d_dispose
+void Java_com_movlad_pcl_PointCloud3d_close
 (JNIEnv *env, jobject obj)
 {
 	sptr_wrapper<pcl::PointCloud<pcl::PointXYZRGB>>::dispose(env, obj);

@@ -19,7 +19,7 @@ public class RandomSampleConsensus extends SampleConsensus {
 	protected native void alloc();
 
 	@Override
-	public native void dispose();
+	public native void close();
 
 	@Override
 	public native boolean computeModel(int debugVerbosityLevel);

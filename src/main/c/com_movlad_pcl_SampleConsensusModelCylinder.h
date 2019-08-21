@@ -20,7 +20,7 @@ JNIEXPORT void JNICALL Java_com_movlad_pcl_SampleConsensusModelCylinder_alloc
  * Method:    dispose
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_com_movlad_pcl_SampleConsensusModelCylinder_dispose
+JNIEXPORT void JNICALL Java_com_movlad_pcl_SampleConsensusModelCylinder_close
   (JNIEnv *, jobject);
 
 /*

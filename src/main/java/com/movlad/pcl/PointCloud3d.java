@@ -13,7 +13,7 @@ public final class PointCloud3d extends PointCloud<Point3d> {
 	protected native void alloc();
 	
 	@Override
-	public native void dispose();
+	public native void close();
 	
 	@Override
 	public Point3d get(int i) {

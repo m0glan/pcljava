@@ -20,7 +20,7 @@ JNIEXPORT void JNICALL Java_com_movlad_pcl_Point3d_alloc
  * Method:    dispose
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_com_movlad_pcl_Point3d_dispose
+JNIEXPORT void JNICALL Java_com_movlad_pcl_Point3d_close
   (JNIEnv *, jobject);
 
 /*

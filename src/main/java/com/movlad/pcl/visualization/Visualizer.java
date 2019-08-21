@@ -16,12 +16,12 @@ public abstract class Visualizer<PointT extends Point> extends NativeObject {
 	protected native void alloc();
 	
 	@Override
-	public native void dispose();
+	public native void close();
 	
 	/**
 	 * Stop the interaction and close the visualizaton window.
 	 */
-	public native void close();
+	public native void stop();
 	
 	/**
 	 * @return true when the user tried to close the window.

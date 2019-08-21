@@ -9,7 +9,7 @@ public class NormalCloud extends PointCloud<Normal> {
 	protected native void alloc();
 	
 	@Override
-	public native void dispose();
+	public native void close();
 	
 	@Override
 	public Normal get(int i) {

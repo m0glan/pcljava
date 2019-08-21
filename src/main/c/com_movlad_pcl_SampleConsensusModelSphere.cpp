@@ -13,7 +13,7 @@ void Java_com_movlad_pcl_SampleConsensusModelSphere_alloc
 	model_ptr_w->instantiate(env, obj);
 }
 
-void Java_com_movlad_pcl_SampleConsensusModelSphere_dispose
+void Java_com_movlad_pcl_SampleConsensusModelSphere_close
 (JNIEnv *env, jobject obj)
 {
 	sptr_wrapper<pcl::SampleConsensusModelSphere<pcl::PointXYZRGB>>::dispose(env, obj);

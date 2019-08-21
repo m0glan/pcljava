@@ -28,7 +28,7 @@ public class SampleConsensusModelCone extends SampleConsensusModel
 	protected native void alloc();
 
 	@Override
-	public native void dispose();
+	public native void close();
 
 	@Override
 	public native double getNormalDistanceWeight();

@@ -35,8 +35,8 @@ class NormalEstimationTest {
 		
 		assertEquals(cloud.size(), normals.size());
 		
-		cloud.dispose();
-		normals.dispose();
+		cloud.close();
+		normals.close();
 	}
 
 }

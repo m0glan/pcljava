@@ -33,8 +33,8 @@ class PointCloud3dReadWriteTest {
 	
 	@AfterAll
 	static void deinit() {
-		minPoint.dispose();
-		maxPoint.dispose();
+		minPoint.close();
+		maxPoint.close();
 	}
 
 	@Test
@@ -52,7 +52,7 @@ class PointCloud3dReadWriteTest {
 		
 		assertEquals(pointCloud.size(), reader.getCloud().size());
 		
-		pointCloud.dispose();
+		pointCloud.close();
 	}
 	
 	@Test
@@ -70,7 +70,7 @@ class PointCloud3dReadWriteTest {
 		
 		assertEquals(pointCloud.size(), reader.getCloud().size());
 		
-		pointCloud.dispose();
+		pointCloud.close();
 	}
 
 }

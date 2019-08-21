@@ -53,11 +53,12 @@ public class SphereDetection {
 		 * All natively allocated objects must be freed from the memory using the dispose() method. 
 		 */
 		
-		visualizer.dispose();
-		detectedSphere.dispose();
-		ransac.dispose();
-		sphereModel.dispose();
-		noisySphere.dispose();
+		visualizer.stop();
+		visualizer.close();
+		detectedSphere.close();
+		ransac.close();
+		sphereModel.close();
+		noisySphere.close();
 	}
 	
 	/**
@@ -91,7 +92,7 @@ public class SphereDetection {
 			 * at the end of each loop iteration.
 			 */
 			
-			point.dispose(); 
+			point.close(); 
 		}
 		
 		return noisySphere;

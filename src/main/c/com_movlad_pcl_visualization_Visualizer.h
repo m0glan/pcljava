@@ -20,7 +20,7 @@ JNIEXPORT void JNICALL Java_com_movlad_pcl_visualization_Visualizer_alloc
  * Method:    dispose
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_com_movlad_pcl_visualization_Visualizer_dispose
+JNIEXPORT void JNICALL Java_com_movlad_pcl_visualization_Visualizer_close
   (JNIEnv *, jobject);
 
 /*

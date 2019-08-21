@@ -8,7 +8,7 @@ import java.lang.ref.PhantomReference;
  * 
  * @author Vlad-Adrian Moglan
  */
-public abstract class NativeObject {
+public abstract class NativeObject implements AutoCloseable {
 
 	/**
 	 * Pointer to the native object associated with this {@link NativeObject}
@@ -39,5 +39,6 @@ public abstract class NativeObject {
 	 * 
 	 * Override this method with a public native dispose() method in subclasses.
 	 */
-	protected abstract void dispose();
+	@Override
+	public abstract void close();
 }

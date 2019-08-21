@@ -20,7 +20,7 @@ JNIEXPORT void JNICALL Java_com_movlad_pcl_Normal_alloc
  * Method:    dispose
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_com_movlad_pcl_Normal_dispose
+JNIEXPORT void JNICALL Java_com_movlad_pcl_Normal_close
   (JNIEnv *, jobject);
 
 /*
