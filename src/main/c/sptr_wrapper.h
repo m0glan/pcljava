@@ -32,7 +32,7 @@ public:
 
 	void set_from_sptr(boost::shared_ptr<T> sptr) 
 	{
-		this.sptr = sptr;
+		this->sptr = sptr;
 	}
 
 	/// \brief{Sets the address of \code{this} wrapper as a handle for a java object within a JNI environment.}
