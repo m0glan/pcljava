@@ -14,7 +14,7 @@ public class Point2d extends NativeObject implements Point, Cloneable {
 	protected final native void alloc();
 	
 	@Override
-	protected final native void dispose();;
+	protected final native void dispose();
 	
 	public final native float getX();
 	
