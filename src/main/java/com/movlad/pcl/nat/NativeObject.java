@@ -1,5 +1,8 @@
 package com.movlad.pcl.nat;
 
+import java.lang.ref.Cleaner;
+import java.lang.ref.PhantomReference;
+
 /**
  * Bridge between a Java object and a native pointer.
  * 
@@ -7,34 +10,34 @@ package com.movlad.pcl.nat;
  */
 public abstract class NativeObject {
 
+	/**
+	 * Pointer to the native object associated with this {@link NativeObject}
+	 * instance.
+	 */
 	@SuppressWarnings("unused")
 	private volatile long handle;
 
 	/**
-	 * Associates a native pointer allocated on the native side to this object, if
-	 * no such association exists.
+	 * Construct a new {@link NativeObject} instance, and call {@link #alloc()} to
+	 * instantiate the corresponding native object.
 	 */
 	protected NativeObject() {
 		alloc();
 	}
 
-	// /**
-	// * @return the memory address given by the native pointer associated to this
-	// * object if such an association exists, 0 otherwise.
-	// */
-	// public long getHandle() {
-	// return handle;
-	// }
-
 	/**
-	 * Associates a native pointer allocated on the native side to this object.
+	 * Allocate a native object, and store its pointer in {@link #handle}. Called
+	 * automatically by {@link NativeObject}.
 	 */
 	protected abstract void alloc();
 
 	/**
-	 * Deallocates the memory given to the created object. Called automatically upon
-	 * object destruction, but this may cause unexpected behavior: this should be
-	 * called manually when the object is no longer needed.
+	 * Deallocate the native object associated with this {@link NativeObject}
+	 * instance. This should be manually called before the {@link NativeObject} goes
+	 * out of scope, since finalizers are broken in Java, and registering a
+	 * {@link Cleaner} or a {@link PhantomReference} incurs memory and CPU overhead.
+	 * 
+	 * Override this method with a public native dispose() method in subclasses.
 	 */
 	protected abstract void dispose();
 }
