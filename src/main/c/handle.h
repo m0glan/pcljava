@@ -1,5 +1,4 @@
 #include <jni.h>
-#include <stdio.h>
 
 #ifndef HANDLE_H
 #define HANDLE_H
