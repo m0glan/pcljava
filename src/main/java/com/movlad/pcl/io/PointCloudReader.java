@@ -36,8 +36,6 @@ public abstract class PointCloudReader<T extends PointCloud<?>> {
 	 * @param format establishes the format of the input file.
 	 */
 	public final void read(String fileName, FileFormat format) {
-		cloud.create();
-		
 		switch (format) {
 		case PCD:
 			readPCD(fileName, cloud);

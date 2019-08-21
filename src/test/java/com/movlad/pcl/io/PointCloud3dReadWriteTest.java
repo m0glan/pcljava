@@ -8,11 +8,9 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import com.movlad.pcl.TestExampleGenerator;
 import com.movlad.pcl.Point3d;
 import com.movlad.pcl.PointCloud3d;
-import com.movlad.pcl.io.PointCloud3dReader;
-import com.movlad.pcl.io.PointCloud3dWriter;
+import com.movlad.pcl.TestExampleGenerator;
 
 class PointCloud3dReadWriteTest {
 
@@ -28,9 +26,6 @@ class PointCloud3dReadWriteTest {
 	static void init() {
 		minPoint = new Point3d();
 		maxPoint = new Point3d();
-		
-		minPoint.create();
-		maxPoint.create();
 		
 		minPoint.setCoordinates(-5.0f, -5.0f, -5.0f);
 		maxPoint.setCoordinates(5.0f, 5.0f, 5.0f);

@@ -38,8 +38,6 @@ public class Normal extends NativeObject implements Point, Cloneable {
 	public Normal clone() {
 		Normal clone = new Normal();
 		
-		clone.create();
-		
 		clone.setComponents(getX(), getY(), getZ());
 		
 		return clone;

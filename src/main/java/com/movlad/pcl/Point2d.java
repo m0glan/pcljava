@@ -33,8 +33,6 @@ public class Point2d extends NativeObject implements Point, Cloneable {
 	public Point2d clone() {
 		Point2d clone = new Point2d();
 		
-		clone.alloc();
-		
 		clone.setCoordinates(getX(), getY());
 		
 		return clone;	

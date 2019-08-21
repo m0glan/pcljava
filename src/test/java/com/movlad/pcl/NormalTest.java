@@ -21,13 +21,13 @@ class NormalTest {
 	void test() {
 		Normal normal = new Normal();
 		
-		normal.create();
-		
 		normal.setComponents(EX_X, EX_Y, EX_Z);
 		
 		assertTrue(Comparison.areEqualFloat(normal.getX(), EX_X, 0.5f));
 		assertTrue(Comparison.areEqualFloat(normal.getY(), EX_Y, 0.5f));
 		assertTrue(Comparison.areEqualFloat(normal.getZ(), EX_Z, 0.5f));
+		
+		normal.dispose();
 	}
 
 }

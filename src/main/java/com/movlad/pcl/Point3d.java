@@ -56,8 +56,6 @@ public class Point3d extends NativeObject implements Point, Cloneable {
 	public Point3d clone() {
 		Point3d clone = new Point3d();
 		
-		clone.create();
-		
 		clone.setCoordinates(getX(), getY(), getZ());
 		clone.setRGB(getR(), getG(), getB());
 		

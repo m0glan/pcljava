@@ -19,17 +19,9 @@ public abstract class SampleConsensus extends NativeObject {
 	 * @param model a sample consensus model
 	 */
 	public SampleConsensus(SampleConsensusModel model) {
+		super();
 		this.model = model;
-	}
-	
-	@Override
-	public void create() {
-		if (getHandle() != 0) {
-			dispose();
-		}
-		
-		alloc();
-		setSampleConsensusModel(model);
+		nSetSampleConsensusModel(this.model);
 	}
 	
 	public SampleConsensusModel getSampleConsensusModel() {
@@ -38,7 +30,6 @@ public abstract class SampleConsensus extends NativeObject {
 
 	public void setSampleConsensusModel(SampleConsensusModel model) {
 		this.model = model;
-		nSetSampleConsensusModel(this.model);
 	}
 	
 	private native void nSetSampleConsensusModel(SampleConsensusModel model);

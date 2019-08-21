@@ -14,16 +14,8 @@ public abstract class SampleConsensusModel extends NativeObject {
 	private PointCloud3d input;
 	
 	public SampleConsensusModel(PointCloud3d cloud) {
+		super();
 		this.input = cloud;
-	}
-	
-	@Override
-	public void create() {
-		if (getHandle() != 0) {
-			dispose();
-		}
-		
-		alloc();
 		setInputCloud(input);
 	}
 	

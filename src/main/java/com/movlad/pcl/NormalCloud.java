@@ -42,8 +42,6 @@ public class NormalCloud extends PointCloud<Normal> {
 	public NormalCloud clone() {
 		NormalCloud clone = new NormalCloud();
 		
-		clone.create();
-		
 		for (Normal point : this) {
 			Normal pointClone = point.clone();
 			

@@ -7,41 +7,34 @@ package com.movlad.pcl.nat;
  */
 public abstract class NativeObject {
 
-	private long handle;
-	
-	public NativeObject() {
-		this.handle = 0;
-	}
-	
+	@SuppressWarnings("unused")
+	private volatile long handle;
+
 	/**
-	 * @return the memory address given by the native pointer associated to this
-	 * object if such an association exists, 0 otherwise.
+	 * Associates a native pointer allocated on the native side to this object, if
+	 * no such association exists.
 	 */
-	public long getHandle() { return handle; }
-	
-	/**
-	 * Associates a native pointer allocated on the native side to this
-	 * object, if no such association exists.
-	 */
-	public void create() {
-		if (handle != 0) {
-			dispose();
-		}
-		
+	protected NativeObject() {
 		alloc();
 	}
-	
+
+	// /**
+	// * @return the memory address given by the native pointer associated to this
+	// * object if such an association exists, 0 otherwise.
+	// */
+	// public long getHandle() {
+	// return handle;
+	// }
+
 	/**
-	 * Associates a native pointer allocated on the native side to this
-	 * object.
+	 * Associates a native pointer allocated on the native side to this object.
 	 */
 	protected abstract void alloc();
-	
+
 	/**
 	 * Deallocates the memory given to the created object. Called automatically upon
-	 * object destruction, but this may cause unexpected behavior: this should be 
+	 * object destruction, but this may cause unexpected behavior: this should be
 	 * called manually when the object is no longer needed.
 	 */
-	public abstract void dispose();
-	
+	protected abstract void dispose();
 }

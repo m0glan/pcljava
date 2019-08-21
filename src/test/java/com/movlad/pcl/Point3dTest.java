@@ -43,8 +43,6 @@ public class Point3dTest {
 	private Point3d createExample() {
 		Point3d point = new Point3d();
 		
-		point.create();
-		
 		point.setCoordinates(EX_X, EX_Y, EX_Z);
 		
 		return point;

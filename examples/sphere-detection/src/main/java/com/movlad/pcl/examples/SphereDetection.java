@@ -19,16 +19,7 @@ public class SphereDetection {
 		PointCloud3d noisySphere = createNoisySphere();
 		SampleConsensusModelSphere sphereModel = new SampleConsensusModelSphere(noisySphere);
 		
-		/*
-		 * In order to use a native object it needs to be created in the memory on the native side;
-		 * the create() method does exactly that.
-		 */
-		
-		sphereModel.create();
-		
 		RandomSampleConsensus ransac = new RandomSampleConsensus(sphereModel);
-		
-		ransac.create();
 		ransac.setDistanceThreshold(.01f);
 		ransac.computeModel(0);
 		
@@ -40,7 +31,6 @@ public class SphereDetection {
 		
 		Visualizer<Point3d> visualizer = new Visualizer3d();
 		
-		visualizer.create();
 		visualizer.setWindowName("PCL Java Sphere Detection Example");
 		visualizer.setBackgroundColor(0.f, 0.f, 0.f);
 		visualizer.addCoordinateSystem(0.2, 0);
@@ -77,12 +67,9 @@ public class SphereDetection {
 	private static PointCloud3d createNoisySphere() {
 		PointCloud3d noisySphere = new PointCloud3d();
 		
-		noisySphere.create();
-		
 		for (int i = 0; i < 500; i++) {
 			Point3d point = new Point3d();
 			
-			point.create();
 			point.setX(randomFloat(-1f, 1f));
 			point.setY(randomFloat(-1f, 1f));
 			
