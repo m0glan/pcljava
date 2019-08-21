@@ -47,18 +47,31 @@ public:
 		return boost::reinterpret_pointer_cast<jlong>(this);
 	}
 
-	boost::shared_ptr<T> get_sptr() const
-	{
-		return sptr;
-	}
+    boost::shared_ptr<T> get_sptr() const
+    {
+        return sptr;
+    }
 
-	/// @param env The JNI environment.
-	/// @param java_instance The object for which to find the corresponding wrapper.
-	// \returns{the \code{shared_ptr} associated to a Java instance within a JNI environment.}
-	static boost::shared_ptr<T> get_sptr(JNIEnv *env, jobject java_instance)
-	{
-		return get_wrapper(env, java_instance)->get_sptr();
-	}
+    void set_sptr(boost::shared_ptr<T> new_sptr_value) const
+    {
+        sptr = new_sptr_value;
+    }
+
+    /// @param env The JNI environment.
+    /// @param java_instance The object for which to find the corresponding wrapper.
+    // \returns{the \code{shared_ptr} associated to a Java instance within a JNI environment.}
+    static boost::shared_ptr<T> get_sptr(JNIEnv *env, jobject java_instance)
+    {
+        return get_wrapper(env, java_instance)->get_sptr();
+    }
+
+    /// @param env The JNI environment.
+    /// @param java_instance The object for which to find the corresponding wrapper.
+    // \returns{the \code{shared_ptr} associated to a Java instance within a JNI environment.}
+    static void get_sptr(JNIEnv *env, jobject java_instance, boost::shared_ptr<T> ptr)
+    {
+        get_wrapper(env, java_instance)->set_sptr(ptr);
+    }
 
 	/// @param env The JNI environment.
 	/// @param java_instance The object for which to find the corresponding wrapper.
