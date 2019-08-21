@@ -13,7 +13,7 @@ void Java_com_movlad_pcl_SampleConsensusModelPlane_alloc
 	sacplane_ptr_w->instantiate(env, obj);
 }
 
-void Java_com_movlad_pcl_SampleConsensusModelPlane_close
+void Java_com_movlad_pcl_SampleConsensusModelPlane_dispose
 (JNIEnv *env, jobject obj)
 {
 	sptr_wrapper<pcl::SampleConsensusModel<pcl::PointXYZRGB>>::dispose(env, obj);

@@ -11,7 +11,7 @@ void Java_com_movlad_pcl_Point2d_alloc
 	set_handle(env, obj, pt_ptr);
 }
 
-void Java_com_movlad_pcl_Point2d_close
+void Java_com_movlad_pcl_Point2d_dispose
 (JNIEnv *env, jobject obj)
 {
 	pcl::PointXY *pt_ptr = get_handle<pcl::PointXY>(env, obj);

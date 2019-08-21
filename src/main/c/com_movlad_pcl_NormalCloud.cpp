@@ -13,7 +13,7 @@ void Java_com_movlad_pcl_NormalCloud_alloc(JNIEnv *env, jobject obj)
 	cloud_ptr_w->instantiate(env, obj);
 }
 
-void Java_com_movlad_pcl_NormalCloud_close
+void Java_com_movlad_pcl_NormalCloud_dispose
 (JNIEnv *env, jobject obj)
 {
 	sptr_wrapper<pcl::PointCloud<pcl::Normal>>::dispose(env, obj);

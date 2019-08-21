@@ -20,7 +20,7 @@ JNIEXPORT void JNICALL Java_com_movlad_pcl_SampleConsensusModelStick_alloc
  * Method:    dispose
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_com_movlad_pcl_SampleConsensusModelStick_close
+JNIEXPORT void JNICALL Java_com_movlad_pcl_SampleConsensusModelStick_dispose
   (JNIEnv *, jobject);
 
 #ifdef __cplusplus

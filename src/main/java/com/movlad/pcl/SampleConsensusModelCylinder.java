@@ -28,7 +28,7 @@ public class SampleConsensusModelCylinder extends SampleConsensusModel
 	protected native void alloc();
 
 	@Override
-	public native void close();
+	public native void dispose();
 	
 	@Override
 	public native double getNormalDistanceWeight();

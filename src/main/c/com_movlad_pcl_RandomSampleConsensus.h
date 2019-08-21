@@ -20,7 +20,7 @@ JNIEXPORT void JNICALL Java_com_movlad_pcl_RandomSampleConsensus_alloc
  * Method:    dispose
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_com_movlad_pcl_RandomSampleConsensus_close
+JNIEXPORT void JNICALL Java_com_movlad_pcl_RandomSampleConsensus_dispose
   (JNIEnv *, jobject);
 
 /*

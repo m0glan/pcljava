@@ -45,6 +45,11 @@ public abstract class NativeObject implements AutoCloseable {
 	 * 
 	 * Override this method with a public native dispose() method in subclasses.
 	 */
+	protected abstract void dispose();
+	
+	/** Call {@link #dispose()} to free the associated native object. */
 	@Override
-	public abstract void close();
+	public void close() {
+		dispose();
+	}
 }

@@ -13,7 +13,7 @@ public final class PointCloud3d extends PointCloud<Point3d> {
 	protected native void alloc();
 	
 	@Override
-	public native void close();
+	public native void dispose();
 	
 	@Override
 	public Point3d get(int i) {
@@ -47,6 +47,7 @@ public final class PointCloud3d extends PointCloud<Point3d> {
 		PointCloud3d clone = new PointCloud3d();
 		
 		for (Point3d point : this) {
+			@SuppressWarnings("resource")
 			Point3d pointClone = point.clone();
 			
 			clone.add(pointClone);

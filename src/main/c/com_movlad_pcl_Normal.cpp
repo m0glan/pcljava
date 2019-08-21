@@ -11,7 +11,7 @@ void Java_com_movlad_pcl_Normal_alloc
 	set_handle(env, obj, normal_ptr);
 }
 
-void Java_com_movlad_pcl_Normal_close
+void Java_com_movlad_pcl_Normal_dispose
 (JNIEnv *env, jobject obj)
 {
 	pcl::Normal *normal_ptr = get_handle<pcl::Normal>(env, obj);

@@ -16,7 +16,7 @@ public class Point3d extends NativeObject implements Point, Cloneable {
 	protected native void alloc();
 	
 	@Override
-	public native void close();
+	public native void dispose();
 	
 	public final native float getX();
 	

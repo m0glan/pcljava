@@ -13,7 +13,7 @@ void Java_com_movlad_pcl_SampleConsensusModelCylinder_alloc
 	saccyl_ptr_w->instantiate(env, obj);
 }
 
-void Java_com_movlad_pcl_SampleConsensusModelCylinder_close
+void Java_com_movlad_pcl_SampleConsensusModelCylinder_dispose
 (JNIEnv *env, jobject obj)
 {
 	sptr_wrapper<pcl::SampleConsensusModel<pcl::PointXYZRGB>>::dispose(env, obj);

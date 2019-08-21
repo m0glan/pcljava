@@ -12,7 +12,7 @@ void Java_com_movlad_pcl_RandomSampleConsensus_alloc
 	ransac_ptr_w->instantiate(env, obj);
 }
 
-void Java_com_movlad_pcl_RandomSampleConsensus_close
+void Java_com_movlad_pcl_RandomSampleConsensus_dispose
 (JNIEnv *env, jobject obj)
 {
 	sptr_wrapper<pcl::RandomSampleConsensus<pcl::PointXYZRGB>>::dispose(env, obj);

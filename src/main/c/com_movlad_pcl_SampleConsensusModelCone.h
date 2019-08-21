@@ -20,7 +20,7 @@ JNIEXPORT void JNICALL Java_com_movlad_pcl_SampleConsensusModelCone_alloc
  * Method:    dispose
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_com_movlad_pcl_SampleConsensusModelCone_close
+JNIEXPORT void JNICALL Java_com_movlad_pcl_SampleConsensusModelCone_dispose
   (JNIEnv *, jobject);
 
 /*

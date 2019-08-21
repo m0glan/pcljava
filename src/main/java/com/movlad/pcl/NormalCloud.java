@@ -9,7 +9,7 @@ public class NormalCloud extends PointCloud<Normal> {
 	protected native void alloc();
 	
 	@Override
-	public native void close();
+	public native void dispose();
 	
 	@Override
 	public Normal get(int i) {
@@ -43,6 +43,7 @@ public class NormalCloud extends PointCloud<Normal> {
 		NormalCloud clone = new NormalCloud();
 		
 		for (Normal point : this) {
+			@SuppressWarnings("resource")
 			Normal pointClone = point.clone();
 			
 			clone.add(pointClone);
