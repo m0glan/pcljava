@@ -1,4 +1,4 @@
-#include <pcl/impl/point_types.hpp>
+#include <pcl/point_types.h>
 
 #include "/usr/java/jdk-11.0.2/include/jni.h"
 #include "handle.h"
