@@ -17,17 +17,17 @@ inline jfieldID get_handle_field(JNIEnv *env, jobject obj)
     if (cls == 0) {
         cls = env->GetObjectClass(obj);
         if (cls == 0) {
-            /* TODO: report error */
+            throw "Could not get object class";
         }
         // Hold global ref to class -- see:
         // http://journals.ecs.soton.ac.uk/java/tutorial/native1.1/implementing/refs.html
         cls_ref = env->NewGlobalRef(cls);
         if (cls_ref == 0) {
-            /* TODO: report error */
+            throw "Could not allocate new global reference for class";
         }
         fid = env->GetFieldID(cls, "handle", "J");
         if (fid == 0) {
-            /* TODO: report error */
+            throw "Could not get id for 'handle' field";
         }
     }
 	return fid;
