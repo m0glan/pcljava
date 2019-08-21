@@ -34,21 +34,21 @@ public abstract class SampleConsensus extends NativeObject {
 	
 	private native void nSetSampleConsensusModel(SampleConsensusModel model);
 	
-	public native double getDistanceThreshold();
+	public final native double getDistanceThreshold();
 	
-	public native void setDistanceThreshold(double threshold);
+	public final native void setDistanceThreshold(double threshold);
 	
-	public native int getMaxIterations();
+	public final native int getMaxIterations();
 	
-	public native void setMaxIterations(int maxIterations);
+	public final native void setMaxIterations(int maxIterations);
 	
-	public native double getProbability();
+	public final native double getProbability();
 	
-	public native void setProbability(double probability);
+	public final native void setProbability(double probability);
 	
 	public abstract boolean computeModel(int debugVerbosityLevel);
 	
-	public native boolean refineModel(double sigma, int maxIterations);
+	public final native boolean refineModel(double sigma, int maxIterations);
 	
 	/**
 	 * @param source is the cloud on which RANSAC was applied

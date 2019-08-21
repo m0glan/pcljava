@@ -6,10 +6,10 @@ package com.movlad.pcl;
 public class NormalCloud extends PointCloud<Normal> {
 
 	@Override
-	protected native void alloc();
+	protected final native void alloc();
 	
 	@Override
-	public native void dispose();
+	protected final native void dispose();;
 	
 	@Override
 	public Normal get(int i) {
@@ -24,19 +24,19 @@ public class NormalCloud extends PointCloud<Normal> {
 	protected native void nGet(int i, Normal point);
 	
 	@Override
-	public native void add(Normal point);
+	public final native void add(Normal point);
 
 	@Override
-	public native void remove(Normal point);
+	public final native void remove(Normal point);
 
 	@Override
-	public native void clear();
+	public final native void clear();
 	
 	@Override
-	public native int size();
+	public final native int size();
 	
 	@Override
-	public native boolean isOrganized();
+	public final native boolean isOrganized();
 	
 	@Override
 	public NormalCloud clone() {

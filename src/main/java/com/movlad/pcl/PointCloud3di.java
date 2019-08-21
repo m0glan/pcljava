@@ -10,10 +10,10 @@ package com.movlad.pcl;
 public final class PointCloud3di extends PointCloud<Point3di> {
 	
 	@Override
-	protected native void alloc();
+	protected final native void alloc();
 	
 	@Override
-	public native void dispose();
+	protected final native void dispose();;
 	
 	@Override
 	public Point3di get(int i) {
@@ -28,19 +28,19 @@ public final class PointCloud3di extends PointCloud<Point3di> {
 	protected native void nGet(int i, Point3di point);
 	
 	@Override
-	public native void add(Point3di point);
+	public final native void add(Point3di point);
 	
 	@Override
-	public native void remove(Point3di point);
+	public final native void remove(Point3di point);
 	
 	@Override
-	public native void clear();
+	public final native void clear();
 	
 	@Override
-	public native int size();
+	public final native int size();
 	
 	@Override
-	public native boolean isOrganized();
+	public final native boolean isOrganized();
 	
 	@Override
 	public PointCloud3di clone() {

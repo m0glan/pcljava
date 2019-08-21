@@ -43,7 +43,7 @@ public abstract class NativeObject implements AutoCloseable {
 	 * in Java, and registering a {@link Cleaner} or a {@link PhantomReference}
 	 * incurs memory and CPU overhead.
 	 * 
-	 * Override this method with a public native dispose() method in subclasses.
+	 * Override this method with a public final native dispose() method in subclasses.
 	 */
 	protected abstract void dispose();
 	

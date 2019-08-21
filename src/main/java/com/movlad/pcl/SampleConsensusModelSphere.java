@@ -20,8 +20,8 @@ public class SampleConsensusModelSphere extends SampleConsensusModel {
 	}
 
 	@Override
-	protected native void alloc();
+	protected final native void alloc();
 
 	@Override
-	public native void dispose();
+	protected final native void dispose();;
 }

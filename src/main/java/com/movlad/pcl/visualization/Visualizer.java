@@ -13,20 +13,20 @@ import com.movlad.pcl.nat.NativeObject;
 public abstract class Visualizer<PointT extends Point> extends NativeObject {
 
 	@Override
-	protected native void alloc();
+	protected final native void alloc();
 	
 	@Override
-	public native void dispose();
+	protected final native void dispose();;
 	
 	/**
 	 * Stop the interaction and close the visualizaton window.
 	 */
-	public native void stop();
+	public final native void stop();
 	
 	/**
 	 * @return true when the user tried to close the window.
 	 */
-	public native boolean wasStopped();
+	public final native boolean wasStopped();
 	
 	/**
 	 * Create a new viewport from (xmin,ymin) to (xmax,ymax).
@@ -37,12 +37,12 @@ public abstract class Visualizer<PointT extends Point> extends NativeObject {
 	 * @param ymax 	the maximum Y coordinate for the viewport (0.0 lesser or equal 1.0)
 	 * @param viewport the id of the new viewport
 	 */
-	public native void createViewport(double xmin, double ymin, double xmax, double ymax, int viewport);
+	public final native void createViewport(double xmin, double ymin, double xmax, double ymax, int viewport);
 	
 	/**
 	 * Calls the interactor and runs an internal loop.
 	 */
-	public native void spin();
+	public final native void spin();
 	
 	/**
 	 * Calls the interactor and runs an internal loop.
@@ -50,11 +50,11 @@ public abstract class Visualizer<PointT extends Point> extends NativeObject {
 	 * @param time How long (in ms) should the visualization loop be allowed to run.
 	 * @param forceRedraw if false it might return without doing anything if the interactor's framerate does not require a redraw yet.
 	 */
-	public native void spinOnce(int time, boolean forceRedraw);
+	public final native void spinOnce(int time, boolean forceRedraw);
 	
-	public native void setWindowName(String name);
+	public final native void setWindowName(String name);
 	
-	public native void setBackgroundColor(float r, float g, float b);
+	public final native void setBackgroundColor(float r, float g, float b);
 	
 	/**
 	 * Adds point cloud to viewport.
@@ -66,9 +66,9 @@ public abstract class Visualizer<PointT extends Point> extends NativeObject {
 	 */
 	public abstract boolean addPointCloud(PointCloud<PointT> cloud, String id, int viewport);
 	
-	public native boolean removePointCloud(String id, int viewport);
+	public final native boolean removePointCloud(String id, int viewport);
 	
-	public native boolean removeAllPointClouds(int viewport);
+	public final native boolean removeAllPointClouds(int viewport);
 	
 	/**
 	 * Add the estimated surface normals of a Point Cloud to screen.
@@ -96,7 +96,7 @@ public abstract class Visualizer<PointT extends Point> extends NativeObject {
 	 * @param scale the scale of the axes (default: 1)
 	 * @param viewport the view port where the 3D axes should be added (default: all)
 	 */
-	public native void addCoordinateSystem(double scale, int viewport);
+	public final native void addCoordinateSystem(double scale, int viewport);
 	
 	/**
 	 * Adds 3D axes describing a coordinate system to screen at 0,0,0.
@@ -105,14 +105,14 @@ public abstract class Visualizer<PointT extends Point> extends NativeObject {
 	 * @param id the coordinate system id
 	 * @param viewport the view port where the 3D axes should be added (default: all)
 	 */
-	public native void addCoordinateSystem(double scale, String id, int viewport);
+	public final native void addCoordinateSystem(double scale, String id, int viewport);
 	
 	/**
 	 * Removes coordinate system from viewport.
 	 * 
 	 * @param viewport the viewport to remove the coordinate system from.
 	 */
-	public native void removeCoordinateSystem(int viewport);
+	public final native void removeCoordinateSystem(int viewport);
 	
 	/**
 	 * Removes coordinate system from viewport.
@@ -120,21 +120,21 @@ public abstract class Visualizer<PointT extends Point> extends NativeObject {
 	 * @param id is the id of the coordinate system
 	 * @param viewport the viewport to remove the coordinate system from.
 	 */
-	public native void removeCoordinateSystem(String id, int viewport);
+	public final native void removeCoordinateSystem(String id, int viewport);
 	
-	public native void removeAllCoordinateSystems(int viewport);
+	public final native void removeAllCoordinateSystems(int viewport);
 	
-	public native boolean addText(String text, int xpos, int ypos, String id, int viewport);
+	public final native boolean addText(String text, int xpos, int ypos, String id, int viewport);
 	
-	public native boolean addText(String text, int xpos, int ypos, double r, double g, double b, String id, int viewport);
+	public final native boolean addText(String text, int xpos, int ypos, double r, double g, double b, String id, int viewport);
 	
-	public native boolean addText(String text, int xpos, int ypos, int fontsize, double r, double g, double b, String id, int viewport);
+	public final native boolean addText(String text, int xpos, int ypos, int fontsize, double r, double g, double b, String id, int viewport);
 
-	public native void setPointSize(int size, String id);
+	public final native void setPointSize(int size, String id);
 	
 	/**
 	 * Initialize camera parameters with some default values.
 	 */
-	public native void initCameraParameters();
+	public final native void initCameraParameters();
 	
 }

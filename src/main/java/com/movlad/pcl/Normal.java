@@ -11,24 +11,24 @@ import com.movlad.pcl.nat.NativeObject;
 public class Normal extends NativeObject implements Point, Cloneable {
 
 	@Override
-	protected native void alloc();
+	protected final native void alloc();
 	
 	@Override
-	public native void dispose();
+	protected final native void dispose();;
 
-	public native float getX();
+	public final native float getX();
 	
-	public native void setX(float x);
+	public final native void setX(float x);
 	
-	public native float getY();
+	public final native float getY();
 	
-	public native void setY(float y);
+	public final native void setY(float y);
 	
-	public native float getZ();
+	public final native float getZ();
 	
-	public native void setZ(float z);
+	public final native void setZ(float z);
 	
-	public native float getCurvature();
+	public final native float getCurvature();
 	
 	public void setComponents(float x, float y, float z) {
 		setX(x); setY(y); setZ(z);

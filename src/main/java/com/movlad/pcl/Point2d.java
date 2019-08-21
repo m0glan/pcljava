@@ -11,10 +11,10 @@ import com.movlad.pcl.nat.NativeObject;
 public class Point2d extends NativeObject implements Point, Cloneable {
 
 	@Override
-	protected native void alloc();
+	protected final native void alloc();
 	
 	@Override
-	public native void dispose();
+	protected final native void dispose();;
 	
 	public final native float getX();
 	

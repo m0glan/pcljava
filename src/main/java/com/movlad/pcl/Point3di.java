@@ -14,22 +14,22 @@ import com.movlad.pcl.nat.NativeObject;
 public class Point3di extends NativeObject implements Point, Cloneable {
 
 	@Override
-	protected native void alloc();
+	protected final native void alloc();
 
 	@Override
-	public native void dispose();
+	protected final native void dispose();;
 
 	public final native float getX();
 
-	public native void setX(float x);
+	public final native void setX(float x);
 
-	public native float getY();
+	public final native float getY();
 
-	public native void setY(float y);
+	public final native void setY(float y);
 
-	public native float getZ();
+	public final native float getZ();
 
-	public native void setZ(float z);
+	public final native void setZ(float z);
 
 	public void setCoordinates(float x, float y, float z) {
 		setX(x);
