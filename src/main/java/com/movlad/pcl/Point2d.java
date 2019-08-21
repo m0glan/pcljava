@@ -47,7 +47,7 @@ public class Point2d extends NativeObject implements Point, Cloneable {
 		}
 		Point2d point = (Point2d) object;
 		
-		return Comparison.areEqualFloat(getX(), point.getX(), 1.0e-6f) && Comparison.areEqualFloat(getY(), point.getY(), 1.0e-6f);
+		return Comparison.areEqualFloat(getX(), point.getX()) && Comparison.areEqualFloat(getY(), point.getY());
 	}
 	
 	@Override

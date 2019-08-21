@@ -71,9 +71,9 @@ public class Point3d extends NativeObject implements Point, Cloneable {
 		}
 		Point3d point = (Point3d) object;
 		
-		return Comparison.areEqualFloat(getX(), point.getX(), 1.0e-6f) &&
-				Comparison.areEqualFloat(getY(), point.getY(), 1.0e-6f) &&
-				Comparison.areEqualFloat(getZ(), point.getZ(), 1.0e-6f) &&
+		return Comparison.areEqualFloat(getX(), point.getX()) &&
+				Comparison.areEqualFloat(getY(), point.getY()) &&
+				Comparison.areEqualFloat(getZ(), point.getZ()) &&
 				getR() == point.getR() && getG() == point.getG() && getB() == point.getB();
 	}
 	
