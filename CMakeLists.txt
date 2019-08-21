@@ -16,7 +16,7 @@ else()
 	message(FATAL_ERROR "JNI not found.")
 endif()
 
-find_package(PCL 1.8.1 REQUIRED)
+find_package(PCL 1.9.1 REQUIRED)
 
 if (PCL_FOUND)
 	message(STATUS "PCL found.")
