@@ -45,6 +45,11 @@ public class Normal extends NativeObject implements Point, Cloneable {
 	
 	@Override
 	public boolean equals(Object object) {
+		if (object == this) {
+			return true;
+		} else if (!(object instanceof Normal)) {
+			return false;
+		}
 		Normal normal = (Normal) object;
 		
 		return Comparison.areEqualFloat(getX(), normal.getX(), 0.5f) 

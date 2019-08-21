@@ -53,6 +53,11 @@ public class Point3di extends NativeObject implements Point, Cloneable {
 
 	@Override
 	public boolean equals(Object object) {
+		if (object == this) {
+			return true;
+		} else if (!(object instanceof Point3di)) {
+			return false;
+		}
 		Point3di point = (Point3di) object;
 
 		return Comparison.areEqualFloat(getX(), point.getX(), 1.0e-6f)
