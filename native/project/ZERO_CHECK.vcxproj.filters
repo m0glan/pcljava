@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\vladm\source\repos\Projects\pcl-java\native\project\CMakeFiles\4e1dfd7b40332eb6e3512e27064732b1\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{355EC016-EF18-31DF-AAB0-C5F490DD599B}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

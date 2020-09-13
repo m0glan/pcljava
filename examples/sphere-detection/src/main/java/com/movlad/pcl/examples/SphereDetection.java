@@ -1,11 +1,11 @@
-package com.movlad.pcl.examples;
+package com.vmoglan.pcl.examples;
 
-import com.movlad.pcl.Point3d;
-import com.movlad.pcl.PointCloud3d;
-import com.movlad.pcl.RandomSampleConsensus;
-import com.movlad.pcl.SampleConsensusModelSphere;
-import com.movlad.pcl.visualization.Visualizer;
-import com.movlad.pcl.visualization.Visualizer3d;
+import com.vmoglan.pcl.Point3d;
+import com.vmoglan.pcl.PointCloud3d;
+import com.vmoglan.pcl.RandomSampleConsensus;
+import com.vmoglan.pcl.SampleConsensusModelSphere;
+import com.vmoglan.pcl.visualization.Visualizer;
+import com.vmoglan.pcl.visualization.Visualizer3d;
 
 public class SphereDetection {
 	

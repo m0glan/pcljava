@@ -42,7 +42,7 @@
 								<argument>-Djava.library.path=${project.build.directory}/natives/linux/x86_64</argument>
 								<argument>-classpath</argument>
 								<classpath />
-								<argument>com.movlad.pcl.examples.SphereDetection</argument>
+								<argument>com.vmoglan.pcl.examples.SphereDetection</argument>
 							</arguments>
 						</configuration>
 					</plugin>
@@ -74,7 +74,7 @@
 								<argument>-Djava.library.path=${project.build.directory}/natives/win32/x86_64</argument>
 								<argument>-classpath</argument>
 								<classpath />
-								<argument>com.movlad.pcl.examples.SphereDetection</argument>
+								<argument>com.vmoglan.pcl.examples.SphereDetection</argument>
 							</arguments>
 						</configuration>
 					</plugin>
