@@ -1,64 +1,64 @@
-#include "com_movlad_pcl_Normal.h"
-#include "sptr_wrapper.h"
+#include "com_vmoglan_pcl_Normal.h"
+#include "SharedPointerWrapper.h"
 
 #include <pcl/point_types.h>
 
-void Java_com_movlad_pcl_Normal_alloc
+void Java_com_vmoglan_pcl_Normal_alloc
 (JNIEnv *env, jobject obj)
 {
 	pcl::Normal *normal_ptr = new pcl::Normal();
 
-	set_handle(env, obj, normal_ptr);
+	setHandle(env, obj, normal_ptr);
 }
 
-void Java_com_movlad_pcl_Normal_dispose
+void Java_com_vmoglan_pcl_Normal_dispose
 (JNIEnv *env, jobject obj)
 {
-	pcl::Normal *normal_ptr = get_handle<pcl::Normal>(env, obj);
+	pcl::Normal *normal_ptr = getHandle<pcl::Normal>(env, obj);
 
 	delete normal_ptr;
 
-	set_handle<pcl::Normal>(env, obj, nullptr);
+	setHandle<pcl::Normal>(env, obj, nullptr);
 }
 
-jfloat Java_com_movlad_pcl_Normal_getX
+jfloat Java_com_vmoglan_pcl_Normal_getX
 (JNIEnv *env, jobject obj)
 {
-	return get_handle<pcl::Normal>(env, obj)->normal_x;
+	return getHandle<pcl::Normal>(env, obj)->normal_x;
 }
 
-void Java_com_movlad_pcl_Normal_setX
+void Java_com_vmoglan_pcl_Normal_setX
 (JNIEnv *env, jobject obj, jfloat x)
 {
-	get_handle<pcl::Normal>(env, obj)->normal_x = x;
+	getHandle<pcl::Normal>(env, obj)->normal_x = x;
 }
 
-jfloat Java_com_movlad_pcl_Normal_getY
+jfloat Java_com_vmoglan_pcl_Normal_getY
 (JNIEnv *env, jobject obj)
 {
-	return get_handle<pcl::Normal>(env, obj)->normal_y;
+	return getHandle<pcl::Normal>(env, obj)->normal_y;
 }
 
-void Java_com_movlad_pcl_Normal_setY
+void Java_com_vmoglan_pcl_Normal_setY
 (JNIEnv *env, jobject obj, jfloat y)
 {
-	get_handle<pcl::Normal>(env, obj)->normal_y = y;
+	getHandle<pcl::Normal>(env, obj)->normal_y = y;
 }
 
-jfloat Java_com_movlad_pcl_Normal_getZ
+jfloat Java_com_vmoglan_pcl_Normal_getZ
 (JNIEnv *env, jobject obj)
 {
-	return get_handle<pcl::Normal>(env, obj)->normal_z;
+	return getHandle<pcl::Normal>(env, obj)->normal_z;
 }
 
-void Java_com_movlad_pcl_Normal_setZ
+void Java_com_vmoglan_pcl_Normal_setZ
 (JNIEnv *env, jobject obj, jfloat z)
 {
-	get_handle<pcl::Normal>(env, obj)->normal_z = z;
+	getHandle<pcl::Normal>(env, obj)->normal_z = z;
 }
 
-jfloat Java_com_movlad_pcl_Normal_getCurvature
+jfloat Java_com_vmoglan_pcl_Normal_getCurvature
 (JNIEnv *env, jobject obj)
 {
-	return get_handle<pcl::Normal>(env, obj)->curvature;
+	return getHandle<pcl::Normal>(env, obj)->curvature;
 }

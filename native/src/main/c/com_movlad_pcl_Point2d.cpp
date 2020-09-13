@@ -1,46 +1,46 @@
-#include "com_movlad_pcl_Point2d.h"
-#include "sptr_wrapper.h"
+#include "com_vmoglan_pcl_Point2d.h"
+#include "SharedPointerWrapper.h"
 
 #include <pcl/point_types.h>
 
-void Java_com_movlad_pcl_Point2d_alloc
+void Java_com_vmoglan_pcl_Point2d_alloc
 (JNIEnv *env, jobject obj)
 {
 	pcl::PointXY *pt_ptr = new pcl::PointXY();
 
-	set_handle(env, obj, pt_ptr);
+	setHandle(env, obj, pt_ptr);
 }
 
-void Java_com_movlad_pcl_Point2d_dispose
+void Java_com_vmoglan_pcl_Point2d_dispose
 (JNIEnv *env, jobject obj)
 {
-	pcl::PointXY *pt_ptr = get_handle<pcl::PointXY>(env, obj);
+	pcl::PointXY *pt_ptr = getHandle<pcl::PointXY>(env, obj);
 
 	delete pt_ptr;
 
-	set_handle<pcl::PointXY>(env, obj, nullptr);
+	setHandle<pcl::PointXY>(env, obj, nullptr);
 }
 
-jfloat Java_com_movlad_pcl_Point2d_getX
+jfloat Java_com_vmoglan_pcl_Point2d_getX
 (JNIEnv *env, jobject obj) 
 {
-	return get_handle<pcl::PointXY>(env, obj)->x;
+	return getHandle<pcl::PointXY>(env, obj)->x;
 }
 
-void Java_com_movlad_pcl_Point2d_setX
+void Java_com_vmoglan_pcl_Point2d_setX
 (JNIEnv *env, jobject obj, jfloat x)
 {
-	get_handle<pcl::PointXY>(env, obj)->x = x;
+	getHandle<pcl::PointXY>(env, obj)->x = x;
 }
 
-jfloat Java_com_movlad_pcl_Point2d_getY
+jfloat Java_com_vmoglan_pcl_Point2d_getY
 (JNIEnv *env, jobject obj)
 {
-	return get_handle<pcl::PointXY>(env, obj)->y;
+	return getHandle<pcl::PointXY>(env, obj)->y;
 }
 
-void Java_com_movlad_pcl_Point2d_setY
+void Java_com_vmoglan_pcl_Point2d_setY
 (JNIEnv *env, jobject obj, jfloat y)
 {
-	get_handle<pcl::PointXY>(env, obj)->y = y;
+	getHandle<pcl::PointXY>(env, obj)->y = y;
 }

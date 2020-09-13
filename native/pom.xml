@@ -67,7 +67,7 @@
                                 <!-- Optional: the build configuration (e.g. "x64|Release") -->
                             </config>
                             <target>
-                                ${basedir}/bin/pcljava
+                                ${basedir}/project/pcljava
                             </target>
                             <projectDirectory>
                                 ${basedir}/project

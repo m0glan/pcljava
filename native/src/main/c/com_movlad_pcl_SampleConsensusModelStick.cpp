@@ -1,20 +1,20 @@
-#include "com_movlad_pcl_SampleConsensusModelStick.h"
-#include "sptr_wrapper.h"
+#include "com_vmoglan_pcl_SampleConsensusModelStick.h"
+#include "SharedPointerWrapper.h"
 
 #include <pcl/sample_consensus/sac_model_stick.h>
 
-void Java_com_movlad_pcl_SampleConsensusModelStick_alloc
-(JNIEnv *env, jobject obj)
-{
-	pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud_ptr(new pcl::PointCloud<pcl::PointXYZRGB>());
-	sptr_wrapper<pcl::SampleConsensusModelStick<pcl::PointXYZRGB>> *sacstick_ptr_w =
-		new sptr_wrapper<pcl::SampleConsensusModelStick<pcl::PointXYZRGB>>(cloud_ptr);
+using PointCloud = pcl::PointCloud<pcl::PointXYZRGB>::Ptr;
+using SampleConsensusModel = pcl::SampleConsensusModelStick<pcl::PointXYZRGB>;
 
-	sacstick_ptr_w->instantiate(env, obj);
+void Java_com_vmoglan_pcl_SampleConsensusModelStick_alloc(JNIEnv *env, jobject obj)
+{
+	PointCloud cloud(new pcl::PointCloud<pcl::PointXYZRGB>());
+	auto wrapper = new SharedPointerWrapper<SampleConsensusModel>(cloud);
+
+	wrapper->instantiate(env, obj);
 }
 
-void Java_com_movlad_pcl_SampleConsensusModelStick_dispose
-(JNIEnv *env, jobject obj)
+void Java_com_vmoglan_pcl_SampleConsensusModelStick_dispose(JNIEnv *env, jobject obj)
 {
-	sptr_wrapper<pcl::SampleConsensusModel<pcl::PointXYZRGB>>::dispose(env, obj);
+	SharedPointerWrapper<pcl::SampleConsensusModel<pcl::PointXYZRGB>>::dispose(env, obj);
 }

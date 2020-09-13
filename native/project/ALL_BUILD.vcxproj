@@ -169,9 +169,9 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\vladm\source\repos\Projects\pcl-java\native\project\pcl_java.vcxproj">
-      <Project>{418068C8-DE35-373F-9989-37CB3653E905}</Project>
-      <Name>pcl_java</Name>
+    <ProjectReference Include="C:\Users\vladm\source\repos\Projects\pcl-java\native\project\pcljava.vcxproj">
+      <Project>{22D9F558-4D98-3254-AA5E-C52C620231D8}</Project>
+      <Name>pcljava</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
