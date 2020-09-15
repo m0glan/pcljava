@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.vmoglan</groupId>
-        <artifactId>pcl-java</artifactId>
+        <groupId>io.github.vmoglan</groupId>
+        <artifactId>pcljava</artifactId>
         <version>${global.version}</version>
     </parent>
 
