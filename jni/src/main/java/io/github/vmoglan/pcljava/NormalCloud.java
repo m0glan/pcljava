@@ -15,13 +15,13 @@ public class NormalCloud extends PointCloud<Normal> {
 	public Normal get(int i) {
 		Normal point = new Normal();
 		
-		nGet(i, point);
+		at(i, point);
 		
 		return point;
 	}
 	
 	@Override
-	protected native void nGet(int i, Normal point);
+	protected native void at(int i, Normal point);
 	
 	@Override
 	public native void add(Normal point);

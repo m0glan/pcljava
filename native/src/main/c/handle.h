@@ -5,9 +5,9 @@
 
 inline jfieldID getHandleField(JNIEnv *env, jobject obj) 
 {
-	jclass cls = env->GetObjectClass(obj);
+	jclass javaClass = env->GetObjectClass(obj);
 
-	return env->GetFieldID(cls, "handle", "J");
+	return env->GetFieldID(javaClass, "handle", "J");
 }
 
 template <typename T>
