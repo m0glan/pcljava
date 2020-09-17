@@ -8,9 +8,9 @@
 
 using PointCloud = pcl::PointCloud<pcl::PointXYZRGB>;
 
-void Java_io_github_vmoglan_pcljava_io_PointCloud3dWriter_writePCD(JNIEnv *env, jobject obj, jstring fileName, jobject cloud, jboolean binaryMode)
+void Java_io_github_vmoglan_pcljava_io_PointCloud3dWriter_writePCD(JNIEnv *env, jobject obj, jstring fileName, jobject cloudJava, jboolean binaryMode)
 {
-	auto cloud = SharedPointerWrapper<PointCloud>::getPointer(env, cloud);
+	auto cloud = SharedPointerWrapper<PointCloud>::getPointer(env, cloudJava);
 	const char *fileNameNative = env->GetStringUTFChars(fileName, JNI_FALSE);
 
 	pcl::io::savePCDFile(fileNameNative, *cloud, (bool)binaryMode);
@@ -18,9 +18,9 @@ void Java_io_github_vmoglan_pcljava_io_PointCloud3dWriter_writePCD(JNIEnv *env, 
 	env->ReleaseStringUTFChars(fileName, fileNameNative);
 }
 
-void Java_io_github_vmoglan_pcljava_io_PointCloud3dWriter_writePLY(JNIEnv *env, jobject obj, jstring fileName, jobject cloud, jboolean binaryMode)
+void Java_io_github_vmoglan_pcljava_io_PointCloud3dWriter_writePLY(JNIEnv *env, jobject obj, jstring fileName, jobject cloudJava, jboolean binaryMode)
 {
-	auto cloud = SharedPointerWrapper<PointCloud>::getPointer(env, cloud);
+	auto cloud = SharedPointerWrapper<PointCloud>::getPointer(env, cloudJava);
 	const char *fileNameNative = env->GetStringUTFChars(fileName, JNI_FALSE);
 
 	pcl::io::savePLYFile(fileNameNative, *cloud, (bool)binaryMode);

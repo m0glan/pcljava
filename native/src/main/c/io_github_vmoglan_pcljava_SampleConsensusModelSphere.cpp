@@ -6,7 +6,7 @@
 using PointCloud = pcl::PointCloud<pcl::PointXYZRGB>;
 using SampleConsensusModelSphere = pcl::SampleConsensusModelSphere<pcl::PointXYZRGB>;
 
-void Java_io_github_vmoglan_pcljava_SampleConsensusModelSphere_alloc(JNIEnv *, jobject obj)
+void Java_io_github_vmoglan_pcljava_SampleConsensusModelSphere_alloc(JNIEnv *env, jobject obj)
 {
 	PointCloud::Ptr cloud(new PointCloud());
 	auto wrapper = new SharedPointerWrapper<SampleConsensusModelSphere>(cloud);
@@ -14,7 +14,7 @@ void Java_io_github_vmoglan_pcljava_SampleConsensusModelSphere_alloc(JNIEnv *, j
 	wrapper->instantiate(env, obj);
 }
 
-void Java_io_github_vmoglan_pcljava_SampleConsensusModelSphere_dispose(JNIEnv *, jobject obj)
+void Java_io_github_vmoglan_pcljava_SampleConsensusModelSphere_dispose(JNIEnv *env, jobject obj)
 {
 	SharedPointerWrapper<SampleConsensusModelSphere>::dispose(env, obj);
 }

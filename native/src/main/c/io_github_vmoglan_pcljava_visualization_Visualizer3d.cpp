@@ -9,12 +9,12 @@ using NormalCloud = pcl::PointCloud<pcl::Normal>;
 
 jboolean Java_io_github_vmoglan_pcljava_visualization_Visualizer3d_addPointCloud(JNIEnv *env, 
 	jobject obj, 
-	jobject cloud, 
+	jobject cloudJava, 
 	jstring id, 
 	jint viewport)
 {
 	auto visualizer = SharedPointerWrapper<Visualizer>::getPointer(env, obj);
-	auto cloud = SharedPointerWrapper<PointCloud>::getPointer(env, cloud);
+	auto cloud = SharedPointerWrapper<PointCloud>::getPointer(env, cloudJava);
 	const char *idNative = env->GetStringUTFChars(id, JNI_FALSE);
 
 	pcl::visualization::PointCloudColorHandlerRGBField<pcl::PointXYZRGB> rgb(cloud);
@@ -28,18 +28,18 @@ jboolean Java_io_github_vmoglan_pcljava_visualization_Visualizer3d_addPointCloud
 
 jboolean Java_io_github_vmoglan_pcljava_visualization_Visualizer3d_addPointCloudNormals(JNIEnv *env, 
 	jobject obj, 
-	jobject cloud, 
-	jobject normals, 
+	jobject cloudJava, 
+	jobject normalsJava, 
 	jint level, 
 	jfloat scale, 
 	jstring id, 
 	jint viewport)
 {
 	auto visualizer = SharedPointerWrapper<Visualizer>::getPointer(env, obj);
-	auto cloud = SharedPointerWrapper<PointCloud>::getPointer(env, cloud);
-	auto normals = SharedPointerWrapper<NormalCloud>::getPointer(env, normals);
+	auto cloud = SharedPointerWrapper<PointCloud>::getPointer(env, cloudJava);
+	auto normals = SharedPointerWrapper<NormalCloud>::getPointer(env, normalsJava);
 
-	const auto idNative = std::string(env->GetStringUTFChars(id, JNI_FALSE));
+	const auto idNative = env->GetStringUTFChars(id, JNI_FALSE);
 
 	bool isAdded = visualizer->addPointCloudNormals<pcl::PointXYZRGB, pcl::Normal>(cloud, normals, (int)level, (float)scale, idNative, (int)viewport);
 

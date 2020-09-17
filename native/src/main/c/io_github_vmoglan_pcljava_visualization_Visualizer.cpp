@@ -102,7 +102,7 @@ void Java_io_github_vmoglan_pcljava_visualization_Visualizer_addCoordinateSystem
 {
 	auto visualizer = SharedPointerWrapper<Visualizer>::getPointer(env, obj);
 
-	visualizer->addCoordinateSystem(scale, viewport);
+	visualizer->addCoordinateSystem(scale, "reference", viewport); // TODO: Add "id" parameter
 }
 
 void Java_io_github_vmoglan_pcljava_visualization_Visualizer_addCoordinateSystem__DLjava_lang_String_2I(JNIEnv *env, jobject obj, jdouble scale, jstring id, jint viewport)
@@ -118,7 +118,7 @@ void Java_io_github_vmoglan_pcljava_visualization_Visualizer_removeCoordinateSys
 {
 	auto visualizer = SharedPointerWrapper<Visualizer>::getPointer(env, obj);
 
-	visualizer->removeCoordinateSystem(viewport);
+	visualizer->removeCoordinateSystem("reference", viewport); // TODO: Add "id" parameter
 }
 
 void Java_io_github_vmoglan_pcljava_visualization_Visualizer_removeCoordinateSystem__Ljava_lang_String_2I(JNIEnv *env, jobject obj, jstring id, jint viewport)

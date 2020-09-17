@@ -6,6 +6,8 @@ project(pcljava VERSION 0.0.1)
 
 set(TARGET_NAME "pcljava")
 set(LIBRARY_OUTPUT_DIRECTORY bin)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(JNI REQUIRED)
 

@@ -10,7 +10,7 @@ void Java_io_github_vmoglan_pcljava_Point3d_alloc(JNIEnv *env, jobject obj)
 	setHandle(env, obj, point);
 }
 
-void Java_io_github_vmoglan_pcljava_Point3d_dispose(JNIEnv *, jobject obj)
+void Java_io_github_vmoglan_pcljava_Point3d_dispose(JNIEnv *env, jobject obj)
 {
 	pcl::PointXYZRGB *point = getHandle<pcl::PointXYZRGB>(env, obj);
 

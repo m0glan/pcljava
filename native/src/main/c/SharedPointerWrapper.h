@@ -1,6 +1,7 @@
 #pragma once
 
 #include <jni.h>
+#include <memory>
 
 #include "handle.h"
 
@@ -51,27 +52,27 @@ public:
 	}
 
 	/// @param env The JNI environment.
-	/// @param java_instance The object for which to find the corresponding wrapper.
+	/// @param javaInstance The object for which to find the corresponding wrapper.
 	// \returns{the \code{shared_ptr} associated to a Java instance within a JNI environment.}
-	static std::shared_ptr<T> getPointer(JNIEnv *env, jobject java_instance)
+	static std::shared_ptr<T> getPointer(JNIEnv *env, jobject javaInstance)
 	{
-		return getWrapper(env, java_instance)->getPointer();
+		return getWrapper(env, javaInstance)->getPointer();
 	}
 
 	/// @param env The JNI environment.
-	/// @param java_instance The object for which to find the corresponding wrapper.
+	/// @param javaInstance The object for which to find the corresponding wrapper.
 	// \returns{the pointer to the wrapper associated to a Java instance within a JNI environment.}
-	static SharedPointerWrapper *getWrapper(JNIEnv *env, jobject java_instance)
+	static SharedPointerWrapper *getWrapper(JNIEnv *env, jobject javaInstance)
 	{
-		return getHandle<SharedPointerWrapper<T>>(env, java_instance);
+		return getHandle<SharedPointerWrapper<T>>(env, javaInstance);
 	}
 
-	static void dispose(JNIEnv *env, jobject java_instance)
+	static void dispose(JNIEnv *env, jobject javaInstance)
 	{
-		auto wrapper = getWrapper(env, java_instance);
+		auto wrapper = getWrapper(env, javaInstance);
 
 		delete wrapper;
-		setHandle<SharedPointerWrapper<T>>(env, java_instance, nullptr);
+		setHandle<SharedPointerWrapper<T>>(env, javaInstance, nullptr);
 	}
 
 };

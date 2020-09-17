@@ -13,7 +13,7 @@ void Java_io_github_vmoglan_pcljava_PointCloud3d_alloc(JNIEnv *env, jobject obj)
 	wrapper->instantiate(env, obj);
 }
 
-void Java_io_github_vmoglan_pcljava_PointCloud3d_dispose(JNIEnv *, jobject obj)
+void Java_io_github_vmoglan_pcljava_PointCloud3d_dispose(JNIEnv *env, jobject obj)
 {
 	SharedPointerWrapper<PointCloud>::dispose(env, obj);
 }

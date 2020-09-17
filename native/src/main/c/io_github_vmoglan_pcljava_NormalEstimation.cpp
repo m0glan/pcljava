@@ -4,6 +4,8 @@
 #include <pcl/point_types.h>
 #include <pcl/features/normal_3d.h>
 
+using PointCloud = pcl::PointCloud<pcl::PointXYZRGB>;
+
 void Java_io_github_vmoglan_pcljava_NormalEstimation_compute(JNIEnv *env, jobject obj, jobject input, jfloat radiusSearch, jobject output)
 {
 	PointCloud::Ptr cloud( SharedPointerWrapper<PointCloud>::getPointer(env, input));

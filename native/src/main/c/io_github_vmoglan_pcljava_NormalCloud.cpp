@@ -14,7 +14,7 @@ void Java_io_github_vmoglan_pcljava_NormalCloud_alloc(JNIEnv *env, jobject obj)
 	wrapper->instantiate(env, obj);
 }
 
-void Java_io_github_vmoglan_pcljava_NormalCloud_dispose(JNIEnv *, jobject obj)
+void Java_io_github_vmoglan_pcljava_NormalCloud_dispose(JNIEnv *env, jobject obj)
 {
 	SharedPointerWrapper<NormalCloud>::dispose(env, obj);
 }

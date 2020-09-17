@@ -8,9 +8,9 @@
 
 using PointCloud = pcl::PointCloud<pcl::PointXYZRGB>;
 
-void Java_io_github_vmoglan_pcljava_io_PointCloud3dReader_readPCD(JNIEnv *env, jobject obj, jstring fileName, jobject cloud)
+void Java_io_github_vmoglan_pcljava_io_PointCloud3dReader_readPCD(JNIEnv *env, jobject obj, jstring fileName, jobject cloudJava)
 {
-	auto cloud = SharedPointerWrapper<PointCloud>::getPointer(env, cloud);
+	auto cloud = SharedPointerWrapper<PointCloud>::getPointer(env, cloudJava);
 	const char *fileNameNative = env->GetStringUTFChars(fileName, JNI_FALSE);
 
 	pcl::io::loadPCDFile<pcl::PointXYZRGB>(fileNameNative, *cloud);
@@ -18,9 +18,9 @@ void Java_io_github_vmoglan_pcljava_io_PointCloud3dReader_readPCD(JNIEnv *env, j
 	env->ReleaseStringUTFChars(fileName, fileNameNative);
 }
 
-void Java_io_github_vmoglan_pcljava_io_PointCloud3dReader_readPLY(JNIEnv *env, jobject obj, jstring fileName, jobject cloud)
+void Java_io_github_vmoglan_pcljava_io_PointCloud3dReader_readPLY(JNIEnv *env, jobject obj, jstring fileName, jobject cloudJava)
 {
-	auto cloud = SharedPointerWrapper<PointCloud>::getPointer(env, cloud);
+	auto cloud = SharedPointerWrapper<PointCloud>::getPointer(env, cloudJava);
 	const char *fileNameNative = env->GetStringUTFChars(fileName, JNI_FALSE);
 
 	pcl::io::loadPLYFile<pcl::PointXYZRGB>(fileNameNative, *cloud);
