@@ -5,16 +5,16 @@
 
 void Java_io_github_vmoglan_pcljava_Normal_alloc(JNIEnv *env, jobject obj)
 {
-	pcl::Normal *normal_ptr = new pcl::Normal();
+	pcl::Normal *normal = new pcl::Normal();
 
-	setHandle(env, obj, normal_ptr);
+	setHandle(env, obj, normal);
 }
 
 void Java_io_github_vmoglan_pcljava_Normal_dispose(JNIEnv *env, jobject obj)
 {
-	pcl::Normal *normal_ptr = getHandle<pcl::Normal>(env, obj);
+	pcl::Normal *normal = getHandle<pcl::Normal>(env, obj);
 
-	delete normal_ptr;
+	delete normal;
 
 	setHandle<pcl::Normal>(env, obj, nullptr);
 }
