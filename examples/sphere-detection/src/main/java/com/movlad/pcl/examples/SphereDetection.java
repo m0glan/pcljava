@@ -32,7 +32,7 @@ public class SphereDetection {
 		ransac.setDistanceThreshold(.01f);
 		ransac.computeModel(0);
 		
-		PointCloud3d detectedSphere = ransac.getInliners(noisySphere);
+		PointCloud3d detectedSphere = ransac.getInliers(noisySphere);
 		
 		for (Point3d point : detectedSphere) {
 			point.setRGB((short) 255, (short) 0, (short) 0);

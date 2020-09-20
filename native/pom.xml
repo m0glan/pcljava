@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>io.github.vmoglan</groupId>
+        <groupId>com.github.vmoglan</groupId>
         <artifactId>pcljava</artifactId>
         <version>${global.version}</version>
     </parent>
@@ -64,7 +64,7 @@
                         </goals>
                         <configuration>
                             <config>
-                                <!-- Optional: the build configuration (e.g. "x64|Release") -->
+                                Release
                             </config>
                             <target>
                                 ${basedir}/project/pcljava

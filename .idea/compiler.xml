@@ -6,11 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="jni" />
         <module name="pcl-java (1)" />
         <module name="native" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="jni" target="1.11" />
       <module name="native" target="1.11" />
       <module name="pcl-java" target="1.11" />
       <module name="pcl-java (1)" target="1.11" />
