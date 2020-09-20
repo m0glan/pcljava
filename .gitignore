@@ -79,11 +79,11 @@ fabric.properties
 target/
 
 # CMake
-cmake-build-*/
-project/
 build/
 CMakeFiles/
 CMakeCache.txt
 *.cmake
 Makefile
 bin/
+native-project/
+native-target/
