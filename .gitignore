@@ -79,11 +79,20 @@ fabric.properties
 target/
 
 # CMake
-build/
 CMakeFiles/
 CMakeCache.txt
 *.cmake
 Makefile
-bin/
 native-project/
 native-target/
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# Local History for Visual Studio Code
+.history/

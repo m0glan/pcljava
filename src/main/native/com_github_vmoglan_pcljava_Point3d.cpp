@@ -5,17 +5,14 @@
 
 void Java_com_github_vmoglan_pcljava_Point3d_alloc(JNIEnv *env, jobject obj)
 {
-	pcl::PointXYZRGB *point = new pcl::PointXYZRGB();
-
+	auto point = new pcl::PointXYZRGB();
 	setHandle(env, obj, point);
 }
 
 void Java_com_github_vmoglan_pcljava_Point3d_dispose(JNIEnv *env, jobject obj)
 {
 	pcl::PointXYZRGB *point = getHandle<pcl::PointXYZRGB>(env, obj);
-
 	delete point;
-
 	setHandle<pcl::PointXYZRGB>(env, obj, nullptr);
 }
 

@@ -1,4 +1,4 @@
-package com.vmoglan.pcl;
+package com.github.vmoglan.pcljava;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class TestExampleGenerator {

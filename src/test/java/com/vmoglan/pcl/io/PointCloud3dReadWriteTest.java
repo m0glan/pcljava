@@ -1,4 +1,4 @@
-package com.vmoglan.pcl.io;
+package com.github.vmoglan.pcljava.io;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

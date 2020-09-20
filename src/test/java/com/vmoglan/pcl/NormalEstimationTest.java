@@ -1,4 +1,4 @@
-package com.vmoglan.pcl;
+package com.github.vmoglan.pcljava;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -11,7 +11,7 @@ import com.vmoglan.pcl.io.PointCloud3dReader;
 class NormalEstimationTest {
 
 	static {	
-		System.loadLibrary("pcl_java");
+		System.loadLibrary("pcljava");
 	}
 	
 	@Test

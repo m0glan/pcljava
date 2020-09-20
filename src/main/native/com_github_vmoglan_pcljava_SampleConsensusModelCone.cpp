@@ -20,30 +20,26 @@ void Java_com_github_vmoglan_pcljava_SampleConsensusModelCone_dispose(JNIEnv *en
 
 jdouble Java_com_github_vmoglan_pcljava_SampleConsensusModelCone_getNormalDistanceWeight(JNIEnv *env, jobject obj)
 {
-	auto model = SharedPointerWrapper<SampleConsensusModelCone>::getPointer(env, obj);
-
+	SampleConsensusModelCone::Ptr model = SharedPointerWrapper<SampleConsensusModelCone>::getPointer(env, obj);
 	return model->getNormalDistanceWeight();
 }
 
 void Java_com_github_vmoglan_pcljava_SampleConsensusModelCone_setNormalDistanceWeight(JNIEnv *env, jobject obj, jdouble weight)
 {
-	auto model = SharedPointerWrapper<SampleConsensusModelCone>::getPointer(env, obj);
-
+	SampleConsensusModelCone::Ptr model = SharedPointerWrapper<SampleConsensusModelCone>::getPointer(env, obj);
 	model->setNormalDistanceWeight(weight);
 }
 
 void Java_com_github_vmoglan_pcljava_SampleConsensusModelCone_getInputNormals(JNIEnv *env, jobject obj, jobject normalsJava)
 {
-	auto model = SharedPointerWrapper<SampleConsensusModelCone>::getPointer(env, obj);
+	SampleConsensusModelCone::Ptr model = SharedPointerWrapper<SampleConsensusModelCone>::getPointer(env, obj);
 	auto normals = new SharedPointerWrapper<NormalCloud>(*model->getInputNormals());
-
 	normals->instantiate(env, normalsJava);
 }
 
 void Java_com_github_vmoglan_pcljava_SampleConsensusModelCone_setInputNormals(JNIEnv *env, jobject obj, jobject normalsJava)
 {
-	auto model = SharedPointerWrapper<SampleConsensusModelCone>::getPointer(env, obj);
-	auto normals = SharedPointerWrapper<NormalCloud>::getPointer(env, normalsJava);
-
+	SampleConsensusModelCone::Ptr model = SharedPointerWrapper<SampleConsensusModelCone>::getPointer(env, obj);
+	NormalCloud::Ptr normals = SharedPointerWrapper<NormalCloud>::getPointer(env, normalsJava);
 	model->setInputNormals(normals);
 }

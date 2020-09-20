@@ -10,7 +10,7 @@ extern "C" {
 /*
  * Class:     com_github_vmoglan_pcljava_SampleConsensusModel
  * Method:    setInputCloud
- * Signature: (Lde/i3mainz/pcl/PointCloud3d;)V
+ * Signature: (Lcom/github/vmoglan/pcljava/PointCloud3d;)V
  */
 JNIEXPORT void JNICALL Java_com_github_vmoglan_pcljava_SampleConsensusModel_setInputCloud(JNIEnv *, jobject, jobject);
 

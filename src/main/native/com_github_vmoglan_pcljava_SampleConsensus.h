@@ -11,7 +11,7 @@ extern "C" {
 /*
  * Class:     com_github_vmoglan_pcljava_SampleConsensus
  * Method:    setSampleConsensusModel
- * Signature: (Lde/i3mainz/pcl/SampleConsensusModel;)V
+ * Signature: (Lcom/github/vmoglan/pcljava/SampleConsensusModel;)V
  */
 JNIEXPORT void JNICALL Java_com_github_vmoglan_pcljava_SampleConsensus_nSetSampleConsensusModel(JNIEnv *, jobject, jobject);
 
@@ -67,7 +67,7 @@ JNIEXPORT jboolean JNICALL Java_com_github_vmoglan_pcljava_SampleConsensus_refin
 /*
  * Class:     com_github_vmoglan_pcljava_SampleConsensus
  * Method:    getInliers
- * Signature: (Lde/i3mainz/pcl/PointCloud;Lde/i3mainz/pcl/PointCloud;)V
+ * Signature: (Lcom/github/vmoglan/pcljava/PointCloud;Lcom/github/vmoglan/pcljava/PointCloud;)V
  */
 JNIEXPORT void JNICALL Java_com_github_vmoglan_pcljava_SampleConsensus_getInliers(JNIEnv *, jobject, jobject, jobject);
 

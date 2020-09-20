@@ -10,7 +10,6 @@ void Java_com_github_vmoglan_pcljava_SampleConsensusModelSphere_alloc(JNIEnv *en
 {
 	PointCloud::Ptr cloud(new PointCloud());
 	auto wrapper = new SharedPointerWrapper<SampleConsensusModelSphere>(cloud);
-
 	wrapper->instantiate(env, obj);
 }
 

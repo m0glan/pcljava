@@ -24,21 +24,21 @@ JNIEXPORT void JNICALL Java_com_github_vmoglan_pcljava_PointCloud3d_dispose(JNIE
 /*
  * Class:     com_github_vmoglan_pcljava_PointCloud3d
  * Method:    at
- * Signature: (ILde/i3mainz/pcl/Point3d;)V
+ * Signature: (ILcom/github/vmoglan/pcljava/Point3d;)V
  */
 JNIEXPORT void JNICALL Java_com_github_vmoglan_pcljava_PointCloud3d_at(JNIEnv *, jobject, jint, jobject);
 
 /*
  * Class:     com_github_vmoglan_pcljava_PointCloud3d
  * Method:    add
- * Signature: (Lde/i3mainz/pcl/Point3d;)V
+ * Signature: (Lcom/github/vmoglan/pcljava/Point3d;)V
  */
 JNIEXPORT void JNICALL Java_com_github_vmoglan_pcljava_PointCloud3d_add(JNIEnv *, jobject, jobject);
 
 /*
  * Class:     com_github_vmoglan_pcljava_PointCloud3d
  * Method:    remove
- * Signature: (Lde/i3mainz/pcl/Point3d;)V
+ * Signature: (Lcom/github/vmoglan/pcljava/Point3d;)V
  */
 JNIEXPORT void JNICALL Java_com_github_vmoglan_pcljava_PointCloud3d_remove(JNIEnv *, jobject, jobject);
 

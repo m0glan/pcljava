@@ -11,7 +11,6 @@ void Java_com_github_vmoglan_pcljava_SampleConsensusModelCylinder_alloc(JNIEnv *
 {
 	PointCloud::Ptr cloud(new PointCloud());
 	auto wrapper = new SharedPointerWrapper<SampleConsensusModelCylinder>(cloud);
-
 	wrapper->instantiate(env, obj);
 }
 
@@ -22,30 +21,26 @@ void Java_com_github_vmoglan_pcljava_SampleConsensusModelCylinder_dispose(JNIEnv
 
 jdouble Java_com_github_vmoglan_pcljava_SampleConsensusModelCylinder_getNormalDistanceWeight(JNIEnv *env, jobject obj)
 {
-	auto model = SharedPointerWrapper<SampleConsensusModelCylinder>::getPointer(env, obj);
-
+	SampleConsensusModelCylinder::Ptr model = SharedPointerWrapper<SampleConsensusModelCylinder>::getPointer(env, obj);
 	return model->getNormalDistanceWeight();
 }
 
 void Java_com_github_vmoglan_pcljava_SampleConsensusModelCylinder_setNormalDistanceWeight(JNIEnv *env, jobject obj, jdouble weight)
 {
-	auto model = SharedPointerWrapper<SampleConsensusModelCylinder>::getPointer(env, obj);
-
+	SampleConsensusModelCylinder::Ptr model = SharedPointerWrapper<SampleConsensusModelCylinder>::getPointer(env, obj);
 	model->setNormalDistanceWeight(weight);
 }
 
 void Java_com_github_vmoglan_pcljava_SampleConsensusModelCylinder_getInputNormals(JNIEnv *env, jobject obj, jobject normalsJava)
 {
-	auto model = SharedPointerWrapper<SampleConsensusModelCylinder>::getPointer(env, obj);
+	SampleConsensusModelCylinder::Ptr model = SharedPointerWrapper<SampleConsensusModelCylinder>::getPointer(env, obj);
 	auto normals = new SharedPointerWrapper<NormalCloud>(*model->getInputNormals());
-
 	normals->instantiate(env, normalsJava);
 }
 
 void Java_com_github_vmoglan_pcljava_SampleConsensusModelCylinder_setInputNormals(JNIEnv *env, jobject obj, jobject normalsJava)
 {
-	auto model = SharedPointerWrapper<SampleConsensusModelCylinder>::getPointer(env, obj);
-	auto normals = SharedPointerWrapper<NormalCloud>::getPointer(env, normalsJava);
-
+	SampleConsensusModelCylinder::Ptr model = SharedPointerWrapper<SampleConsensusModelCylinder>::getPointer(env, obj);
+	NormalCloud::Ptr normals = SharedPointerWrapper<NormalCloud>::getPointer(env, normalsJava);
 	model->setInputNormals(normals);
 }

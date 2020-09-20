@@ -24,21 +24,21 @@ JNIEXPORT void JNICALL Java_com_github_vmoglan_pcljava_NormalCloud_dispose(JNIEn
 /*
  * Class:     com_github_vmoglan_pcljava_NormalCloud
  * Method:    at
- * Signature: (ILde/i3mainz/pcl/Normal;)V
+ * Signature: (ILcom/github/vmoglan/pcljava/Normal;)V
  */
 JNIEXPORT void JNICALL Java_com_github_vmoglan_pcljava_NormalCloud_at(JNIEnv *, jobject, jint, jobject);
 
 /*
  * Class:     com_github_vmoglan_pcljava_NormalCloud
  * Method:    add
- * Signature: (Lde/i3mainz/pcl/Normal;)V
+ * Signature: (Lcom/github/vmoglan/pcljava/Normal;)V
  */
 JNIEXPORT void JNICALL Java_com_github_vmoglan_pcljava_NormalCloud_add(JNIEnv *, jobject, jobject);
 
 /*
  * Class:     com_github_vmoglan_pcljava_NormalCloud
  * Method:    remove
- * Signature: (Lde/i3mainz/pcl/Normal;)V
+ * Signature: (Lcom/github/vmoglan/pcljava/Normal;)V
  */
 JNIEXPORT void JNICALL Java_com_github_vmoglan_pcljava_NormalCloud_remove(JNIEnv *, jobject, jobject);
 

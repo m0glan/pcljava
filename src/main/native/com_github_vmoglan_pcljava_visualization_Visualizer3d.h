@@ -10,14 +10,14 @@ extern "C" {
 /*
  * Class:     com_github_vmoglan_pcljava_visualization_Visualizer3d
  * Method:    addPointCloud
- * Signature: (Lde/i3mainz/pcl/PointCloud;Ljava/lang/String;I)Z
+ * Signature: (Lcom/github/vmoglan/pcljava/PointCloud;Ljava/lang/String;I)Z
  */
 JNIEXPORT jboolean JNICALL Java_com_github_vmoglan_pcljava_visualization_Visualizer3d_addPointCloud(JNIEnv *, jobject, jobject, jstring, jint);
 
 /*
  * Class:     com_github_vmoglan_pcljava_visualization_Visualizer3d
  * Method:    addPointCloudNormals
- * Signature: (Lde/i3mainz/pcl/PointCloud;Lde/i3mainz/pcl/NormalCloud;IFLjava/lang/String;I)Z
+ * Signature: (Lcom/github/vmoglan/pcljava/PointCloud;Lcom/github/vmoglan/pcljava/NormalCloud;IFLjava/lang/String;I)Z
  */
 JNIEXPORT jboolean JNICALL Java_com_github_vmoglan_pcljava_visualization_Visualizer3d_addPointCloudNormals(JNIEnv *, jobject, jobject, jobject, jint, jfloat, jstring, jint);
 

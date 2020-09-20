@@ -11,14 +11,14 @@ extern "C"
   /*
  * Class:     com_github_vmoglan_pcljava_io_PointCloud3dReader
  * Method:    readPCD
- * Signature: (Ljava/lang/String;Lde/i3mainz/pcl/PointCloud3d;)V
+ * Signature: (Ljava/lang/String;Lcom/github/vmoglan/pcljava/PointCloud3d;)V
  */
   JNIEXPORT void JNICALL Java_com_github_vmoglan_pcljava_io_PointCloud3dReader_readPCD(JNIEnv *, jobject, jstring, jobject);
 
   /*
  * Class:     com_github_vmoglan_pcljava_io_PointCloud3dReader
  * Method:    readPLY
- * Signature: (Ljava/lang/String;Lde/i3mainz/pcl/PointCloud3d;)V
+ * Signature: (Ljava/lang/String;Lcom/github/vmoglan/pcljava/PointCloud3d;)V
  */
   JNIEXPORT void JNICALL Java_com_github_vmoglan_pcljava_io_PointCloud3dReader_readPLY(JNIEnv *, jobject, jstring, jobject);
 

@@ -38,14 +38,14 @@ JNIEXPORT void JNICALL Java_com_github_vmoglan_pcljava_SampleConsensusModelCylin
 /*
  * Class:     com_github_vmoglan_pcljava_SampleConsensusModelCylinder
  * Method:    getInputNormals
- * Signature: (Lde/i3mainz/pcl/NormalCloud;)V
+ * Signature: (Lcom/github/vmoglan/pcljava/NormalCloud;)V
  */
 JNIEXPORT void JNICALL Java_com_github_vmoglan_pcljava_SampleConsensusModelCylinder_getInputNormals(JNIEnv *, jobject, jobject);
 
 /*
  * Class:     com_github_vmoglan_pcljava_SampleConsensusModelCylinder
  * Method:    setInputNormals
- * Signature: (Lde/i3mainz/pcl/NormalCloud;)V
+ * Signature: (Lcom/github/vmoglan/pcljava/NormalCloud;)V
  */
 JNIEXPORT void JNICALL Java_com_github_vmoglan_pcljava_SampleConsensusModelCylinder_setInputNormals(JNIEnv *, jobject, jobject);
 

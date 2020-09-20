@@ -1,4 +1,4 @@
-package com.vmoglan.pcl.math;
+package com.github.vmoglan.pcljava.math;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.*;

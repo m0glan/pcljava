@@ -5,17 +5,14 @@
 
 void Java_com_github_vmoglan_pcljava_Point2d_alloc(JNIEnv *env, jobject obj)
 {
-	pcl::PointXY *point = new pcl::PointXY();
-
+	auto point = new pcl::PointXY();
 	setHandle(env, obj, point);
 }
 
 void Java_com_github_vmoglan_pcljava_Point2d_dispose(JNIEnv *env, jobject obj)
 {
 	pcl::PointXY *point = getHandle<pcl::PointXY>(env, obj);
-
 	delete point;
-
 	setHandle<pcl::PointXY>(env, obj, nullptr);
 }
 

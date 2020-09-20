@@ -1,4 +1,4 @@
-package com.vmoglan.pcl;
+package com.github.vmoglan.pcljava;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -11,7 +11,7 @@ public class Point3dTest {
 	private static final float EX_Z = 5;
 	
 	static {	
-		System.loadLibrary("pcl_java");
+		System.loadLibrary("pcljava");
 	}
 	
 	@Test
