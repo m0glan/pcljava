@@ -6,8 +6,6 @@
 #include <pcl/io/pcd_io.h>
 #include <pcl/io/ply_io.h>
 
-#include <memory>
-
 using PointCloud = pcl::PointCloud<pcl::PointXYZRGB>;
 
 void Java_com_github_vmoglan_pcljava_io_PointCloud3dReader_readPCD(JNIEnv *env, jobject obj, jstring fileName, jobject cloudJava)

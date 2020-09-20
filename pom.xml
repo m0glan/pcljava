@@ -9,7 +9,7 @@
   <packaging>jar</packaging>
 
   <properties>
-    <global.version>0.0.1-SNAPSHOT</global.version>
+    <global.version>1.11.1-SNAPSHOT</global.version>
     <maven.compiler.source>1.11</maven.compiler.source>
     <maven.compiler.target>1.11</maven.compiler.target>
     <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
@@ -17,19 +17,19 @@
   </properties>
 
   <distributionManagement>
-      <repository>
-        <id>github-pcljava</id>
-        <name>Point-Cloud Library JNI Port Packages</name>
-        <url>https://maven.pkg.github.com/vmoglan/pcljava</url>
-      </repository>
+    <repository>
+      <id>github-pcljava</id>
+      <name>Point-Cloud Library JNI Port Packages</name>
+      <url>https://maven.pkg.github.com/vmoglan/pcljava</url>
+    </repository>
   </distributionManagement>
 
   <repositories>
     <repository>
-        <id>github-pcljava</id>
-        <name>Point-Cloud Library JNI Port Packages</name>
-        <url>https://maven.pkg.github.com/vmoglan/pcljava</url>
-      </repository>
+      <id>github-pcljava</id>
+      <name>Point-Cloud Library JNI Port Packages</name>
+      <url>https://maven.pkg.github.com/vmoglan/pcljava</url>
+    </repository>
   </repositories>
 
   <profiles>
