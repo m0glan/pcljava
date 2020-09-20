@@ -14,8 +14,8 @@
     <bytecodeTargetLevel>
       <module name="jni" target="1.11" />
       <module name="native" target="1.11" />
-      <module name="pcl-java" target="1.11" />
       <module name="pcl-java (1)" target="1.11" />
+      <module name="pcljava" target="1.11" />
     </bytecodeTargetLevel>
   </component>
 </project>
