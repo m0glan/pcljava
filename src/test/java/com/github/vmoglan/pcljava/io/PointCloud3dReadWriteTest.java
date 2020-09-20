@@ -43,17 +43,17 @@ class PointCloud3dReadWriteTest {
 	@Test
 	void testReadPCD() {
 		PointCloud3d pointCloud = TestExampleGenerator.generatePointCloud3d(minPoint, maxPoint, CLOUD_SIZE);
-		PointCloud3dWriter exporter = new PointCloud3dWriter(pointCloud);
-		PointCloud3dReader reader = new PointCloud3dReader();
+		PointCloud3dWriterPcd exporter = new PointCloud3dWriterPcd();
+		PointCloud3dReaderPcd reader = new PointCloud3dReaderPcd();
 		
-		exporter.write("cloud-export-test.pcd");
-		reader.read("cloud-export-test.pcd");
+		exporter.write(pointCloud, "cloud-export-test.pcd", true);
+		PointCloud3d in = reader.read("cloud-export-test.pcd");
 		
 		File file = new File("cloud-export-test.pcd");
 		
 		file.deleteOnExit();
 		
-		assertEquals(pointCloud.size(), reader.getCloud().size());
+		assertEquals(pointCloud.size(), in.size());
 		
 		pointCloud.dispose();
 	}
@@ -61,17 +61,18 @@ class PointCloud3dReadWriteTest {
 	@Test
 	void testReadPLY() {
 		PointCloud3d pointCloud = TestExampleGenerator.generatePointCloud3d(minPoint, maxPoint, CLOUD_SIZE);
-		PointCloud3dWriter exporter = new PointCloud3dWriter(pointCloud);
-		PointCloud3dReader reader = new PointCloud3dReader();
+		PointCloud3dWriterPly exporter = new PointCloud3dWriterPly();
+		PointCloud3dReaderPly reader = new PointCloud3dReaderPly();
+		PointCloud3d in = reader.read("cloud-export-test.pcd");
 		
-		exporter.write("cloud-export-test.ply");
+		exporter.write(pointCloud, "cloud-export-test.ply", true);
 		reader.read("cloud-export-test.ply");
 		
 		File file = new File("cloud-export-test.ply");
 		
 		file.deleteOnExit();
 		
-		assertEquals(pointCloud.size(), reader.getCloud().size());
+		assertEquals(pointCloud.size(), in.size());
 		
 		pointCloud.dispose();
 	}

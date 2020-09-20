@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.File;
 
-import com.github.vmoglan.pcljava.io.PointCloud3dReader;
+import com.github.vmoglan.pcljava.io.PointCloud3dReaderPly;
 
 class NormalEstimationTest {
 
@@ -17,11 +17,9 @@ class NormalEstimationTest {
 	void test() {
 		ClassLoader classLoader = getClass().getClassLoader();
 		File sample = new File(classLoader.getResource("pcl-samples/bunny.pcd").getFile());
-		PointCloud3dReader reader = new PointCloud3dReader();
+		PointCloud3dReaderPly reader = new PointCloud3dReaderPly();
 		
-		reader.read(sample.getAbsolutePath());
-		
-		PointCloud3d cloud = reader.getCloud();
+		PointCloud3d cloud = reader.read(sample.getAbsolutePath());
 		
 		NormalEstimation ne = new NormalEstimation(cloud, 0.03f);
 		

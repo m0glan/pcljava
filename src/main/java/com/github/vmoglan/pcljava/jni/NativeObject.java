@@ -2,11 +2,8 @@ package com.github.vmoglan.pcljava.jni;
 
 /**
  * Bridge between a Java object and a native pointer.
- * 
- * @author Vlad-Adrian Moglan
  */
 public abstract class NativeObject {
-
 	private long handle;
 	
 	public NativeObject() {
@@ -43,5 +40,4 @@ public abstract class NativeObject {
 	 * called manually when the object is no longer needed.
 	 */
 	public abstract void dispose();
-	
 }
