@@ -82,6 +82,7 @@ fabric.properties
 target/
 
 # CMake
+project/
 build/
 CMakeFiles/
 CMakeCache.txt

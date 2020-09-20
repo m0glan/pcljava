@@ -30,19 +30,19 @@ endif()
 
 file(
 	GLOB_RECURSE PCLJAVA_SRC
-	"${CMAKE_SOURCE_DIR}/src/main/c/*.h"
-	"${CMAKE_SOURCE_DIR}/src/main/c/*.cpp"
+	"${CMAKE_SOURCE_DIR}/src/main/native/*.h"
+	"${CMAKE_SOURCE_DIR}/src/main/native/*.cpp"
 ) 
 
 link_directories(${PCL_LIBRARY_DIRS})
 add_definitions(${PCL_DEFINITIONS})
 
 add_library(${TARGET_NAME} SHARED "${PCLJAVA_SRC}")
-if ( MSVC )
+if (MSVC)
     set_target_properties(${TARGET_NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin/")
     set_target_properties(${TARGET_NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY_DEBUG "${CMAKE_SOURCE_DIR}/bin/")
     set_target_properties(${TARGET_NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY_RELEASE "${CMAKE_SOURCE_DIR}/bin/")
-endif ( MSVC )
+endif (MSVC)
 
 target_include_directories(${TARGET_NAME} PUBLIC ${JNI_INCLUDE_DIRS} ${PCL_INCLUDE_DIRS})
 target_link_libraries(
