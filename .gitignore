@@ -42,9 +42,6 @@
 # *.iml
 # *.ipr
 
-# CMake
-cmake-build-*/
-
 # Mongo Explorer plugin
 .idea/**/mongoSettings.xml
 
@@ -82,9 +79,11 @@ fabric.properties
 target/
 
 # CMake
+cmake-build-*/
 project/
 build/
 CMakeFiles/
 CMakeCache.txt
 *.cmake
 Makefile
+bin/
