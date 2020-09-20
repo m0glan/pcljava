@@ -3,13 +3,7 @@ package com.github.vmoglan.pcljava;
 import com.github.vmoglan.pcljava.math.Comparison;
 import com.github.vmoglan.pcljava.jni.NativeObject;
 
-/**
- * A point structure representing normal coordinates and the surface curvature estimate.
- * 
- * @see <a href=http://docs.pointclouds.org/1.7.0/structpcl_1_1_normal.html>pcl::Normal documentation</a>
- */
 public class Normal extends NativeObject implements Point, Cloneable {
-
 	@Override
 	protected native void alloc();
 	
@@ -59,5 +53,4 @@ public class Normal extends NativeObject implements Point, Cloneable {
 	public String toString() {
 		return "x: " + getX() + " y: " + getY() + " z: " + getZ();
 	}
-	
 }

@@ -11,7 +11,6 @@ import com.github.vmoglan.pcljava.jni.NativeObject;
  * @see <a href="http://docs.pointclouds.org/1.8.1/classpcl_1_1visualization_1_1_p_c_l_visualizer.html">pcl::visualization::PCLVisualizer documentation</a> class.
  */
 public abstract class Visualizer<PointT extends Point> extends NativeObject {
-
 	@Override
 	protected native void alloc();
 	
@@ -136,5 +135,4 @@ public abstract class Visualizer<PointT extends Point> extends NativeObject {
 	 * Initialize camera parameters with some default values.
 	 */
 	public native void initCameraParameters();
-	
 }
