@@ -1,12 +1,11 @@
 package com.github.vmoglan.pcljava;
 
+import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.File;
 
-import org.junit.jupiter.api.Test;
-
-import com.vmoglan.pcl.io.PointCloud3dReader;
+import com.github.vmoglan.pcljava.io.PointCloud3dReader;
 
 class NormalEstimationTest {
 

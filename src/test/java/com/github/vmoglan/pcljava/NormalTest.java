@@ -1,10 +1,9 @@
 package com.github.vmoglan.pcljava;
 
+import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.Test;
-
-import com.vmoglan.pcl.math.Comparison;
+import com.github.vmoglan.pcljava.math.Comparison;
 
 class NormalTest {
 	

@@ -8,9 +8,9 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import com.vmoglan.pcl.TestExampleGenerator;
-import com.vmoglan.pcl.Point3d;
-import com.vmoglan.pcl.PointCloud3d;
+import com.github.vmoglan.pcljava.TestExampleGenerator;
+import com.github.vmoglan.pcljava.Point3d;
+import com.github.vmoglan.pcljava.PointCloud3d;
 
 class PointCloud3dReadWriteTest {
 
@@ -19,7 +19,7 @@ class PointCloud3dReadWriteTest {
 	private static Point3d maxPoint;
 
 	static {	
-		System.loadLibrary("pcl_java");
+		System.loadLibrary("pcljava");
 	}
 	
 	@BeforeAll
