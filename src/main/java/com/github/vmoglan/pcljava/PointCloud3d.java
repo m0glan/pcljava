@@ -13,9 +13,7 @@ public final class PointCloud3d extends PointCloud<Point3d> {
 	@Override
 	public Point3d at(int i) {
 		Point3d point = new Point3d();
-		
 		at(i, point);
-		
 		return point;
 	}
 	
