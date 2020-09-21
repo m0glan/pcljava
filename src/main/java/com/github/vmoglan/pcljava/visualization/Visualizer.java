@@ -5,11 +5,6 @@ import com.github.vmoglan.pcljava.Point;
 import com.github.vmoglan.pcljava.PointCloud;
 import com.github.vmoglan.pcljava.jni.NativeObject;
 
-/**
- * PCL Visualizer base class.
- * 
- * @see <a href="http://docs.pointclouds.org/1.8.1/classpcl_1_1visualization_1_1_p_c_l_visualizer.html">pcl::visualization::PCLVisualizer documentation</a> class.
- */
 public abstract class Visualizer<PointT extends Point> extends NativeObject {
 	@Override
 	protected native void alloc();
@@ -28,15 +23,15 @@ public abstract class Visualizer<PointT extends Point> extends NativeObject {
 	public native boolean wasStopped();
 	
 	/**
-	 * Create a new viewport from (xmin,ymin) to (xmax,ymax).
+	 * Create a new viewport from (xMin,yMin) to (xMax,yMax).
 	 * 
-	 * @param xmin 	the minimum X coordinate for the viewport (0.0 lesser or equal to 1.0)
-	 * @param ymin 	the minimum Y coordinate for the viewport (0.0 lesser or equal 1.0)
-	 * @param xmax 	the maximum X coordinate for the viewport (0.0 lesser or equal 1.0)
-	 * @param ymax 	the maximum Y coordinate for the viewport (0.0 lesser or equal 1.0)
+	 * @param xMin 	the minimum X coordinate for the viewport (0.0 lesser or equal to 1.0)
+	 * @param yMin 	the minimum Y coordinate for the viewport (0.0 lesser or equal 1.0)
+	 * @param xMax 	the maximum X coordinate for the viewport (0.0 lesser or equal 1.0)
+	 * @param yMax 	the maximum Y coordinate for the viewport (0.0 lesser or equal 1.0)
 	 * @param viewport the id of the new viewport
 	 */
-	public native void createViewport(double xmin, double ymin, double xmax, double ymax, int viewport);
+	public native void createViewport(double xMin, double yMin, double xMax, double yMax, int viewport);
 	
 	/**
 	 * Calls the interactor and runs an internal loop.
@@ -80,22 +75,12 @@ public abstract class Visualizer<PointT extends Point> extends NativeObject {
 	 * @param viewport the view port where the Point Cloud should be added (default: all)
 	 * @return true if the cloud has been successfully added
 	 */
-	public abstract boolean addPointCloudNormals(
-		PointCloud<PointT> cloud, 
-		NormalCloud normals, 
-		int level,
-		float scale,
-		String id,
-		int viewport
-	);
-	
-	/**
-	 * Adds 3D axes describing a coordinate system to screen at 0,0,0.
-	 * 
-	 * @param scale the scale of the axes (default: 1)
-	 * @param viewport the view port where the 3D axes should be added (default: all)
-	 */
-	public native void addCoordinateSystem(double scale, int viewport);
+	public abstract boolean addPointCloudNormals(PointCloud<PointT> cloud,
+												 NormalCloud normals,
+												 int level,
+												 float scale,
+												 String id,
+												 int viewport);
 	
 	/**
 	 * Adds 3D axes describing a coordinate system to screen at 0,0,0.
@@ -105,13 +90,18 @@ public abstract class Visualizer<PointT extends Point> extends NativeObject {
 	 * @param viewport the view port where the 3D axes should be added (default: all)
 	 */
 	public native void addCoordinateSystem(double scale, String id, int viewport);
-	
+
 	/**
-	 * Removes coordinate system from viewport.
-	 * 
-	 * @param viewport the viewport to remove the coordinate system from.
+	 * Adds 3D axes describing a coordinate system to screen at 0,0,0.
+	 *
+	 * @param scale the scale of the axes (default: 1)
+	 * @param x the X position of the axes
+	 * @param y the Y position of the axes
+	 * @param z the Z position of the axes
+	 * @param id the coordinate system id
+	 * @param viewport the view port where the 3D axes should be added (default: all)
 	 */
-	public native void removeCoordinateSystem(int viewport);
+	public native void addCoordinateSystem(double scale, float x, float y, float z, String id, int viewport);
 	
 	/**
 	 * Removes coordinate system from viewport.
@@ -120,14 +110,61 @@ public abstract class Visualizer<PointT extends Point> extends NativeObject {
 	 * @param viewport the viewport to remove the coordinate system from.
 	 */
 	public native void removeCoordinateSystem(String id, int viewport);
-	
+
+	/**
+	 * Removes all existing 3D axes (coordinate systems).
+	 *
+	 * @param viewport view port where the 3D axes should be removed from (default: all)
+	 */
 	public native void removeAllCoordinateSystems(int viewport);
-	
-	public native boolean addText(String text, int xpos, int ypos, String id, int viewport);
-	
-	public native boolean addText(String text, int xpos, int ypos, double r, double g, double b, String id, int viewport);
-	
-	public native boolean addText(String text, int xpos, int ypos, int fontsize, double r, double g, double b, String id, int viewport);
+
+	/**
+	 * Add a text to screen.
+	 *
+	 * @param text the text to add
+	 * @param xPosition the X position on screen where the text should be added
+	 * @param yPosition the Y position on screen where the text should be added
+	 * @param id the text object id (default: equal to the "text" parameter)
+	 * @param viewport the view port (default: all)
+	 */
+	public native boolean addText(String text, int xPosition, int yPosition, String id, int viewport);
+
+	/**
+	 * Add a text to screen.
+	 *
+	 * @param text the text to add
+	 * @param xPosition the X position on screen where the text should be added
+	 * @param yPosition the Y position on screen where the text should be added
+	 * @param r the red color value
+	 * @param g the green color value
+	 * @param b the blue color value
+	 * @param id the text object id (default: equal to the "text" parameter)
+	 * @param viewport the view port (default: all)
+	 */
+	public native boolean addText(String text, int xPosition, int yPosition, double r, double g, double b, String id, int viewport);
+
+	/**
+	 * Add a text to screen.
+	 *
+	 * @param text the text to add
+	 * @param xPosition the X position on screen where the text should be added
+	 * @param yPosition the Y position on screen where the text should be added
+	 * @param fontSize  the font size of the text
+	 * @param r the red color value
+	 * @param g the green color value
+	 * @param b the blue color value
+	 * @param id the text object id (default: equal to the "text" parameter)
+	 * @param viewport the view port (default: all)
+	 */
+	public native boolean addText(String text,
+								  int xPosition,
+								  int yPosition,
+								  int fontSize,
+								  double r,
+								  double g,
+								  double b,
+								  String id,
+								  int viewport);
 
 	public native void setPointSize(int size, String id);
 	

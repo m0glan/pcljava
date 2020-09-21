@@ -1,7 +1,7 @@
 package com.github.vmoglan.pcljava.jni;
 
 /**
- * Bridge between a Java object and a native pointer.
+ * Base for every class that features native methods. 
  */
 public abstract class NativeObject {
 	private long handle;
@@ -11,15 +11,11 @@ public abstract class NativeObject {
 	}
 	
 	/**
-	 * @return the memory address given by the native pointer associated to this
-	 * object if such an association exists, 0 otherwise.
+	 * @return the memory address of the native object associated
+	 * with the Java instance.
 	 */
 	public long getHandle() { return handle; }
 	
-	/**
-	 * Associates a native pointer allocated on the native side to this
-	 * object, if no such association exists.
-	 */
 	public void create() {
 		if (handle != 0) {
 			dispose();
@@ -29,15 +25,14 @@ public abstract class NativeObject {
 	}
 	
 	/**
-	 * Associates a native pointer allocated on the native side to this
-	 * object.
+	 * Allocates memory for a new object and assigns its memory address
+	 * to the handle field; meant to be implemented as a native method.
 	 */
 	protected abstract void alloc();
 	
-	/**
-	 * Deallocates the memory given to the created object. Called automatically upon
-	 * object destruction, but this may cause unexpected behavior: this should be 
-	 * called manually when the object is no longer needed.
+	/*
+	 * Frees the memory at the address stored within the handle field;
+	 * meant to be implemented as a native method.
 	 */
 	public abstract void dispose();
 }

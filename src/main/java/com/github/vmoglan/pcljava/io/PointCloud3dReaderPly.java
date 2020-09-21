@@ -1,8 +1,9 @@
 package com.github.vmoglan.pcljava.io;
 
+import com.github.vmoglan.pcljava.Point3d;
 import com.github.vmoglan.pcljava.PointCloud3d;
 
-public class PointCloud3dReaderPly extends PointCloudReader<PointCloud3d> {
+public class PointCloud3dReaderPly extends PointCloudReader<Point3d, PointCloud3d> {
     @Override
     protected PointCloud3d createPointCloud() {
         return new PointCloud3d();
