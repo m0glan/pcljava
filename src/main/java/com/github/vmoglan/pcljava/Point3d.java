@@ -1,17 +1,11 @@
 package com.github.vmoglan.pcljava;
 
-import com.github.vmoglan.pcljava.math.Comparison;
 import com.github.vmoglan.pcljava.jni.NativeObject;
 
 /**
  * A point structure representing Euclidean xyz coordinates.
- * 
- * @see <a href="http://docs.pointclouds.org/1.8.0/structpcl_1_1_point_x_y_z.html">
- * pcl::PointXYZRGB documentation
- * </a> 
  */
-public class Point3d extends NativeObject implements Point, Cloneable {
-	
+public class Point3d extends NativeObject implements Point {
 	@Override
 	protected native void alloc();
 	
@@ -31,7 +25,9 @@ public class Point3d extends NativeObject implements Point, Cloneable {
 	public native void setZ(float z);
 	
 	public void setCoordinates(float x, float y, float z) {
-		setX(x); setY(y); setZ(z);
+		setX(x);
+		setY(y);
+		setZ(z);
 	}
 	
 	public final native short getR();
@@ -49,34 +45,13 @@ public class Point3d extends NativeObject implements Point, Cloneable {
 	public final native float getRGB();
 	
 	public void setRGB(short r, short g, short b) {
-		setR(r); setG(g); setB(b);
-	}
-	
-	@Override
-	public Point3d clone() {
-		Point3d clone = new Point3d();
-		
-		clone.create();
-		
-		clone.setCoordinates(getX(), getY(), getZ());
-		clone.setRGB(getR(), getG(), getB());
-		
-		return clone;
-	}
-	
-	@Override
-	public boolean equals(Object object) {
-		Point3d point = (Point3d)object;
-		
-		return Comparison.areEqualFloat(getX(), point.getX(), 0.1f) &&
-				Comparison.areEqualFloat(getY(), point.getY(), 0.1f) &&
-				Comparison.areEqualFloat(getZ(), point.getZ(), 0.1f) &&
-				getR() == point.getR() && getG() == point.getG() && getB() == point.getB();
+		setR(r);
+		setG(g);
+		setB(b);
 	}
 	
 	@Override
 	public String toString() {
-		return "x: " + getX() + " y: " + getY() + " z: " + getZ();
+		return "["  + getX() + ", " + getY() + ", " + getZ() + "]";
 	}
-	
 }

@@ -5,17 +5,11 @@ import com.github.vmoglan.pcljava.jni.NativeObject;
 /**
  * SampleConsensus represents the base class.
  * All sample consensus methods must inherit from this class.
- * 
- * @see <a href=http://docs.pointclouds.org/1.8.0/classpcl_1_1_sample_consensus.html>pcl::SampleConsensus
- * documentation</a>
  */
 public abstract class SampleConsensus extends NativeObject {
-
 	SampleConsensusModel model;
 	
 	/**
-	 * Constructor for base SAC.
-	 * 
 	 * @param model a sample consensus model
 	 */
 	public SampleConsensus(SampleConsensusModel model) {
@@ -60,18 +54,13 @@ public abstract class SampleConsensus extends NativeObject {
 	public native boolean refineModel(double sigma, int maxIterations);
 	
 	/**
-	 * @param source is the cloud on which RANSAC was applied
-	 * 
 	 * @return the best set of inliers found so far for this model.
 	 */
 	public PointCloud3d getInliers(PointCloud3d source) {
 		PointCloud3d target = new PointCloud3d();
-		
 		getInliers(source, target);
-		
 		return target;
 	}
 	
 	private native void getInliers(PointCloud<Point3d> source, PointCloud<Point3d> target);
-	
 }

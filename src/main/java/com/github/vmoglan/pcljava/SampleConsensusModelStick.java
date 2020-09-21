@@ -14,13 +14,8 @@ package com.github.vmoglan.pcljava;
  *  <li> line_direction.z : the Z coordinate of a line's direction </li>
  *  <li> line_width : the width of the line
  * </ul>
- * 
- * @see <a href=http://docs.pointclouds.org/trunk/classpcl_1_1_sample_consensus_model_stick.html>
- * pcl::SampleConsensusModelStick documentation
- * </a>
  */
 public class SampleConsensusModelStick extends SampleConsensusModel {
-
 	public SampleConsensusModelStick(PointCloud3d cloud) {
 		super(cloud);
 	}
@@ -30,5 +25,4 @@ public class SampleConsensusModelStick extends SampleConsensusModel {
 
 	@Override
 	public native void dispose();
-	
 }

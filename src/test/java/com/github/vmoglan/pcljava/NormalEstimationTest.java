@@ -8,7 +8,6 @@ import java.io.File;
 import com.github.vmoglan.pcljava.io.PointCloud3dReaderPly;
 
 class NormalEstimationTest {
-
 	static {	
 		System.loadLibrary("pcljava");
 	}
@@ -21,16 +20,15 @@ class NormalEstimationTest {
 		
 		PointCloud3d cloud = reader.read(sample.getAbsolutePath());
 		
-		NormalEstimation ne = new NormalEstimation(cloud, 0.03f);
+		NormalEstimation normalEstimation = new NormalEstimation(cloud, 0.03f);
 		
-		ne.run();
+		normalEstimation.compute();
 		
-		NormalCloud normals = ne.getNormals();
+		NormalCloud normals = normalEstimation.compute();
 		
 		assertEquals(cloud.size(), normals.size());
 		
 		cloud.dispose();
 		normals.dispose();
 	}
-
 }

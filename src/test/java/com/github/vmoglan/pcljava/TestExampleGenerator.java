@@ -2,7 +2,6 @@ package com.github.vmoglan.pcljava;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class TestExampleGenerator {
-	
 	private TestExampleGenerator() { }
 	
 	public static Point2d generatePoint2d(Point2d min, Point2d max) {
@@ -44,5 +43,4 @@ public class TestExampleGenerator {
 	public static short randomShort() {
 		return (short) ThreadLocalRandom.current().nextInt(0, 255 + 1);
 	}
-	
 }

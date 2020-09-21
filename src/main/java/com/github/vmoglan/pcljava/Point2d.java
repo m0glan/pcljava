@@ -1,15 +1,11 @@
 package com.github.vmoglan.pcljava;
 
-import com.github.vmoglan.pcljava.math.Comparison;
 import com.github.vmoglan.pcljava.jni.NativeObject;
 
 /**
  * A 2D point structure representing Euclidean xy coordinates.
- * 
- * @see <a href=http://docs.pointclouds.org/1.8.1/structpcl_1_1_point_x_y.html>pcl::PointXY documentation</a>
  */
-public class Point2d extends NativeObject implements Point, Cloneable {
-
+public class Point2d extends NativeObject implements Point {
 	@Override
 	protected native void alloc();
 	
@@ -28,28 +24,9 @@ public class Point2d extends NativeObject implements Point, Cloneable {
 		setX(x);
 		setY(y);
 	}
-
-	@Override
-	public Point2d clone() {
-		Point2d clone = new Point2d();
-		
-		clone.alloc();
-		
-		clone.setCoordinates(getX(), getY());
-		
-		return clone;	
-	}
-	
-	@Override
-	public boolean equals(Object object) {
-		Point2d point = (Point2d) object;
-		
-		return Comparison.areEqualFloat(getX(), point.getX(), 0.05f) && Comparison.areEqualFloat(getY(), point.getY(), 0.05f);
-	}
 	
 	@Override
 	public String toString() {
-		return "x: " + getX() + " y: " + getY();
+		return "["  + getX() + ", " + getY()  + "]";
 	}
-	
 }

@@ -13,7 +13,6 @@ import com.github.vmoglan.pcljava.Point3d;
 import com.github.vmoglan.pcljava.PointCloud3d;
 
 class PointCloud3dReadWriteTest {
-
 	public static final int CLOUD_SIZE = 10000;
 	private static Point3d minPoint;
 	private static Point3d maxPoint;
@@ -63,10 +62,9 @@ class PointCloud3dReadWriteTest {
 		PointCloud3d pointCloud = TestExampleGenerator.generatePointCloud3d(minPoint, maxPoint, CLOUD_SIZE);
 		PointCloud3dWriterPly exporter = new PointCloud3dWriterPly();
 		PointCloud3dReaderPly reader = new PointCloud3dReaderPly();
-		PointCloud3d in = reader.read("cloud-export-test.pcd");
 		
 		exporter.write(pointCloud, "cloud-export-test.ply", true);
-		reader.read("cloud-export-test.ply");
+		PointCloud3d in = reader.read("cloud-export-test.ply");
 		
 		File file = new File("cloud-export-test.ply");
 		
@@ -76,5 +74,4 @@ class PointCloud3dReadWriteTest {
 		
 		pointCloud.dispose();
 	}
-
 }

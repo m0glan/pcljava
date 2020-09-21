@@ -10,12 +10,8 @@ package com.github.vmoglan.pcljava;
  *  <li> c : the Z coordinate of the plane's normal (normalized) </li>
  *  <li> d : the fourth Hessian component of the plane's equation</li>
  * </ul>
- * 
- * @see <a href=http://docs.pointclouds.org/trunk/classpcl_1_1_sample_consensus_model_plane.html>
- * pcl::SampleConsensusModelPlane documentation</a>
  */
 public class SampleConsensusModelPlane extends SampleConsensusModel {
-
 	public SampleConsensusModelPlane(PointCloud3d cloud) {
 		super(cloud);
 	}
@@ -25,5 +21,4 @@ public class SampleConsensusModelPlane extends SampleConsensusModel {
 
 	@Override
 	public native void dispose();
-
 }

@@ -4,13 +4,8 @@ import com.github.vmoglan.pcljava.jni.NativeObject;
 
 /**
  * SampleConsensusModel represents the base model class. All sample consensus models must inherit from this class.
- * 
- * @see <a href="http://docs.pointclouds.org/1.8.1/classpcl_1_1_sample_consensus_model.html">
- * pcl::SampleConsensusModel documentation
- * </a>
  */
 public abstract class SampleConsensusModel extends NativeObject {
-
 	private PointCloud3d input;
 	
 	public SampleConsensusModel(PointCloud3d cloud) {
@@ -36,9 +31,6 @@ public abstract class SampleConsensusModel extends NativeObject {
 	
 	/**
 	 * Compute the variance of the errors to the model from the internally estimated vector of distances.
-	 * 
-	 * @return variance
 	 */
 	public native double computeVariance();
-	
 }

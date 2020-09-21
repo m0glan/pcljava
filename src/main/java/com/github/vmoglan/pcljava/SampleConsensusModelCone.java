@@ -13,13 +13,8 @@ package com.github.vmoglan.pcljava;
  *  <li> axis_direction.z : the Z coordinate of the cone's axis direction </li>
  *  <li> opening_angle : the cone's opening angle </li>
  * </ul>
- * 
- * @see <a href=http://docs.pointclouds.org/trunk/classpcl_1_1_sample_consensus_model_cone.html>
- * pcl::SampleConsensusModelCone documentation</a>
  */
-public class SampleConsensusModelCone extends SampleConsensusModel
-	implements SampleConsensusModelFromNormals {
-
+public class SampleConsensusModelCone extends SampleConsensusModel implements SampleConsensusModelFromNormals {
 	public SampleConsensusModelCone(PointCloud3d cloud) {
 		super(cloud);
 	}
@@ -39,9 +34,7 @@ public class SampleConsensusModelCone extends SampleConsensusModel
 	@Override
 	public NormalCloud getInputNormals() {
 		NormalCloud normals = new NormalCloud();
-		
 		getInputNormals(normals);
-		
 		return normals;
 	}
 	
@@ -49,5 +42,4 @@ public class SampleConsensusModelCone extends SampleConsensusModel
 
 	@Override
 	public native void setInputNormals(NormalCloud cloud);
-
 }

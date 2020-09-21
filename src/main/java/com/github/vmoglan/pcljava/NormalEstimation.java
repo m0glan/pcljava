@@ -1,42 +1,27 @@
 package com.github.vmoglan.pcljava;
 
 /**
- * Launches the {@code pcl::NormalEstimation<PointInT, PointOutT>} algorithm on the native side which computes 
- * the normal in each point. The steps are, for each point {@code p}:
- * 
- * <ol>
- *    <li> get {@code p}'s neighbors within a radius </li>
- *    <li> form a plane with {@code p} and each of its neighbors, 2 by 2 </li>
- *    <li> compute the normal to each plane formed and perform an average at the end of the interation </li>
- * </ol>
- * 
- * @see <a href=http://docs.pointclouds.org/1.8.0/classpcl_1_1_normal_estimation.html>pcl::NormalEstimation documentation</a>
+ * NormalEstimation estimates local surface properties (surface normals and curvatures)at each 3D point.
  */
-public class NormalEstimation implements Runnable {
-
+public class NormalEstimation {
 	private PointCloud3d input;
 	private NormalCloud output;
-	private float radiusSearch;
+	private float radius;
 	
 	/**
-	 * @param cloud is the cloud to be processed
-	 * @param radiusSearch is the range used for finding a given point's neighbors
+	 * @param cloud the point cloud data
+	 * @param radius the radius of the sphere bounding all of p_q's neighbors
 	 */
-	public NormalEstimation(PointCloud3d cloud, float radiusSearch) {
+	public NormalEstimation(PointCloud3d cloud, float radius) {
 		this.input = cloud;
-		this.radiusSearch = radiusSearch;
+		this.radius = radius;
 		this.output = new NormalCloud();
 	}
-	
-	public NormalCloud getNormals() {
+
+	public NormalCloud compute() {
+		compute(input, radius, output);
 		return output;
 	}
 	
-	@Override
-	public void run() {
-		compute(input, radiusSearch, output);
-	}
-	
-	private native void compute(PointCloud3d input, float radiusSearch, NormalCloud output);
-
+	private native void compute(PointCloud3d input, float radius, NormalCloud output);
 }

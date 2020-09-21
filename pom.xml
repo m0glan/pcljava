@@ -4,12 +4,12 @@
   <groupId>com.github.vmoglan</groupId>
   <artifactId>pcljava</artifactId>
   <name>pcljava</name>
-  <version>${global.version}</version>
+  <version>0.0.1-SNAPSHOT</version>
   <description>JNI port of the Point-Cloud Library.</description>
   <packaging>jar</packaging>
 
   <properties>
-    <global.version>1.11.1-SNAPSHOT</global.version>
+    <global.version>0.0.1-SNAPSHOT</global.version>
     <maven.compiler.source>1.11</maven.compiler.source>
     <maven.compiler.target>1.11</maven.compiler.target>
     <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
@@ -89,7 +89,7 @@
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.8.1</version>
+        <version>3.7.0</version>
         <configuration>
           <source>11</source>
           <target>11</target>
@@ -137,7 +137,7 @@
     <dependency>
       <groupId>com.github.vmoglan.pcljava</groupId>
       <artifactId>natives</artifactId>
-      <version>${global.version}</version>
+      <version>0.0.1-SNAPSHOT</version>
       <classifier>natives-all</classifier>
     </dependency>
   </dependencies>

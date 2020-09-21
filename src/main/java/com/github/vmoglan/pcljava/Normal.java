@@ -1,9 +1,8 @@
 package com.github.vmoglan.pcljava;
 
-import com.github.vmoglan.pcljava.math.Comparison;
 import com.github.vmoglan.pcljava.jni.NativeObject;
 
-public class Normal extends NativeObject implements Point, Cloneable {
+public class Normal extends NativeObject implements Point {
 	@Override
 	protected native void alloc();
 	
@@ -25,32 +24,13 @@ public class Normal extends NativeObject implements Point, Cloneable {
 	public native float getCurvature();
 	
 	public void setComponents(float x, float y, float z) {
-		setX(x); setY(y); setZ(z);
-	}
-	
-	@Override
-	public Normal clone() {
-		Normal clone = new Normal();
-		
-		clone.create();
-		
-		clone.setComponents(getX(), getY(), getZ());
-		
-		return clone;
-	}
-	
-	@Override
-	public boolean equals(Object object) {
-		Normal normal = (Normal) object;
-		
-		return Comparison.areEqualFloat(getX(), normal.getX(), 0.5f) 
-				&& Comparison.areEqualFloat(getY(), normal.getY(), 0.5f)
-				&& Comparison.areEqualFloat(getZ(), normal.getZ(), 0.5f)
-				&& Comparison.areEqualFloat(getCurvature(), normal.getCurvature(), 0.5f);
+		setX(x);
+		setY(y);
+		setZ(z);
 	}
 	
 	@Override
 	public String toString() {
-		return "x: " + getX() + " y: " + getY() + " z: " + getZ();
+		return "["  + getX() + ", " + getY() + ", " + getZ() + "]";
 	}
 }

@@ -88,12 +88,6 @@ jboolean Java_com_github_vmoglan_pcljava_visualization_Visualizer_removeAllPoint
 	return isRemoved;
 }
 
-void Java_com_github_vmoglan_pcljava_visualization_Visualizer_addCoordinateSystem__DI(JNIEnv *env, jobject obj, jdouble scale, jint viewport)
-{
-	Visualizer::Ptr visualizer = SharedPointerWrapper<Visualizer>::getPointer(env, obj);
-	visualizer->addCoordinateSystem(scale, "reference", viewport); // TODO: Add "id" parameter
-}
-
 void Java_com_github_vmoglan_pcljava_visualization_Visualizer_addCoordinateSystem__DLjava_lang_String_2I(JNIEnv *env, jobject obj, jdouble scale, jstring id, jint viewport)
 {
 	const char *idNative = env->GetStringUTFChars(id, JNI_FALSE);
@@ -103,13 +97,23 @@ void Java_com_github_vmoglan_pcljava_visualization_Visualizer_addCoordinateSyste
 	env->ReleaseStringUTFChars(id, idNative);
 }
 
-void Java_com_github_vmoglan_pcljava_visualization_Visualizer_removeCoordinateSystem__I(JNIEnv *env, jobject obj, jint viewport)
+void Java_com_github_vmoglan_pcljava_visualization_Visualizer_addCoordinateSystem__DFFFLjava_lang_String_2I(JNIEnv *env, 
+	jobject obj, 
+	jdouble scale, 
+	jfloat x, 
+	jfloat y, 
+	jfloat z, 
+	jstring id, 
+	jint viewport)
 {
+	const char *idNative = env->GetStringUTFChars(id, JNI_FALSE);
 	Visualizer::Ptr visualizer = SharedPointerWrapper<Visualizer>::getPointer(env, obj);
-	visualizer->removeCoordinateSystem("reference", viewport); // TODO: Add "id" parameter
+	visualizer->addCoordinateSystem(scale, x, y, z, idNative, viewport);
+
+	env->ReleaseStringUTFChars(id, idNative);
 }
 
-void Java_com_github_vmoglan_pcljava_visualization_Visualizer_removeCoordinateSystem__Ljava_lang_String_2I(JNIEnv *env, jobject obj, jstring id, jint viewport)
+void Java_com_github_vmoglan_pcljava_visualization_Visualizer_removeCoordinateSystem(JNIEnv *env, jobject obj, jstring id, jint viewport)
 { 
 	const char *idNative = env->GetStringUTFChars(id, JNI_FALSE);
 	Visualizer::Ptr visualizer = SharedPointerWrapper<Visualizer>::getPointer(env, obj);
