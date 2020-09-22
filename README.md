@@ -1,7 +1,68 @@
-## Point-Cloud Library for Java
-![Tag](https://img.shields.io/badge/tag-v0.5.0-blue.svg)
+## Point-Cloud Library Java
 
-This project seeks to be an accurate Java port of the Point Cloud Library (PCL) using the Java Native Interface (JNI). To get yourself accustomed to the project, start with one of the following resources:
-- [User's Guide](https://github.com/vmoglan/pcl-java/wiki/User's-Guide)
-- [Developer's Guide](https://github.com/vmoglan/pcl-java/wiki/Developer's-Guide)
- 
+## ![Tag](https://img.shields.io/badge/maven-0.0.1--SNAPSHOT-yellow)
+
+The goal of this project is to make [Point-Cloud Library](https://github.com/PointCloudLibrary/pcl) (PCL) data-structures and algorithms available in Java projects via the Java Native Interface (JNI). Currently supported operating systems are Windows and Linux (64bit architecture only).
+
+## Setup
+
+Point-Cloud Library version 1.11.1 as well as all of its dependencies need to be installed in order to use `pcljava`; these dependencies do **NOT** come packed with the artifacts associated with this project.
+
+- An [all-in-one PCL installer](https://github.com/PointCloudLibrary/pcl/releases/download/pcl-1.11.1/PCL-1.11.1-AllInOne-msvc2019-win64.exe) exists for Windows; once the installation is complete, the following directories must be added to the `PATH` environment variable:
+  -  `C:\Program Files\PCL 1.11.1\bin`
+  - `C:\Program Files\PCL 1.11.1\3rdParty\VTK\bin`
+  - `C:\Program Files\CMake\bin`
+  - `C:\Program Files\PCL 1.11.1\3rdParty\Boost\lib`
+  - `C:\Program Files\PCL 1.11.1\3rdParty\FLANN\bin`
+  - `C:\Program Files\PCL 1.11.1\3rdParty\Qhull\bin`
+  - `C:\Program Files\OpenNI2\Redist`
+- On Linux PCL can be built from source using [this guide](https://pcl-tutorials.readthedocs.io/en/latest/compiling_pcl_posix.html).
+
+## Usage
+
+The following POM dependency must be included in your Maven project:
+
+```xml
+<dependency>
+  <groupId>com.github.vmoglan</groupId>
+  <artifactId>pcljava</artifactId>
+  <version><!-- e.g. 0.0.1-SNAPSHOT --></version>
+</dependency> 
+```
+
+The native `pcljava` library must also be loaded in your project as such:
+
+```java
+class Main {
+	static {	
+		System.loadLibrary("pcljava");
+	}
+}
+```
+
+Examples:
+
+- Instantiating a class for which memory is allocated in native code (_i.e._ a class extending `NativeObject`):
+
+```java
+PointCloud3d cloud = new PointCloud3d(); // creating Java instance
+cloud.create(); // allocating memory in the native code
+
+// perform operations on cloud
+
+cloud.dispose(); // freeing the memory allocated in the native code
+```
+
+- Estimating the normal vectors of a three-dimensional point-cloud:
+
+```java
+PointCloud3dReaderPly reader = new PointCloud3dReaderPly();
+PointCloud3d cloud = reader.read("/path/to/cloud.ply");
+
+NormalEstimation normalEstimation = new NormalEstimation(cloud, 0.03f);
+NormalCloud normals = normalEstimation.compute();
+		
+cloud.dispose();
+normals.dispose();
+```
+
