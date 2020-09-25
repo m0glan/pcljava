@@ -2,7 +2,7 @@
 
 ## ![Tag](https://img.shields.io/badge/maven-0.0.1--SNAPSHOT-yellow)
 
-The goal of this project is to make [Point-Cloud Library](https://github.com/PointCloudLibrary/pcl) (PCL) data-structures and algorithms available in Java projects via the Java Native Interface (JNI). Currently supported operating systems are Windows and Linux (64bit architecture only).
+The goal of this project is to make [Point-Cloud Library](https://github.com/PointCloudLibrary/pcl) (PCL) data-structures and algorithms available in Java projects via the Java Native Interface (JNI). Currently supported operating systems are Windows and Linux (64bit architecture only). 
 
 ## Setup
 
@@ -20,7 +20,17 @@ Point-Cloud Library version 1.11.1 as well as all of its dependencies need to be
 
 ## Usage
 
-The following POM dependency must be included in your Maven project:
+To include the `pcljava` library in your project, your `pom.xml` must have the following configuration:
+
+```xml
+<repositories>
+  <repository>
+    <id>github-pcljava</id>
+    <name>Point-Cloud Library JNI Port Packages</name>
+    <url>https://maven.pkg.github.com/vmoglan/pcljava</url>
+  </repository>
+</repositories>
+```
 
 ```xml
 <dependency>
@@ -29,6 +39,8 @@ The following POM dependency must be included in your Maven project:
   <version><!-- e.g. 0.0.1-SNAPSHOT --></version>
 </dependency> 
 ```
+
+In addition to that, the `pom.xml` file must be configured to unpack the native dependencies &mdash; see the `<profiles>` section in [this example](https://github.com/vmoglan/sphere-detection/blob/master/pom.xml).
 
 The native `pcljava` library must also be loaded in your project as such:
 
