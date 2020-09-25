@@ -20,6 +20,8 @@ Point-Cloud Library version 1.11.1 as well as all of its dependencies need to be
 
 ## Usage
 
+### Project configuration
+
 To include the `pcljava` library in your project, your `pom.xml` must have the following configuration:
 
 ```xml
@@ -52,7 +54,7 @@ class Main {
 }
 ```
 
-Examples:
+### Examples
 
 - Instantiating a class for which memory is allocated in native code (_i.e._ a class extending `NativeObject`):
 
