@@ -78,3 +78,5 @@ cloud.dispose();
 normals.dispose();
 ```
 
+- [Sphere detection example](https://github.com/vmoglan/sphere-detection)
+
