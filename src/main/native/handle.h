@@ -1,7 +1,7 @@
 #include <jni.h>
 
-#ifndef HANDLE_H
-#define HANDLE_H
+#ifndef _Included_Handle
+#define _Included_Handle
 
 inline jfieldID getHandleField(JNIEnv *env, jobject obj) 
 {

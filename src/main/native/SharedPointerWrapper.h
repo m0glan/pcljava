@@ -1,9 +1,10 @@
-#pragma once
-
 #include <jni.h>
 #include <memory>
 
 #include "handle.h"
+
+#ifndef _Included_SharedPointerWrapper
+#define _Included_SharedPointerWrapper
 
 /**
  * Using smart pointers associated with Java objects within JNI calls
@@ -91,3 +92,5 @@ public:
 		setHandle<SharedPointerWrapper<T>>(env, javaInstance, nullptr);
 	}
 };
+
+#endif
